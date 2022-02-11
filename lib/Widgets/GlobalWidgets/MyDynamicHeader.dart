@@ -7,7 +7,10 @@ import 'package:sizer/sizer.dart';
 class MyDynamicHeader extends SliverPersistentHeaderDelegate {
   @override
   Widget build(
-      BuildContext context, double shrinkOffset, bool overlapsContent) {
+    BuildContext context,
+    double shrinkOffset,
+    bool overlapsContent,
+  ) {
     return LayoutBuilder(builder: (context, constraints) {
       return TopNavBar();
     });
@@ -17,8 +20,14 @@ class MyDynamicHeader extends SliverPersistentHeaderDelegate {
   bool shouldRebuild(SliverPersistentHeaderDelegate _) => true;
 
   @override
-  double get maxExtent => 6.h;
+  double get maxExtent =>
+      // maxExtent;
+      SizerUtil.width <= 1000 && SizerUtil.width > 700
+          ? 12.h
+          : SizerUtil.width < 700
+              ? 10.h
+              : 9.h;
 
   @override
-  double get minExtent => 4.5.h;
+  double get minExtent => 3.h;
 }

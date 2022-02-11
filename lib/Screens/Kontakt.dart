@@ -1,157 +1,296 @@
 import 'package:flutter/material.dart';
-import '../Widgets/GlobalWidgets/MyDynamicHeader.dart';
+import 'package:charletwebsite/Widgets/GlobalWidgets/TopNavBar.dart';
 import '../Widgets/GlobalWidgets/BottomNavBar.dart';
-import 'package:charletwebsite/Widgets/GlobalWidgets/SelectionButton.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:sizer/sizer.dart';
 
 class Kontakt extends StatelessWidget {
   launchEmail() {
-    final url = 'mailto:tom.müller@gmail.com';
+    final url = 'mailto:info@never-seen.de';
     launch(url);
   }
 
   launchPhone() {
-    final url = 'tel:+4917663243212';
+    final url = 'tel:+4917681126474';
     launch(url);
   }
 
   launchInstagram() {
-    var url = 'https://www.instagram.com/test/?hl=de';
+    var url = 'https://www.instagram.com/';
     launch(url);
+  }
+
+  TextStyle _responsiveTextStyle({required Size size}) {
+    return TextStyle(
+      color: Colors.black,
+      fontSize: size.width < 480
+          ? 12
+          : size.width < 360
+              ? 10
+              : 16,
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
     return Scaffold(
+      appBar: PreferredSize(
+        preferredSize: Size(screenSize.width, 80),
+        child: TopNavBar(),
+      ),
       backgroundColor: Colors.white,
-      body: CustomScrollView(
-        slivers: [
-          SliverPersistentHeader(
-            delegate: MyDynamicHeader(),
-            pinned: true,
-          ),
-          SliverList(
-            delegate: SliverChildListDelegate([
-              Container(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      height: screenSize.height * 0.2,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        SizedBox(
-                          width: 100,
+      body: SizedBox(
+        height: screenSize.height,
+        child: Stack(
+          children: [
+            SizedBox(
+              height: MediaQuery.of(context).size.height,
+              // height: MediaQuery.of(context).size.height * 0.95,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Spacer(),
+                  Row(
+                    children: [
+                      SizedBox(
+                        width: screenSize.width / 2,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Expanded(
+                                child: Center(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Container(
+                                    constraints: BoxConstraints(
+                                      minHeight: 30,
+                                    ),
+                                    width: screenSize.width > 767 ? 140 : 80,
+                                    child: Text(
+                                      "Charlotte Müller",
+                                      style: _responsiveTextStyle(
+                                        size: screenSize,
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 8,
+                                  ),
+                                  Text(
+                                    "Björn Müller",
+                                    style: _responsiveTextStyle(
+                                      size: screenSize,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            )),
+                            Container(
+                              height: screenSize.width > 767 ? 10.w : 5.5.h,
+                              width: screenSize.width > 767 ? 5.w : 30,
+                              color: Colors.black,
+                              margin: EdgeInsets.symmetric(
+                                  horizontal: screenSize.width > 767 ? 5 : 2),
+                            ),
+                          ],
                         ),
-                        Container(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              SizedBox(
-                                //height: screenSize.height*0.2,
-                                width: screenSize.width * 0.2,
+                      ),
+                      SizedBox(
+                        width: screenSize.width / 2,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                              height: screenSize.width > 767 ? 10.w : 5.5.h,
+                              width: screenSize.width > 767 ? 5.w : 30,
+                              color: Colors.black,
+                              margin: EdgeInsets.symmetric(
+                                  horizontal: screenSize.width > 767 ? 5 : 2),
+                            ),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                children: [
+                                  Center(
+                                    child: Flex(
+                                      direction: Axis.vertical,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.end,
+                                      children: [
+                                        screenSize.width < 767
+                                            ? Container(
+                                                constraints: BoxConstraints(
+                                                  minHeight: 30,
+                                                ),
+                                                width: 100,
+                                                child: InkWell(
+                                                  child: Text(
+                                                    "info@never-seen.de",
+                                                    style: _responsiveTextStyle(
+                                                        size: screenSize),
+                                                    textAlign: TextAlign.end,
+                                                  ),
+                                                  onTap: () => {launchEmail()},
+                                                ),
+                                              )
+                                            : Container(
+                                                constraints: BoxConstraints(
+                                                  minHeight: 30,
+                                                ),
+                                                // width: 100,
+                                                child: InkWell(
+                                                  child: Text(
+                                                    "info@never-seen.de",
+                                                    style: _responsiveTextStyle(
+                                                        size: screenSize),
+                                                    textAlign: TextAlign.end,
+                                                  ),
+                                                  onTap: () => {launchEmail()},
+                                                ),
+                                              ),
+                                        SizedBox(
+                                          height: 8,
+                                        ),
+                                        Container(
+                                          constraints: BoxConstraints(
+                                            maxWidth: 200,
+                                          ),
+                                          width: 100,
+                                          // screenSize.width < 767
+                                          //     ? 100
+                                          //     : 200,
+                                          child: InkWell(
+                                            child: Text("Instagram",
+                                                textAlign:
+                                                    screenSize.width > 767
+                                                        ? TextAlign.end
+                                                        : TextAlign.end,
+                                                style: _responsiveTextStyle(
+                                                  size: screenSize,
+                                                )),
+                                            onTap: () {
+                                              launchInstagram();
+                                            },
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
                               ),
-                              Text("Charlotte Müller"),
-                              SizedBox(
-                                height: 8,
-                              ),
-                              Text("Björn Müller")
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
-                        Stack(
-                            alignment: AlignmentDirectional.center,
-                            children: [
-                              Container(
-                                color: Colors.black,
-                                height: 10.w,
-                                width: 10.w,
-                              ),
-                              Container(
-                                color: Colors.white,
-                                height: 11.w,
-                                width: 0.5.w,
-                              ),
-                            ]),
-                        Container(
+                      ),
+                    ],
+                  ),
+                  Spacer(),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Container(
                           child: Column(
                               crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.end,
                               children: [
-                                SizedBox(
-                                  //height: screenSize.height*0.2,
-                                  width: screenSize.width * 0.2,
-                                ),
-                                TextButton(
-                                  child: Text(
-                                    "buhm@buhm-agency.com",
-                                    style: TextStyle(color: Colors.black),
-                                  ),
-                                  onPressed: () => {launchEmail()},
-                                ),
-                                TextButton(
-                                  child: Text(
-                                    "Instagram",
-                                    style: TextStyle(color: Colors.black),
-                                  ),
-                                  onPressed: () {
-                                    launchInstagram();
-                                  },
-                                ),
-                              ]),
-                        ),
-                        SizedBox(
-                          width: 100,
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: screenSize.height * 0.25,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Container(
-                            child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                mainAxisAlignment: MainAxisAlignment.end,
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                "Never Seen",
+                                style: _responsiveTextStyle(size: screenSize),
+                              ),
+                            ),
+                            Text(
+                              "Müllerstraße 9",
+                              // style: TextStyle(
+                              //   fontSize: screenSize.width < 700 ? 10 : 14,
+                              // ),
+                              style: _responsiveTextStyle(size: screenSize),
+                            ),
+                            Text(
+                              "12453 München",
+                              // style: TextStyle(
+                              //   fontSize: screenSize.width < 700 ? 10 : 14,
+                              // ),
+                              style: _responsiveTextStyle(size: screenSize),
+                            ),
+                            Text(
+                              "Germany",
+                              // style: TextStyle(
+                              //   fontSize: screenSize.width < 700 ? 10 : 14,
+                              // ),
+                              style: _responsiveTextStyle(size: screenSize),
+                            ),
+                            TextButton(
+                              child: Text(
+                                "+49 176 81126474",
+                                // style: TextStyle(
+                                //   color: Colors.black,
+                                //   fontSize: screenSize.width < 700 ? 10 : 14,
+                                // ),
+                                style: _responsiveTextStyle(size: screenSize),
+                              ),
+                              onPressed: () => {launchPhone()},
+                            ),
+                            SizedBox(
+                              height: 30,
+                            )
+                          ])),
+                      // SizedBox(
+                      //   width: screenSize.width > 1080 ? 120 : 10,
+                      // ),
+                    ],
+                  ),
+                  // Spacer(),
+                  screenSize.width > 1080
+                      ? Container(
+                          color: Colors.white,
+                          width: screenSize.width,
+                          child: Flex(
+                            direction: Axis.horizontal,
+                            children: [
+                              Spacer(),
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text("BUHM AGENCY"),
+                                  BottomBar(
+                                    child: SizedBox(),
+                                  ),
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                ],
                               ),
-                              Text("Müllerstraße 9"),
-                              Text("12453 München"),
-                              Text("Germany"),
-                              TextButton(
-                                child: Text(
-                                  "+49 176 64248505",
-                                  style: TextStyle(color: Colors.black),
-                                ),
-                                onPressed: () => {launchPhone()},
+                              Spacer(),
+                            ],
+                          ),
+                        )
+                      : Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            FittedBox(
+                              child: BottomBar(
+                                child: SizedBox(),
                               ),
-                              SizedBox(
-                                height: 30,
-                              )
-                            ])),
-                      ],
-                    ),
-                  ],
-                ),
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                          ],
+                        ),
+                ],
               ),
-              BottomBar(
-                child: SizedBox(),
-              ), // TODO 3: Funktionen zu den Buttons müssen hinzufügt werden
-            ]),
-          )
-        ],
+            ),
+            // Positioned(bottom: 0, child: Container()),
+          ],
+        ),
       ),
     );
   }

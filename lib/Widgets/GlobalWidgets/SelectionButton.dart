@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:sizer/sizer.dart';
+
 
 class SelectionButton extends StatelessWidget {
   final String name;
@@ -26,12 +28,15 @@ class SelectionButton extends StatelessWidget {
             children: [
               Text(
                 name,
-                style: TextStyle(
+                style: GoogleFonts.ubuntu(fontSize: 2.3.w, fontWeight: FontWeight.w400, color: Colors.black)
+                /*style: TextStyle(
                   color: Colors.black,
                   // fontSize: 14,
                   fontSize: 2.w,
                   fontStyle: fontStyle,
-                ),
+
+                ),*/
+
               ),
               child ?? Container(),
             ],

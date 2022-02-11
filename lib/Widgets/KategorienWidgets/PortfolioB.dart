@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:charletwebsite/Widgets/GlobalWidgets/TopNavBar.dart';
 import 'package:sizer/sizer.dart';
 import 'package:charletwebsite/Widgets/GlobalWidgets/MyDynamicHeader.dart';
 import 'package:charletwebsite/Widgets/GlobalWidgets/OneCard.dart';
@@ -18,184 +19,220 @@ class PortfolioB extends StatelessWidget {
     var screenSize = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Colors.white,
-      body: CustomScrollView(
-        controller: _scrollController,
-        slivers: [
-          SliverToBoxAdapter(
-            child: SizedBox(
-              height: 10,
+      body: NestedScrollView(
+        headerSliverBuilder: (context, innerBoxIsScrolled) {
+          return [
+            SliverAppBar(
+              expandedHeight: 100.w > 767 ? 100 : 60,
+              collapsedHeight: 100.w > 767 ? 80 : 65,
+              pinned: true,
+              leading: Container(),
+              elevation: 0,
+              backgroundColor: Colors.white,
+              flexibleSpace: TopNavBar(),
             ),
-          ),
-          SliverPersistentHeader(
-            delegate: MyDynamicHeader(),
-            pinned: true,
-          ),
-          SliverList(
-              delegate: SliverChildListDelegate([
-            SizedBox(
-              height: 5.w,
-            ),
-            screenSize.width < 700
-                ? FittedBox(
-                    child: SizedBox(
-                      child: OneCard(
-                        imageString: 'assets/images/reveuse2.jpeg',
-                        heightMultiplicator: 0,
-                        galerieName: "Paula",
-                        kuenstler: "Charlotte Lobry",
-                      ),
-                    ),
-                  )
-                : OneCard(
-                    imageString: 'assets/images/reveuse2.jpeg',
-                    heightMultiplicator: 0,
-                    galerieName: "Paula",
-                    kuenstler: "Charlotte Lobry",
+          ];
+        },
+        body: CustomScrollView(
+          controller: _scrollController,
+          slivers: [
+            // SliverToBoxAdapter(
+            //   child: SizedBox(
+            //     height: 10,
+            //   ),
+            // ),
+            SliverList(
+              delegate: SliverChildListDelegate(
+                [
+                  SizedBox(
+                    height: screenSize.width > 1080 ? 10.w : 10,
                   ),
-            SizedBox(
-              height: 7.5.w,
-            ),
-            screenSize.width < 700
-                ? SizedBox(
-                    child: FittedBox(
-                      child: TwoCards(
-                        firstImageString: 'assets/images/reveuse2.jpeg',
-                        firstHeightMultiplicator: 0,
-                        secondImageString: 'assets/images/envogue.jpg',
-                        secondHeightMultiplicator: 0,
-                        firstGalerieName: "Paula",
-                        secondGalerieName: "Mathilde",
-                      ),
-                    ),
-                  )
-                : TwoCards(
-                    firstImageString: 'assets/images/reveuse2.jpeg',
-                    firstHeightMultiplicator: 0,
-                    secondImageString: 'assets/images/envogue.jpg',
-                    secondHeightMultiplicator: 0,
-                    firstGalerieName: "Paula",
-                    secondGalerieName: "Mathilde",
+                  screenSize.width < 700
+                      ? FittedBox(
+                          child: Container(
+                            margin: EdgeInsets.symmetric(horizontal: 20),
+                            child: OneCard(
+                              imageString: 'assets/images/reveuse2.jpeg',
+                              heightMultiplicator: 0,
+                              galerieName: "Paula",
+                              kuenstler: "Charlotte Lobry",
+                            ),
+                          ),
+                        )
+                      : OneCard(
+                          imageString: 'assets/images/reveuse2.jpeg',
+                          heightMultiplicator: 0,
+                          galerieName: "Paula",
+                          kuenstler: "Charlotte Lobry",
+                        ),
+                  SizedBox(
+                    height: 7.5.w,
                   ),
-            SizedBox(
-              height: 5.w,
-            ),
-            screenSize.width < 700
-                ? FittedBox(
-                    child: OneCard(
-                      imageString: 'assets/images/Mathildedoppelt.jpeg',
-                      heightMultiplicator: 0,
-                      galerieName: "Mathilde",
-                      kuenstler: "Charlotte Lobry",
-                    ),
-                  )
-                : OneCard(
-                    imageString: 'assets/images/Mathildedoppelt.jpeg',
-                    heightMultiplicator: 0,
-                    galerieName: "Mathilde",
-                    kuenstler: "Charlotte Lobry",
+                  screenSize.width < 700
+                      ? SizedBox(
+                          child: FittedBox(
+                            child: Container(
+                              margin: EdgeInsets.symmetric(horizontal: 20),
+                              child: TwoCards(
+                                firstImageString: 'assets/images/reveuse2.jpeg',
+                                firstHeightMultiplicator: 0,
+                                secondImageString: 'assets/images/envogue.jpg',
+                                secondHeightMultiplicator: 0,
+                                firstGalerieName: "Paula",
+                                secondGalerieName: "Mathilde",
+                              ),
+                            ),
+                          ),
+                        )
+                      : TwoCards(
+                          firstImageString: 'assets/images/reveuse2.jpeg',
+                          firstHeightMultiplicator: 0,
+                          secondImageString: 'assets/images/envogue.jpg',
+                          secondHeightMultiplicator: 0,
+                          firstGalerieName: "Paula",
+                          secondGalerieName: "Mathilde",
+                        ),
+                  SizedBox(
+                    height: screenSize.width > 1080 ? 10.w : 10,
                   ),
-            SizedBox(
-              height: 7.5.w,
-            ),
-            screenSize.width < 700
-                ? FittedBox(
-                    child: TwoCards(
-                      firstImageString: 'assets/images/reveuse2.jpeg',
-                      firstHeightMultiplicator: 0,
-                      secondImageString: 'assets/images/envogue.jpg',
-                      secondHeightMultiplicator: 0,
-                      firstGalerieName: "Paula",
-                      secondGalerieName: "Mathilde",
-                    ),
-                  )
-                : TwoCards(
-                    firstImageString: 'assets/images/reveuse2.jpeg',
-                    firstHeightMultiplicator: 0,
-                    secondImageString: 'assets/images/envogue.jpg',
-                    secondHeightMultiplicator: 0,
-                    firstGalerieName: "Paula",
-                    secondGalerieName: "Mathilde",
+                  screenSize.width < 700
+                      ? FittedBox(
+                          child: Container(
+                            margin: EdgeInsets.symmetric(horizontal: 20),
+                            child: OneCard(
+                              imageString: 'assets/images/Mathildedoppelt.jpeg',
+                              heightMultiplicator: 0,
+                              galerieName: "Mathilde",
+                              kuenstler: "Charlotte Lobry",
+                            ),
+                          ),
+                        )
+                      : OneCard(
+                          imageString: 'assets/images/Mathildedoppelt.jpeg',
+                          heightMultiplicator: 0,
+                          galerieName: "Mathilde",
+                          kuenstler: "Charlotte Lobry",
+                        ),
+                  SizedBox(
+                    height: 7.5.w,
                   ),
-            SizedBox(
-              height: 5.w,
-            ),
-            screenSize.width < 700
-                ? FittedBox(
-                    child: OneCard(
-                      imageString: 'assets/images/reveuse2.jpeg',
-                      heightMultiplicator: 0,
-                      galerieName: "Paula",
-                      kuenstler: "Charlotte Lobry",
-                    ),
-                  )
-                : OneCard(
-                    imageString: 'assets/images/reveuse2.jpeg',
-                    heightMultiplicator: 0,
-                    galerieName: "Paula",
-                    kuenstler: "Charlotte Lobry",
+                  screenSize.width < 700
+                      ? FittedBox(
+                          child: Container(
+                            margin: EdgeInsets.symmetric(horizontal: 20),
+                            child: TwoCards(
+                              firstImageString: 'assets/images/reveuse2.jpeg',
+                              firstHeightMultiplicator: 0,
+                              secondImageString: 'assets/images/envogue.jpg',
+                              secondHeightMultiplicator: 0,
+                              firstGalerieName: "Paula",
+                              secondGalerieName: "Mathilde",
+                            ),
+                          ),
+                        )
+                      : TwoCards(
+                          firstImageString: 'assets/images/reveuse2.jpeg',
+                          firstHeightMultiplicator: 0,
+                          secondImageString: 'assets/images/envogue.jpg',
+                          secondHeightMultiplicator: 0,
+                          firstGalerieName: "Paula",
+                          secondGalerieName: "Mathilde",
+                        ),
+                  SizedBox(
+                    height: screenSize.width > 1080 ? 10.w : 10,
                   ),
-            SizedBox(
-              height: 7.5.w,
-            ),
-            screenSize.width < 700
-                ? FittedBox(
-                    child: TwoCards(
-                      firstImageString: 'assets/images/reveuse2.jpeg',
-                      firstHeightMultiplicator: 0,
-                      secondImageString: 'assets/images/envogue.jpg',
-                      secondHeightMultiplicator: 0,
-                      firstGalerieName: "Paula",
-                      secondGalerieName: "Mathilde",
-                    ),
-                  )
-                : TwoCards(
-                    firstImageString: 'assets/images/reveuse2.jpeg',
-                    firstHeightMultiplicator: 0,
-                    secondImageString: 'assets/images/envogue.jpg',
-                    secondHeightMultiplicator: 0,
-                    firstGalerieName: "Paula",
-                    secondGalerieName: "Mathilde",
+                  screenSize.width < 700
+                      ? FittedBox(
+                          child: Container(
+                            margin: EdgeInsets.symmetric(horizontal: 20),
+                            child: OneCard(
+                              imageString: 'assets/images/reveuse2.jpeg',
+                              heightMultiplicator: 0,
+                              galerieName: "Paula",
+                              kuenstler: "Charlotte Lobry",
+                            ),
+                          ),
+                        )
+                      : OneCard(
+                          imageString: 'assets/images/reveuse2.jpeg',
+                          heightMultiplicator: 0,
+                          galerieName: "Paula",
+                          kuenstler: "Charlotte Lobry",
+                        ),
+                  SizedBox(
+                    height: 7.5.w,
                   ),
-            SizedBox(
-              height: 5.w,
-            ),
-            screenSize.width < 700
-                ? FittedBox(
-                    child: OneCard(
-                      imageString: 'assets/images/Mathildedoppelt.jpeg',
-                      heightMultiplicator: 0,
-                      galerieName: "Mathilde",
-                      kuenstler: "Charlotte Lobry",
-                    ),
-                  )
-                : OneCard(
-                    imageString: 'assets/images/Mathildedoppelt.jpeg',
-                    heightMultiplicator: 0,
-                    galerieName: "Mathilde",
-                    kuenstler: "Charlotte Lobry",
+                  screenSize.width < 700
+                      ? FittedBox(
+                          child: Container(
+                            margin: EdgeInsets.symmetric(horizontal: 20),
+                            child: TwoCards(
+                              firstImageString: 'assets/images/reveuse2.jpeg',
+                              firstHeightMultiplicator: 0,
+                              secondImageString: 'assets/images/envogue.jpg',
+                              secondHeightMultiplicator: 0,
+                              firstGalerieName: "Paula",
+                              secondGalerieName: "Mathilde",
+                            ),
+                          ),
+                        )
+                      : TwoCards(
+                          firstImageString: 'assets/images/reveuse2.jpeg',
+                          firstHeightMultiplicator: 0,
+                          secondImageString: 'assets/images/envogue.jpg',
+                          secondHeightMultiplicator: 0,
+                          firstGalerieName: "Paula",
+                          secondGalerieName: "Mathilde",
+                        ),
+                  SizedBox(
+                    height: screenSize.width > 1080 ? 10.w : 10,
                   ),
-            SizedBox(
-              height: 10.w,
-            ),
-            screenSize.width < 700
-                ? FittedBox(
-                    child: BottomBar(
-                      child: SelectionButton(
-                        // child: SizedBox(),
-                        name: "To the top",
-                        onTap: _scrollToTop,
-                      ),
-                    ),
-                  )
-                : BottomBar(
-                    child: SelectionButton(
-                      // child: SizedBox(),
-                      name: "To the top",
-                      onTap: _scrollToTop,
-                    ),
+                  screenSize.width < 700
+                      ? FittedBox(
+                          child: Container(
+                            margin: EdgeInsets.symmetric(horizontal: 20),
+                            child: OneCard(
+                              imageString: 'assets/images/Mathildedoppelt.jpeg',
+                              heightMultiplicator: 0,
+                              galerieName: "Mathilde",
+                              kuenstler: "Charlotte Lobry",
+                            ),
+                          ),
+                        )
+                      : OneCard(
+                          imageString: 'assets/images/Mathildedoppelt.jpeg',
+                          heightMultiplicator: 0,
+                          galerieName: "Mathilde",
+                          kuenstler: "Charlotte Lobry",
+                        ),
+                  SizedBox(
+                    height: 10.w,
                   ),
-          ])),
-        ],
+                  screenSize.width < 700
+                      ? FittedBox(
+                          child: BottomBar(
+                            child: SelectionButton(
+                              // child: SizedBox(),
+                              name: "To the top",
+                              onTap: _scrollToTop,
+                            ),
+                          ),
+                        )
+                      : BottomBar(
+                          child: SelectionButton(
+                            // child: SizedBox(),
+                            name: "To the top",
+                            onTap: _scrollToTop,
+                          ),
+                        ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

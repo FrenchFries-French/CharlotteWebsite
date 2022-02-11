@@ -1,3 +1,4 @@
+import 'package:charletwebsite/firebase_options.dart';
 import 'package:flutter/material.dart';
 import 'package:charletwebsite/Screens/Kontakt.dart';
 import 'package:charletwebsite/Screens/PersonalWork.dart';
@@ -12,15 +13,14 @@ import 'Screens/Service.dart';
 import 'Screens/Shop.dart';
 import 'package:sizer/sizer.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'firebase_options.dart';
 
-Future<void> main() async {
+void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
+  Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
-  );
-
-  runApp(MyApp());
+  ).then((value) {
+    runApp(MyApp());
+  });
 }
 
 class MyApp extends StatelessWidget {
@@ -31,11 +31,11 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: ThemeData(
-          textTheme: GoogleFonts.arvoTextTheme(Theme.of(context).textTheme),
+          textTheme: GoogleFonts.poppinsTextTheme(),
           primarySwatch: Colors.blue,
           backgroundColor: Colors.white,
         ),
-        initialRoute: 'about',
+        initialRoute: 'home',
         routes: {
           'home': (context) => MyHomePage(),
           'kontakt': (context) => Kontakt(),
