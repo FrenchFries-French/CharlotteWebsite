@@ -49,7 +49,7 @@ class _TopNavBarState extends State<TopNavBar> {
                   children: [
                     Container(
                         height: 5.w,
-                        child: Image.asset("assets/images/logo.png")),
+                        child: Center(child: Text("Charlotte Lobry", style: TextStyle(fontSize: 2.5.w, fontWeight: FontWeight.bold),))),
                     SizedBox(
                       width: 15.w,
                       child: SelectionButton(
