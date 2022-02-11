@@ -1,12 +1,25 @@
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:charletwebsite/Widgets/GlobalWidgets/FotoPage.dart';
+import 'package:charletwebsite/Widgets/GlobalWidgets/videoCard.dart';
 import 'package:sizer/sizer.dart';
 
 class OneCard extends StatefulWidget {
-  OneCard(
-      {required this.imageString,
-      required this.heightMultiplicator,
-      required this.galerieName,
-      required this.kuenstler});
+  final String? imageType;
+  final bool? video;
+  final bool? showGalleryText;
+  final QueryDocumentSnapshot<Map<String, dynamic>>? firbaseObject;
+  OneCard({
+    required this.imageString,
+    required this.heightMultiplicator,
+    required this.galerieName,
+    required this.kuenstler,
+    this.showGalleryText,
+    this.video,
+    this.imageType,
+    this.firbaseObject,
+  });
 
   String imageString;
   double heightMultiplicator = 0.65;
@@ -30,97 +43,149 @@ class _OneCardState extends State<OneCard> {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            GestureDetector( //Vorher war es Mouse Region
-              onTap: () {print("Tapped");},
-                /*onHover: (event) {
-                  _isHovered = true;
-                  setState(() {
-                    if (_isHovered == true) {
-                      _opacity = 1;
-                    } else {
-                      _opacity = 0;
-                    }
-                  });
+            GestureDetector(
+                //Vorher war es Mouse Region
+                onTap: () {
+                  print("Tapped");
                 },
-                onEnter: (event) {
-                  _isHovered = true;
-                  setState(() {
-                    if (_isHovered == true) {
-                      _opacity = 1;
-                    } else {
-                      _opacity = 0;
-                    }
-                  });
-                },
-                onExit: (event) {
-                  _isHovered = false;
-                  setState(() {
-                    if (_isHovered == false) {
-                      _opacity = 0;
-                    } else {
-                      _opacity = 1;
-                    }
-                  });
-                },*/
                 child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Container(
-                  alignment: AlignmentDirectional.center,
-                  child: Stack(
-                    alignment: AlignmentDirectional.bottomEnd,
-                    children: [
-                      Image.asset(
-                        widget.imageString,
-                        height: 37.h,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                      constraints: BoxConstraints(
+                          // minWidth: MediaQuery.of(context).size.width * 0.8,
+                          maxWidth: MediaQuery.of(context).size.width * 0.95),
+                      alignment: AlignmentDirectional.center,
+                      child: Stack(
+                        clipBehavior: Clip.hardEdge,
+                        alignment: AlignmentDirectional.bottomEnd,
+                        children: [
+                          this.widget.video != null
+                              ? VideoCard(
+                                  thumbnailLink: this
+                                      .widget
+                                      .firbaseObject!
+                                      .get("thumbnail"),
+                                  videoPlayerLink: this.widget.imageString,
+                                )
+                              : this.widget.imageType != null
+                                  ? InkWell(
+                                      onTap: () {
+                                        showDialog(
+                                          context: context,
+                                          barrierColor:
+                                              Colors.black.withOpacity(0.6),
+                                          builder: (context) {
+                                            return AlertDialog(
+                                              elevation: 300,
+                                              backgroundColor:
+                                                  Colors.transparent,
+                                              contentPadding: EdgeInsets.zero,
+                                              content: GestureDetector(
+                                                onTap: () {
+                                                  Navigator.pop(context);
+                                                },
+                                                child: SizedBox(
+                                                  width:
+                                                      screenSize.width * 0.92,
+                                                  height:
+                                                      screenSize.height * 0.92,
+                                                  child: Center(
+                                                    child: CachedNetworkImage(
+                                                      imageUrl: this
+                                                          .widget
+                                                          .imageString,
+                                                      fit: BoxFit.contain,
+                                                      width: screenSize.width *
+                                                          0.92,
+                                                      height: screenSize.width <
+                                                              480
+                                                          ? screenSize.height *
+                                                              0.5
+                                                          : screenSize.height *
+                                                              0.92,
+                                                      fadeInCurve: Curves.ease,
+                                                      fadeOutCurve: Curves.ease,
+                                                      placeholder:
+                                                          (BuildContext context,
+                                                                  String url) =>
+                                                              Container(),
+                                                      // imageRenderMethodForWeb: ImageR,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                              actions: [],
+                                            );
+                                          },
+                                        );
+                                      },
+                                      child: CachedNetworkImage(
+                                        imageUrl: this.widget.imageString,
+                                        // width: 1000,
+                                        height: screenSize.width > 550
+                                            ? 40.h
+                                            : 30.h,
+                                        fit: screenSize.width > 550
+                                            ? BoxFit.contain
+                                            : BoxFit.fill,
+                                        fadeInCurve: Curves.ease,
+                                        fadeOutCurve: Curves.ease,
+                                        placeholder: (BuildContext context,
+                                                String url) =>
+                                            Container(
+                                          // width: 320,
+                                          height: screenSize.width > 550
+                                              ? 40.h
+                                              : 30.h,
+                                          // color: Colors.white,
+                                        ),
+                                        // imageRenderMethodForWeb: ImageR,
+                                      ),
+                                    )
+                                  : Image.asset(
+                                      widget.imageString,
+                                      height: 40.h,
+                                      fit: BoxFit.cover,
+                                    ),
+                        ],
                       ),
-                      /*Container(
-                            padding: EdgeInsets.all(10),
-                            child: Opacity(
-                              opacity: _opacity,
-                              child:
-                              Container(
-                                color: Colors.black26,
-                                  child: TextButton(
-                                      onPressed: () {},
-                                      child: Column(
-                                        mainAxisAlignment: MainAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            "Galerie " + widget.galerieName,
-                                            style: TextStyle(fontSize: 3.5.w, fontWeight: FontWeight.bold,color: Colors.white),
-                                          ),
-                                          Text(
-                                            "By " + widget.kuenstler,
-                                            style: TextStyle(fontSize: 2.w, fontStyle: FontStyle.normal,color: Colors.white),
-                                          ),
-                                          Text(
-                                            "See galerie",
-                                            style: TextStyle(fontSize: 2.w, fontStyle: FontStyle.normal,color: Colors.white),
-                                          ),
-                                        ],
-                                      )),),
-                              ),
-                          )*/
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 0.5.h,
-                ),
-                Container(
-                  child: Text(
-                   " Galerie " + widget.galerieName,
-                    style: TextStyle(fontSize: 1.1.h),
-                  ),
-                ),
-                Container(
-                  child: Text(
-                      "See galery",
-                      style: TextStyle(fontSize: 1.1.h, color: Colors.grey[600])),
-                ),
-              ],
-            )),
+                    ),
+                    SizedBox(
+                      height: screenSize.width > 560 ? 0.5.h : 10,
+                    ),
+                    if (widget.showGalleryText == null ||
+                        widget.showGalleryText == true)
+                      Container(
+                        child: Text(
+                          widget.galerieName,
+                          style: TextStyle(fontSize: 1.1.h),
+                        ),
+                      ),
+                    if (widget.showGalleryText == null ||
+                        widget.showGalleryText == true)
+                      TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            PageRouteBuilder(
+                              pageBuilder: (context, animation1, animation2) =>
+                                  FotoPage(
+                                albumName: "${widget.galerieName}",
+                                showGalleryText: true,
+                              ), //This has to be changed to MyHomePage(),
+                              transitionDuration: Duration(seconds: 0),
+                            ),
+                          );
+                        },
+                        child: Text(
+                          "See galery",
+                          style: TextStyle(
+                              fontSize: 1.1.h, color: Colors.grey[600]),
+                        ),
+                      ),
+                  ],
+                )),
           ],
         ),
       ],

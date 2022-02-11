@@ -2,10 +2,7 @@ import 'package:flutter/material.dart';
 import '../Widgets/GlobalWidgets/MyDynamicHeader.dart';
 import '../Widgets/GlobalWidgets/BottomNavBar.dart';
 
-
 class PrivacyPolicy extends StatelessWidget {
-
-
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
@@ -19,7 +16,10 @@ class PrivacyPolicy extends StatelessWidget {
           ),
           SliverList(
             delegate: SliverChildListDelegate([
-              Container(color: Colors.white, height: screenSize.height*0.7,),
+              Container(
+                color: Colors.white,
+                height: screenSize.height * 0.7,
+              ),
               BottomBar(
                 child: SizedBox(),
               ), // TODO 3: Funktionen zu den Buttons müssen hinzufügt werden
@@ -28,10 +28,5 @@ class PrivacyPolicy extends StatelessWidget {
         ],
       ),
     );
-
-
-
   }
 }
-
-

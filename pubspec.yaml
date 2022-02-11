@@ -40,6 +40,10 @@ dependencies:
   sizer: ^2.0.13
   font_awesome_flutter: ^9.1.0
   flutter_lints: ^1.0.4
+  video_player_web: ^2.0.7
+  zoom_widget: ^0.2.1
+  cached_network_image: ^3.2.0
+  video_player: ^2.2.18
 
 
 dev_dependencies:
