@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter_app/Screens/About.dart';
-import 'package:flutter_app/Screens/HomePageFirst.dart';
-import 'package:flutter_app/Screens/Kontakt.dart';
-import 'package:flutter_app/Screens/Service.dart';
-import 'package:flutter_app/Screens/Shop.dart';
-import 'package:flutter_app/Widgets/GlobalWidgets/DropdownPersonal.dart';
-import 'package:flutter_app/Widgets/HomePageWidgets/HomePageImage.dart';
+import 'package:charletwebsite/Screens/About.dart';
+import 'package:charletwebsite/Screens/HomePageFirst.dart';
+import 'package:charletwebsite/Screens/Kontakt.dart';
+import 'package:charletwebsite/Screens/Service.dart';
+import 'package:charletwebsite/Screens/Shop.dart';
+import 'package:charletwebsite/Widgets/GlobalWidgets/DropdownPersonal.dart';
+import 'package:charletwebsite/Widgets/HomePageWidgets/HomePageImage.dart';
 import 'DropdownPersonal.dart';
 import 'SelectionButton.dart';
 import 'package:sizer/sizer.dart';
 
 //TODO: please make the TopNavBar a bit smaller.
-
 
 class TopNavBar extends StatefulWidget {
   @override

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/Widgets/KategorienWidgets/PortfolioA.dart';
-import 'package:flutter_app/Widgets/KategorienWidgets/PortfolioB.dart';
-import 'package:flutter_app/Widgets/KategorienWidgets/PortfolioC.dart';
+import 'package:charletwebsite/Widgets/KategorienWidgets/PortfolioA.dart';
+import 'package:charletwebsite/Widgets/KategorienWidgets/PortfolioB.dart';
+import 'package:charletwebsite/Widgets/KategorienWidgets/PortfolioC.dart';
 import 'package:sizer/sizer.dart';
 
 class DDPersonal extends StatefulWidget {
