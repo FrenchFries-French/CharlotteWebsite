@@ -36,10 +36,12 @@ class _TopNavBarState extends State<TopNavBar> {
               if (snapshot.hasData) {
                 List<String> dynamicList = ["AllAlbums"];
 
-                List<String>.from(snapshot.data!.docs[0].data()['names'])
-                    .forEach((element) {
-                  dynamicList.add(element);
-                });
+                if (snapshot.data!.docs.isNotEmpty) {
+                  List<String>.from(snapshot.data!.docs[0].data()['names'])
+                      .forEach((element) {
+                    dynamicList.add(element);
+                  });
+                }
                 return Flex(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   direction: Axis.horizontal,
