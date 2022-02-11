@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_app/Widgets/GlobalWidgets/SelectionButton.dart';
-import 'package:flutter_app/Widgets/HomePageWidgets/Citation.dart';
-import 'package:flutter_app/Widgets/HomePageWidgets/ImageCarousel.dart';
+import 'package:charletwebsite/Widgets/GlobalWidgets/SelectionButton.dart';
+import 'package:charletwebsite/Widgets/HomePageWidgets/Citation.dart';
+import 'package:charletwebsite/Widgets/HomePageWidgets/ImageCarousel.dart';
 import '../Widgets/GlobalWidgets/TopNavBar.dart';
 import '../Widgets/GlobalWidgets/BottomNavBar.dart';
 import '../Widgets/HomePageWidgets/ImageCarousel.dart';
@@ -58,7 +58,7 @@ class MyHomePage extends StatelessWidget {
                     imageString: 'assets/images/reveuse2.jpeg',
                     heightMultiplicator: 0,
                     galerieName: "Paula",
-              kuenstler: "Charlotte Lobry",
+                    kuenstler: "Charlotte Lobry",
                   ),
             SizedBox(
               height: 7.5.w,
@@ -100,7 +100,7 @@ class MyHomePage extends StatelessWidget {
                     imageString: 'assets/images/Mathildedoppelt.jpeg',
                     heightMultiplicator: 0,
                     galerieName: "Mathilde",
-              kuenstler: "Charlotte Lobry",
+                    kuenstler: "Charlotte Lobry",
                   ),
             SizedBox(
               height: 7.5.w,
@@ -140,7 +140,7 @@ class MyHomePage extends StatelessWidget {
                     imageString: 'assets/images/reveuse2.jpeg',
                     heightMultiplicator: 0,
                     galerieName: "Paula",
-              kuenstler: "Charlotte Lobry",
+                    kuenstler: "Charlotte Lobry",
                   ),
 
             SizedBox(
@@ -181,7 +181,7 @@ class MyHomePage extends StatelessWidget {
                     imageString: 'assets/images/Mathildedoppelt.jpeg',
                     heightMultiplicator: 0,
                     galerieName: "Mathilde",
-              kuenstler: "Charlotte Lobry",
+                    kuenstler: "Charlotte Lobry",
                   ),
             SizedBox(
               height: 10.w,

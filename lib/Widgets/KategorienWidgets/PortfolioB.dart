@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
-import 'package:flutter_app/Widgets/GlobalWidgets/MyDynamicHeader.dart';
-import 'package:flutter_app/Widgets/GlobalWidgets/OneCard.dart';
-import 'package:flutter_app/Widgets/GlobalWidgets/TwoCards.dart';
-import 'package:flutter_app/Widgets/GlobalWidgets/BottomNavBar.dart';
-import 'package:flutter_app/Widgets/GlobalWidgets/SelectionButton.dart';
-
+import 'package:charletwebsite/Widgets/GlobalWidgets/MyDynamicHeader.dart';
+import 'package:charletwebsite/Widgets/GlobalWidgets/OneCard.dart';
+import 'package:charletwebsite/Widgets/GlobalWidgets/TwoCards.dart';
+import 'package:charletwebsite/Widgets/GlobalWidgets/BottomNavBar.dart';
+import 'package:charletwebsite/Widgets/GlobalWidgets/SelectionButton.dart';
 
 class PortfolioB extends StatelessWidget {
   @override
@@ -33,32 +32,73 @@ class PortfolioB extends StatelessWidget {
           ),
           SliverList(
               delegate: SliverChildListDelegate([
-                SizedBox(
-                  height: 5.w,
-                ),
-                screenSize.width < 700
-                    ? FittedBox(
-                  child: SizedBox(
+            SizedBox(
+              height: 5.w,
+            ),
+            screenSize.width < 700
+                ? FittedBox(
+                    child: SizedBox(
+                      child: OneCard(
+                        imageString: 'assets/images/reveuse2.jpeg',
+                        heightMultiplicator: 0,
+                        galerieName: "Paula",
+                        kuenstler: "Charlotte Lobry",
+                      ),
+                    ),
+                  )
+                : OneCard(
+                    imageString: 'assets/images/reveuse2.jpeg',
+                    heightMultiplicator: 0,
+                    galerieName: "Paula",
+                    kuenstler: "Charlotte Lobry",
+                  ),
+            SizedBox(
+              height: 7.5.w,
+            ),
+            screenSize.width < 700
+                ? SizedBox(
+                    child: FittedBox(
+                      child: TwoCards(
+                        firstImageString: 'assets/images/reveuse2.jpeg',
+                        firstHeightMultiplicator: 0,
+                        secondImageString: 'assets/images/envogue.jpg',
+                        secondHeightMultiplicator: 0,
+                        firstGalerieName: "Paula",
+                        secondGalerieName: "Mathilde",
+                      ),
+                    ),
+                  )
+                : TwoCards(
+                    firstImageString: 'assets/images/reveuse2.jpeg',
+                    firstHeightMultiplicator: 0,
+                    secondImageString: 'assets/images/envogue.jpg',
+                    secondHeightMultiplicator: 0,
+                    firstGalerieName: "Paula",
+                    secondGalerieName: "Mathilde",
+                  ),
+            SizedBox(
+              height: 5.w,
+            ),
+            screenSize.width < 700
+                ? FittedBox(
                     child: OneCard(
-                      imageString: 'assets/images/reveuse2.jpeg',
+                      imageString: 'assets/images/Mathildedoppelt.jpeg',
                       heightMultiplicator: 0,
-                      galerieName: "Paula",
+                      galerieName: "Mathilde",
                       kuenstler: "Charlotte Lobry",
                     ),
+                  )
+                : OneCard(
+                    imageString: 'assets/images/Mathildedoppelt.jpeg',
+                    heightMultiplicator: 0,
+                    galerieName: "Mathilde",
+                    kuenstler: "Charlotte Lobry",
                   ),
-                )
-                    : OneCard(
-                  imageString: 'assets/images/reveuse2.jpeg',
-                  heightMultiplicator: 0,
-                  galerieName: "Paula",
-                  kuenstler: "Charlotte Lobry",
-                ),
-                SizedBox(
-                  height: 7.5.w,
-                ),
-                screenSize.width < 700
-                    ? SizedBox(
-                  child: FittedBox(
+            SizedBox(
+              height: 7.5.w,
+            ),
+            screenSize.width < 700
+                ? FittedBox(
                     child: TwoCards(
                       firstImageString: 'assets/images/reveuse2.jpeg',
                       firstHeightMultiplicator: 0,
@@ -67,40 +107,8 @@ class PortfolioB extends StatelessWidget {
                       firstGalerieName: "Paula",
                       secondGalerieName: "Mathilde",
                     ),
-                  ),
-                )
-                    : TwoCards(
-                  firstImageString: 'assets/images/reveuse2.jpeg',
-                  firstHeightMultiplicator: 0,
-                  secondImageString: 'assets/images/envogue.jpg',
-                  secondHeightMultiplicator: 0,
-                  firstGalerieName: "Paula",
-                  secondGalerieName: "Mathilde",
-                ),
-                SizedBox(
-                  height: 5.w,
-                ),
-                screenSize.width < 700
-                    ? FittedBox(
-                  child: OneCard(
-                    imageString: 'assets/images/Mathildedoppelt.jpeg',
-                    heightMultiplicator: 0,
-                    galerieName: "Mathilde",
-                    kuenstler: "Charlotte Lobry",
-                  ),
-                )
-                    : OneCard(
-                  imageString: 'assets/images/Mathildedoppelt.jpeg',
-                  heightMultiplicator: 0,
-                  galerieName: "Mathilde",
-                  kuenstler: "Charlotte Lobry",
-                ),
-                SizedBox(
-                  height: 7.5.w,
-                ),
-                screenSize.width < 700
-                    ? FittedBox(
-                  child: TwoCards(
+                  )
+                : TwoCards(
                     firstImageString: 'assets/images/reveuse2.jpeg',
                     firstHeightMultiplicator: 0,
                     secondImageString: 'assets/images/envogue.jpg',
@@ -108,40 +116,39 @@ class PortfolioB extends StatelessWidget {
                     firstGalerieName: "Paula",
                     secondGalerieName: "Mathilde",
                   ),
-                )
-                    : TwoCards(
-                  firstImageString: 'assets/images/reveuse2.jpeg',
-                  firstHeightMultiplicator: 0,
-                  secondImageString: 'assets/images/envogue.jpg',
-                  secondHeightMultiplicator: 0,
-                  firstGalerieName: "Paula",
-                  secondGalerieName: "Mathilde",
-                ),
-                SizedBox(
-                  height: 5.w,
-                ),
-                screenSize.width < 700
-                    ? FittedBox(
-                  child: OneCard(
+            SizedBox(
+              height: 5.w,
+            ),
+            screenSize.width < 700
+                ? FittedBox(
+                    child: OneCard(
+                      imageString: 'assets/images/reveuse2.jpeg',
+                      heightMultiplicator: 0,
+                      galerieName: "Paula",
+                      kuenstler: "Charlotte Lobry",
+                    ),
+                  )
+                : OneCard(
                     imageString: 'assets/images/reveuse2.jpeg',
                     heightMultiplicator: 0,
                     galerieName: "Paula",
                     kuenstler: "Charlotte Lobry",
                   ),
-                )
-                    : OneCard(
-                  imageString: 'assets/images/reveuse2.jpeg',
-                  heightMultiplicator: 0,
-                  galerieName: "Paula",
-                  kuenstler: "Charlotte Lobry",
-                ),
-
-                SizedBox(
-                  height: 7.5.w,
-                ),
-                screenSize.width < 700
-                    ? FittedBox(
-                  child: TwoCards(
+            SizedBox(
+              height: 7.5.w,
+            ),
+            screenSize.width < 700
+                ? FittedBox(
+                    child: TwoCards(
+                      firstImageString: 'assets/images/reveuse2.jpeg',
+                      firstHeightMultiplicator: 0,
+                      secondImageString: 'assets/images/envogue.jpg',
+                      secondHeightMultiplicator: 0,
+                      firstGalerieName: "Paula",
+                      secondGalerieName: "Mathilde",
+                    ),
+                  )
+                : TwoCards(
                     firstImageString: 'assets/images/reveuse2.jpeg',
                     firstHeightMultiplicator: 0,
                     secondImageString: 'assets/images/envogue.jpg',
@@ -149,54 +156,45 @@ class PortfolioB extends StatelessWidget {
                     firstGalerieName: "Paula",
                     secondGalerieName: "Mathilde",
                   ),
-                )
-                    : TwoCards(
-                  firstImageString: 'assets/images/reveuse2.jpeg',
-                  firstHeightMultiplicator: 0,
-                  secondImageString: 'assets/images/envogue.jpg',
-                  secondHeightMultiplicator: 0,
-                  firstGalerieName: "Paula",
-                  secondGalerieName: "Mathilde",
-                ),
-                SizedBox(
-                  height: 5.w,
-                ),
-                screenSize.width < 700
-                    ? FittedBox(
-                  child: OneCard(
+            SizedBox(
+              height: 5.w,
+            ),
+            screenSize.width < 700
+                ? FittedBox(
+                    child: OneCard(
+                      imageString: 'assets/images/Mathildedoppelt.jpeg',
+                      heightMultiplicator: 0,
+                      galerieName: "Mathilde",
+                      kuenstler: "Charlotte Lobry",
+                    ),
+                  )
+                : OneCard(
                     imageString: 'assets/images/Mathildedoppelt.jpeg',
                     heightMultiplicator: 0,
                     galerieName: "Mathilde",
                     kuenstler: "Charlotte Lobry",
                   ),
-                )
-                    : OneCard(
-                  imageString: 'assets/images/Mathildedoppelt.jpeg',
-                  heightMultiplicator: 0,
-                  galerieName: "Mathilde",
-                  kuenstler: "Charlotte Lobry",
-                ),
-                SizedBox(
-                  height: 10.w,
-                ),
-                screenSize.width < 700
-                    ? FittedBox(
-                  child: BottomBar(
+            SizedBox(
+              height: 10.w,
+            ),
+            screenSize.width < 700
+                ? FittedBox(
+                    child: BottomBar(
+                      child: SelectionButton(
+                        // child: SizedBox(),
+                        name: "To the top",
+                        onTap: _scrollToTop,
+                      ),
+                    ),
+                  )
+                : BottomBar(
                     child: SelectionButton(
                       // child: SizedBox(),
                       name: "To the top",
                       onTap: _scrollToTop,
                     ),
                   ),
-                )
-                    : BottomBar(
-                  child: SelectionButton(
-                    // child: SizedBox(),
-                    name: "To the top",
-                    onTap: _scrollToTop,
-                  ),
-                ),
-              ])),
+          ])),
         ],
       ),
     );

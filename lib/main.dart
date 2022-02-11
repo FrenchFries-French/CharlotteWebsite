@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/Screens/Kontakt.dart';
-import 'package:flutter_app/Screens/PersonalWork.dart';
-import 'package:flutter_app/Screens/Termsandconditions.dart';
+import 'package:charletwebsite/Screens/Kontakt.dart';
+import 'package:charletwebsite/Screens/PersonalWork.dart';
+import 'package:charletwebsite/Screens/Termsandconditions.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'Screens/HomePageFirst.dart';
 import 'Screens/Commissioned.dart';
