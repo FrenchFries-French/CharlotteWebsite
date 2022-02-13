@@ -11,13 +11,14 @@ import 'package:sizer/sizer.dart';
 
 class MyHomePage extends StatelessWidget {
   // @override
-  final ScrollController _scrollController = ScrollController();
 
   MyHomePage({Key? key}) : super(key: key);
   Future<void> _scrollToTop() async {
     await _scrollController.animateTo(0,
         duration: Duration(milliseconds: 100), curve: Curves.linear);
   }
+
+  final ScrollController _scrollController = ScrollController();
 
   @override
   Widget build(BuildContext context) {

@@ -4,6 +4,7 @@ import 'package:charletwebsite/Screens/Kontakt.dart';
 import 'package:charletwebsite/Screens/PersonalWork.dart';
 import 'package:charletwebsite/Screens/Termsandconditions.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:sizer/sizer.dart';
 import 'Screens/HomePageFirst.dart';
 import 'Screens/Commissioned.dart';
 import 'Screens/Kontakt.dart';
@@ -27,47 +28,27 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        textTheme: GoogleFonts.poppinsTextTheme(),
-        primarySwatch: Colors.blue,
-        backgroundColor: Colors.white,
-      ),
-      initialRoute: 'home',
-      routes: {
-        'home': (context) => MyHomePage(),
-        'kontakt': (context) => const Kontakt(),
-        'personalwork': (context) => const PersonalWork(),
-        'commissioned': (context) => const Commissioned(),
-        'about': (context) => const About(),
-        'service': (context) => const Service(),
-        'shop': (context) => const Shop(),
-        'termsandconditions': (context) => const Termsandconditions(),
-      },
-    );
-    // return Sizer(builder: (context, orientation, deviceType) {
-    //   return MaterialApp(
-    //     debugShowCheckedModeBanner: false,
-    //     title: 'Flutter Demo',
-    //     theme: ThemeData(
-    //       textTheme: GoogleFonts.poppinsTextTheme(),
-    //       primarySwatch: Colors.blue,
-    //       backgroundColor: Colors.white,
-    //     ),
-    //     initialRoute: 'home',
-    //     routes: {
-    //       'home': (context) => MyHomePage(),
-    //       'kontakt': (context) => Kontakt(),
-    //       'personalwork': (context) => PersonalWork(),
-    //       'commissioned': (context) => Commissioned(),
-    //       'about': (context) => const About(),
-    //       'service': (context) => Service(),
-    //       'shop': (context) => Shop(),
-    //       'termsandconditions': (context) => Termsandconditions(),
-    //     },
-    //   );
-    // });
+    return Sizer(builder: (context, orientation, deviceType) {
+      return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          textTheme: GoogleFonts.poppinsTextTheme(),
+          primarySwatch: Colors.blue,
+          backgroundColor: Colors.white,
+        ),
+        initialRoute: 'home',
+        routes: {
+          'home': (context) => MyHomePage(),
+          'kontakt': (context) => const Kontakt(),
+          'personalwork': (context) => const PersonalWork(),
+          'commissioned': (context) => const Commissioned(),
+          'about': (context) => const About(),
+          'service': (context) => const Service(),
+          'shop': (context) => const Shop(),
+          'termsandconditions': (context) => const Termsandconditions(),
+        },
+      );
+    });
   }
 }
