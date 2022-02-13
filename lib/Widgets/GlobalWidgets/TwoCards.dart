@@ -10,6 +10,7 @@ class TwoCards extends StatefulWidget {
   final bool? showGalleryText;
   final QueryDocumentSnapshot<Map<String, dynamic>>? firbaseObject;
   TwoCards({
+    Key? key,
     this.firstHeightMultiplicator = 0.45,
     this.secondHeightMultiplicator = 0.6,
     required this.firstGalerieName,
@@ -20,7 +21,7 @@ class TwoCards extends StatefulWidget {
     this.imageType,
     this.links,
     this.firbaseObject,
-  });
+  }) : super(key: key);
 
   double firstHeightMultiplicator;
   double secondHeightMultiplicator;
@@ -118,7 +119,7 @@ class _TwoCardsState extends State<TwoCards> {
                                                 ),
                                               ),
                                             ),
-                                            actions: [],
+                                            actions: const [],
                                           );
                                         },
                                       );
@@ -179,7 +180,7 @@ class _TwoCardsState extends State<TwoCards> {
                           PageRouteBuilder(
                             pageBuilder: (context, animation1, animation2) =>
                                 FotoPage(
-                              albumName: "${widget.firstGalerieName}",
+                              albumName: widget.firstGalerieName,
                               showGalleryText: true,
                             ), //This has to be changed to MyHomePage(),
                             transitionDuration: const Duration(seconds: 0),
@@ -283,12 +284,12 @@ class _TwoCardsState extends State<TwoCards> {
                                                     ),
                                                   ),
                                                 ),
-                                                actions: [],
+                                                actions: const [],
                                               );
                                             },
                                           );
                                         },
-                                        child: Container(
+                                        child: SizedBox(
                                           height: screenSize.width > 550
                                               ? 35.h
                                               : 30.h,
@@ -354,7 +355,7 @@ class _TwoCardsState extends State<TwoCards> {
                                 pageBuilder:
                                     (context, animation1, animation2) =>
                                         FotoPage(
-                                  albumName: "${widget.secondGalerieName}",
+                                  albumName: widget.secondGalerieName,
                                   showGalleryText: true,
                                 ), //This has to be changed to MyHomePage(),
                                 transitionDuration: const Duration(seconds: 0),

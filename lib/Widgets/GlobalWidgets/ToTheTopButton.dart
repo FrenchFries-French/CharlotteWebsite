@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:charletwebsite/Widgets/GlobalWidgets/SelectionButton.dart';
 
 class ToTheTopButton extends StatefulWidget {
+  const ToTheTopButton({Key? key}) : super(key: key);
+
   @override
   _ToTheTopButtonState createState() => _ToTheTopButtonState();
 }
 
 class _ToTheTopButtonState extends State<ToTheTopButton>
     with TickerProviderStateMixin {
-  ScrollController _scrollController = ScrollController();
+  final ScrollController _scrollController = ScrollController();
 /*
   @override
   void dispose() {
@@ -19,7 +21,7 @@ class _ToTheTopButtonState extends State<ToTheTopButton>
   // This function is triggered when the user presses the back-to-top button
   void _scrollToTop() {
     _scrollController.animateTo(0,
-        duration: Duration(seconds: 2), curve: Curves.linear);
+        duration: const Duration(seconds: 2), curve: Curves.linear);
   }
 
   @override
@@ -27,7 +29,7 @@ class _ToTheTopButtonState extends State<ToTheTopButton>
     return SelectionButton(
       name: "To the top",
       onTap: _scrollToTop,
-      child: SizedBox(),
+      child: const SizedBox(),
     );
   }
 }

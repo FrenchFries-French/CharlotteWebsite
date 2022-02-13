@@ -344,8 +344,8 @@ class _VideoCardState extends State<VideoCard> {
                 backgroundColor: Colors.transparent,
                 contentPadding: EdgeInsets.zero,
                 content: NewVideoCard(
-                    videoPlayerLink: this.widget.videoPlayerLink,
-                    thumbnailLink: this.widget.thumbnailLink),
+                    videoPlayerLink: widget.videoPlayerLink,
+                    thumbnailLink: widget.thumbnailLink),
               ),
             );
           },
@@ -353,7 +353,7 @@ class _VideoCardState extends State<VideoCard> {
       },
       child: width < 767
           ? CachedNetworkImage(
-              imageUrl: this.widget.thumbnailLink,
+              imageUrl: widget.thumbnailLink,
               fit: BoxFit.fill,
               fadeInCurve: Curves.ease,
               fadeOutCurve: Curves.ease,
@@ -398,7 +398,7 @@ class _VideoCardState extends State<VideoCard> {
                     //     : width * 0.54,
                     child: SizedBox.expand(
                       child: CachedNetworkImage(
-                        imageUrl: this.widget.thumbnailLink,
+                        imageUrl: widget.thumbnailLink,
                         fit: BoxFit.fill,
                         fadeInCurve: Curves.ease,
                         fadeOutCurve: Curves.ease,

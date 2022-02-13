@@ -49,7 +49,12 @@ class _TopNavBarState extends State<TopNavBar> {
                   children: [
                     Container(
                         height: 5.w,
-                        child: Center(child: Text("Charlotte Lobry", style: TextStyle(fontSize: 2.5.w, fontWeight: FontWeight.bold),))),
+                        child: Center(
+                            child: Text(
+                          "Charlotte Lobry",
+                          style: TextStyle(
+                              fontSize: 2.5.w, fontWeight: FontWeight.bold),
+                        ))),
                     SizedBox(
                       width: 15.w,
                       child: SelectionButton(
@@ -60,7 +65,7 @@ class _TopNavBarState extends State<TopNavBar> {
                             PageRouteBuilder(
                               pageBuilder: (context, animation1, animation2) =>
                                   MyHomePage(), //This has to be changed to MyHomePage(),
-                              transitionDuration: Duration(seconds: 0),
+                              transitionDuration: const Duration(seconds: 0),
                             ),
                           );
                         },
@@ -95,8 +100,8 @@ class _TopNavBarState extends State<TopNavBar> {
                               PageRouteBuilder(
                                 pageBuilder:
                                     (context, animation1, animation2) =>
-                                        Service(),
-                                transitionDuration: Duration(seconds: 0),
+                                        const Service(),
+                                transitionDuration: const Duration(seconds: 0),
                               ),
                             );
                           }),
@@ -113,8 +118,8 @@ class _TopNavBarState extends State<TopNavBar> {
                               PageRouteBuilder(
                                 pageBuilder:
                                     (context, animation1, animation2) =>
-                                        Kontakt(),
-                                transitionDuration: Duration(seconds: 0),
+                                        const Kontakt(),
+                                transitionDuration: const Duration(seconds: 0),
                               ),
                             );
                           }),
@@ -132,8 +137,8 @@ class _TopNavBarState extends State<TopNavBar> {
                               PageRouteBuilder(
                                 pageBuilder:
                                     (context, animation1, animation2) =>
-                                        About(),
-                                transitionDuration: Duration(seconds: 0),
+                                        const About(),
+                                transitionDuration: const Duration(seconds: 0),
                               ),
                             );
                           }),

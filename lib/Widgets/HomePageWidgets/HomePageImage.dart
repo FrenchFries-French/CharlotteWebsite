@@ -6,19 +6,16 @@ class HomePageImage extends StatefulWidget {
 }
 
 class _HomePageImageState extends State<HomePageImage> {
-
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
 
-    return Container(
-      child: SizedBox(
-        height: screenSize.height * 0.75,
-        width: screenSize.width * 0.5,
-        child: Image.asset(
-          'assets/images/reveuse2.jpeg',
-          fit: BoxFit.cover,
-        ),
+    return SizedBox(
+      height: screenSize.height * 0.75,
+      width: screenSize.width * 0.5,
+      child: Image.asset(
+        'assets/images/reveuse2.jpeg',
+        fit: BoxFit.cover,
       ),
     );
   }

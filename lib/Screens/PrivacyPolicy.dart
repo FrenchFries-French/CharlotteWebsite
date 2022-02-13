@@ -23,8 +23,8 @@ class PrivacyPolicy extends StatelessWidget {
                 height: screenSize.height * 0.7,
               ),
               BottomBar(
-                child: SizedBox(),
-              ), // TODO 3: Funktionen zu den Buttons müssen hinzufügt werden
+                child: const SizedBox(),
+              ),
             ]),
           )
         ],

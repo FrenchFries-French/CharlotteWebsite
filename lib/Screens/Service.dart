@@ -8,6 +8,8 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Service extends StatelessWidget {
+  const Service({Key? key}) : super(key: key);
+
   launchEmail() {
     const url = 'mailto:info@never-seen.de';
     launch(url);
@@ -346,13 +348,13 @@ class Service extends StatelessWidget {
                               )
                             : Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
+                                children: const [
                                   FittedBox(
                                     child: BottomBar(
-                                      child: const SizedBox(),
+                                      child: SizedBox(),
                                     ),
                                   ),
-                                  const SizedBox(
+                                  SizedBox(
                                     height: 10,
                                   ),
                                 ],

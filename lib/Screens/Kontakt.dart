@@ -199,11 +199,10 @@ class Kontakt extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Container(
-                          child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
+                      Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
                             Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Text(
@@ -246,7 +245,7 @@ class Kontakt extends StatelessWidget {
                             const SizedBox(
                               height: 30,
                             )
-                          ])),
+                          ]),
                       // SizedBox(
                       //   width: screenSize.width > 1080 ? 120 : 10,
                       // ),
@@ -264,8 +263,8 @@ class Kontakt extends StatelessWidget {
                               Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  BottomBar(
-                                    child: const SizedBox(),
+                                  const BottomBar(
+                                    child: SizedBox(),
                                   ),
                                   const SizedBox(
                                     height: 10,
@@ -278,13 +277,13 @@ class Kontakt extends StatelessWidget {
                         )
                       : Column(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
+                          children: const [
                             FittedBox(
                               child: BottomBar(
-                                child: const SizedBox(),
+                                child: SizedBox(),
                               ),
                             ),
-                            const SizedBox(
+                            SizedBox(
                               height: 10,
                             ),
                           ],

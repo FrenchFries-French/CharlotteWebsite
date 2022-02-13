@@ -3,6 +3,8 @@ import 'package:charletwebsite/Widgets/GlobalWidgets/BottomNavBar.dart';
 import 'package:charletwebsite/Widgets/GlobalWidgets/MyDynamicHeader.dart';
 
 class ReveuseShop extends StatelessWidget {
+  const ReveuseShop({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
@@ -22,7 +24,7 @@ class ReveuseShop extends StatelessWidget {
               ),
               BottomBar(
                 child: SizedBox(),
-              ), // TODO 3: Funktionen zu den Buttons müssen hinzufügt werden
+              ),
             ]),
           )
         ],

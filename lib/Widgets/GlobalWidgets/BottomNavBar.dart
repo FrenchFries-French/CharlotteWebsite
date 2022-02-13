@@ -7,7 +7,7 @@ import 'package:charletwebsite/Screens/Kontakt.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class BottomBar extends StatelessWidget {
-  BottomBar({required this.child});
+  const BottomBar({required this.child});
 
   final Widget child;
 
@@ -20,7 +20,7 @@ class BottomBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(height: 20),
+        const SizedBox(height: 20),
         Flex(
           direction: Axis.horizontal,
           mainAxisAlignment: MainAxisAlignment.center,
@@ -29,14 +29,14 @@ class BottomBar extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 8),
               child: SelectionButton(
                   name: "Kontakt",
-                  child: SizedBox(),
+                  child: const SizedBox(),
                   onTap: () {
                     Navigator.push(
                       context,
                       PageRouteBuilder(
                         pageBuilder: (context, animation1, animation2) =>
-                            Kontakt(),
-                        transitionDuration: Duration(seconds: 0),
+                            const Kontakt(),
+                        transitionDuration: const Duration(seconds: 0),
                       ),
                     );
                   }),
@@ -50,12 +50,12 @@ class BottomBar extends StatelessWidget {
                     context,
                     PageRouteBuilder(
                       pageBuilder: (context, animation1, animation2) =>
-                          Termsandconditions(),
-                      transitionDuration: Duration(seconds: 0),
+                          const Termsandconditions(),
+                      transitionDuration: const Duration(seconds: 0),
                     ),
                   );
                 },
-                child: SizedBox(),
+                child: const SizedBox(),
               ),
             ),
             Container(
@@ -67,12 +67,12 @@ class BottomBar extends StatelessWidget {
                     context,
                     PageRouteBuilder(
                       pageBuilder: (context, animation1, animation2) =>
-                          Impressum(),
-                      transitionDuration: Duration(seconds: 0),
+                          const Impressum(),
+                      transitionDuration: const Duration(seconds: 0),
                     ),
                   );
                 },
-                child: SizedBox(),
+                child: const SizedBox(),
               ),
             ),
             Container(
@@ -80,20 +80,21 @@ class BottomBar extends StatelessWidget {
               child: SelectionButton(
                 name: "Instagram",
                 onTap: () => {launchInstagram()},
-                child: SizedBox(),
+                child: const SizedBox(),
               ),
             ),
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 8),
               child: SelectionButton(
                 name: "About",
-                child: SizedBox(),
+                child: const SizedBox(),
                 onTap: () {
                   Navigator.push(
                     context,
                     PageRouteBuilder(
-                      pageBuilder: (context, animation1, animation2) => About(),
-                      transitionDuration: Duration(seconds: 0),
+                      pageBuilder: (context, animation1, animation2) =>
+                          const About(),
+                      transitionDuration: const Duration(seconds: 0),
                     ),
                   );
                 },

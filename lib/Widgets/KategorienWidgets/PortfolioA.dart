@@ -7,12 +7,14 @@ import 'package:charletwebsite/Widgets/GlobalWidgets/BottomNavBar.dart';
 import 'package:charletwebsite/Widgets/GlobalWidgets/SelectionButton.dart';
 
 class PortfolioA extends StatelessWidget {
+  const PortfolioA({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     ScrollController _scrollController = ScrollController();
     void _scrollToTop() {
       _scrollController.animateTo(0,
-          duration: Duration(milliseconds: 100), curve: Curves.linear);
+          duration: const Duration(milliseconds: 100), curve: Curves.linear);
     }
 
     var screenSize = MediaQuery.of(context).size;
@@ -41,7 +43,7 @@ class PortfolioA extends StatelessWidget {
               screenSize.width < 700
                   ? FittedBox(
                       child: Container(
-                        margin: EdgeInsets.symmetric(horizontal: 20),
+                        margin: const EdgeInsets.symmetric(horizontal: 20),
                         child: SizedBox(
                           child: OneCard(
                             imageString: 'assets/images/reveuse2.jpeg',
@@ -64,7 +66,7 @@ class PortfolioA extends StatelessWidget {
               screenSize.width < 700
                   ? FittedBox(
                       child: Container(
-                        margin: EdgeInsets.symmetric(horizontal: 20),
+                        margin: const EdgeInsets.symmetric(horizontal: 20),
                         child: TwoCards(
                           firstImageString: 'assets/images/reveuse2.jpeg',
                           firstHeightMultiplicator: 0,
@@ -89,7 +91,7 @@ class PortfolioA extends StatelessWidget {
               screenSize.width < 700
                   ? FittedBox(
                       child: Container(
-                        margin: EdgeInsets.symmetric(horizontal: 20),
+                        margin: const EdgeInsets.symmetric(horizontal: 20),
                         child: OneCard(
                           imageString: 'assets/images/Mathildedoppelt.jpeg',
                           heightMultiplicator: 0,
@@ -110,7 +112,7 @@ class PortfolioA extends StatelessWidget {
               screenSize.width < 700
                   ? FittedBox(
                       child: Container(
-                        margin: EdgeInsets.symmetric(horizontal: 20),
+                        margin: const EdgeInsets.symmetric(horizontal: 20),
                         child: TwoCards(
                           firstImageString: 'assets/images/reveuse2.jpeg',
                           firstHeightMultiplicator: 0,
@@ -135,7 +137,7 @@ class PortfolioA extends StatelessWidget {
               screenSize.width < 700
                   ? FittedBox(
                       child: Container(
-                        margin: EdgeInsets.symmetric(horizontal: 20),
+                        margin: const EdgeInsets.symmetric(horizontal: 20),
                         child: OneCard(
                           imageString: 'assets/images/reveuse2.jpeg',
                           heightMultiplicator: 0,
@@ -156,7 +158,7 @@ class PortfolioA extends StatelessWidget {
               screenSize.width < 700
                   ? FittedBox(
                       child: Container(
-                        margin: EdgeInsets.symmetric(horizontal: 20),
+                        margin: const EdgeInsets.symmetric(horizontal: 20),
                         child: TwoCards(
                           firstImageString: 'assets/images/reveuse2.jpeg',
                           firstHeightMultiplicator: 0,
@@ -181,7 +183,7 @@ class PortfolioA extends StatelessWidget {
               screenSize.width < 700
                   ? FittedBox(
                       child: Container(
-                        margin: EdgeInsets.symmetric(horizontal: 20),
+                        margin: const EdgeInsets.symmetric(horizontal: 20),
                         child: OneCard(
                           imageString: 'assets/images/Mathildedoppelt.jpeg',
                           heightMultiplicator: 0,
@@ -216,7 +218,7 @@ class PortfolioA extends StatelessWidget {
                         onTap: _scrollToTop,
                       ),
                     ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               )
             ])),

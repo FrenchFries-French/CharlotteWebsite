@@ -5,6 +5,8 @@ import '../Widgets/GlobalWidgets/MyDynamicHeader.dart';
 import '../Widgets/GlobalWidgets/BottomNavBar.dart';
 
 class Shop extends StatelessWidget {
+  const Shop({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
@@ -18,45 +20,41 @@ class Shop extends StatelessWidget {
           SliverList(
               delegate: SliverChildListDelegate(
             [
-              Container(
-                child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SizedBox(
-                        height: screenSize.height * 0.03,
+              Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+                SizedBox(
+                  height: screenSize.height * 0.03,
+                ),
+                ShopCard(
+                  imageString: 'assets/images/reveuse2.jpeg',
+                  imageHeight: 0.5,
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      PageRouteBuilder(
+                        pageBuilder: (context, animation1, animation2) =>
+                            const ReveuseShop(),
+                        transitionDuration: const Duration(seconds: 0),
                       ),
-                      ShopCard(
-                        imageString: 'assets/images/reveuse2.jpeg',
-                        imageHeight: 0.5,
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            PageRouteBuilder(
-                              pageBuilder: (context, animation1, animation2) =>
-                                  ReveuseShop(),
-                              transitionDuration: const Duration(seconds: 0),
-                            ),
-                          );
-                        },
-                      ),
-                      ShopCard(
-                        imageString: 'assets/images/envogue.jpg',
-                        imageHeight: 0.75,
-                        onTap: () {},
-                      ),
-                      ShopCard(
-                        imageString: 'assets/images/Mathildedoppelt.jpeg',
-                        imageHeight: 0.5,
-                        onTap: () {},
-                      ),
-                      ShopCard(
-                        imageString: 'assets/images/bearb2.jpeg',
-                        imageHeight: 0.75,
-                        onTap: () {},
-                      ),
-                      BottomBar(child: const SizedBox()),
-                    ]),
-              )
+                    );
+                  },
+                ),
+                ShopCard(
+                  imageString: 'assets/images/envogue.jpg',
+                  imageHeight: 0.75,
+                  onTap: () {},
+                ),
+                ShopCard(
+                  imageString: 'assets/images/Mathildedoppelt.jpeg',
+                  imageHeight: 0.5,
+                  onTap: () {},
+                ),
+                ShopCard(
+                  imageString: 'assets/images/bearb2.jpeg',
+                  imageHeight: 0.75,
+                  onTap: () {},
+                ),
+                BottomBar(child: const SizedBox()),
+              ])
             ],
           ))
         ]));

@@ -94,11 +94,11 @@ class About extends StatelessWidget {
                                   const Spacer(),
                                   Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
+                                    children: const [
                                       BottomBar(
-                                        child: const SizedBox(),
+                                        child: SizedBox(),
                                       ),
-                                      const SizedBox(
+                                      SizedBox(
                                         height: 10,
                                       ),
                                     ],
@@ -111,8 +111,8 @@ class About extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 FittedBox(
-                                  child: BottomBar(
-                                    child: const SizedBox(),
+                                  child: const BottomBar(
+                                    child: SizedBox(),
                                   ),
                                 ),
                                 const SizedBox(

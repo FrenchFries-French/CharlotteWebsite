@@ -162,7 +162,6 @@ class _LoadMoreFireStoreWidgetState extends State<LoadMoreFireStoreWidget> {
                   ),
                 );
               } else {
-                // TODO: Add your own widget for empty records
                 return const Center(
                     child: Padding(
                   padding: EdgeInsets.all(8.0),
