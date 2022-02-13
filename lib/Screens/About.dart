@@ -5,6 +5,8 @@ import 'package:sizer/sizer.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class About extends StatelessWidget {
+  const About({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
@@ -14,7 +16,7 @@ class About extends StatelessWidget {
         preferredSize: Size(screenSize.width, 80),
         child: TopNavBar(),
       ),
-      body: Container(
+      body: SizedBox(
         height: screenSize.height,
         child: Stack(
           children: [
@@ -35,7 +37,7 @@ class About extends StatelessWidget {
                           // alignment: AlignmentDirectional.center,
                           color: Colors.white,
                           width: 100.w > 700 ? 60.w : 80.w,
-                          padding: EdgeInsets.all(10),
+                          padding: const EdgeInsets.all(10),
                           // height: 40.h,
                           child: Text(
                             'Charlotte and Björn is a creative duo that offers photography, film and creative concept development. We aim to create appealing and engaging visual communication - both as a hollistic concept and as a bookable individual service. Creating emotions and putting moments in one or more frames is our speciality.',
@@ -55,7 +57,7 @@ class About extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         // direction: Axis.horizontal,
                         children: [
-                          Container(
+                          SizedBox(
                             width: screenSize.width > 767
                                 ? screenSize.width * 0.2
                                 : screenSize.width * 0.35,
@@ -79,7 +81,7 @@ class About extends StatelessWidget {
                         ],
                       ),
                       // Spacer(),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       screenSize.width > 1080
@@ -89,19 +91,19 @@ class About extends StatelessWidget {
                               child: Flex(
                                 direction: Axis.horizontal,
                                 children: [
-                                  Spacer(),
+                                  const Spacer(),
                                   Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       BottomBar(
-                                        child: SizedBox(),
+                                        child: const SizedBox(),
                                       ),
-                                      SizedBox(
+                                      const SizedBox(
                                         height: 10,
                                       ),
                                     ],
                                   ),
-                                  Spacer(),
+                                  const Spacer(),
                                 ],
                               ),
                             )
@@ -110,10 +112,10 @@ class About extends StatelessWidget {
                               children: [
                                 FittedBox(
                                   child: BottomBar(
-                                    child: SizedBox(),
+                                    child: const SizedBox(),
                                   ),
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 10,
                                 ),
                               ],

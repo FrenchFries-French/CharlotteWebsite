@@ -311,7 +311,7 @@ import 'package:charletwebsite/Widgets/GlobalWidgets/newVideoPlayer.dart';
 class VideoCard extends StatefulWidget {
   final String videoPlayerLink;
   final String thumbnailLink;
-  VideoCard({
+  const VideoCard({
     Key? key,
     required this.thumbnailLink,
     required this.videoPlayerLink,

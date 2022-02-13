@@ -3,6 +3,8 @@ import '../Widgets/GlobalWidgets/MyDynamicHeader.dart';
 import '../Widgets/GlobalWidgets/BottomNavBar.dart';
 
 class Impressum extends StatelessWidget {
+  const Impressum({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
@@ -21,8 +23,8 @@ class Impressum extends StatelessWidget {
                 height: screenSize.height * 0.7,
               ),
               BottomBar(
-                child: SizedBox(),
-              ), // TODO 3: Funktionen zu den Buttons müssen hinzufügt werden
+                child: const SizedBox(),
+              ),
             ]),
           )
         ],

@@ -5,13 +5,15 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:sizer/sizer.dart';
 
 class Kontakt extends StatelessWidget {
-  launchEmail() {
-    final url = 'mailto:info@never-seen.de';
+  const Kontakt({Key? key}) : super(key: key);
+
+  launchEmail() async {
+    const url = 'mailto:info@never-seen.de';
     launch(url);
   }
 
   launchPhone() {
-    final url = 'tel:+4917681126474';
+    const url = 'tel:+4917681126474';
     launch(url);
   }
 
@@ -51,7 +53,7 @@ class Kontakt extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Spacer(),
+                  const Spacer(),
                   Row(
                     children: [
                       SizedBox(
@@ -67,7 +69,7 @@ class Kontakt extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Container(
-                                    constraints: BoxConstraints(
+                                    constraints: const BoxConstraints(
                                       minHeight: 30,
                                     ),
                                     width: screenSize.width > 767 ? 140 : 80,
@@ -78,7 +80,7 @@ class Kontakt extends StatelessWidget {
                                       ),
                                     ),
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 8,
                                   ),
                                   Text(
@@ -125,7 +127,8 @@ class Kontakt extends StatelessWidget {
                                       children: [
                                         screenSize.width < 767
                                             ? Container(
-                                                constraints: BoxConstraints(
+                                                constraints:
+                                                    const BoxConstraints(
                                                   minHeight: 30,
                                                 ),
                                                 width: 100,
@@ -140,7 +143,8 @@ class Kontakt extends StatelessWidget {
                                                 ),
                                               )
                                             : Container(
-                                                constraints: BoxConstraints(
+                                                constraints:
+                                                    const BoxConstraints(
                                                   minHeight: 30,
                                                 ),
                                                 // width: 100,
@@ -154,11 +158,11 @@ class Kontakt extends StatelessWidget {
                                                   onTap: () => {launchEmail()},
                                                 ),
                                               ),
-                                        SizedBox(
+                                        const SizedBox(
                                           height: 8,
                                         ),
                                         Container(
-                                          constraints: BoxConstraints(
+                                          constraints: const BoxConstraints(
                                             maxWidth: 200,
                                           ),
                                           width: 100,
@@ -190,7 +194,7 @@ class Kontakt extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Spacer(),
+                  const Spacer(),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -239,7 +243,7 @@ class Kontakt extends StatelessWidget {
                               ),
                               onPressed: () => {launchPhone()},
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 30,
                             )
                           ])),
@@ -256,19 +260,19 @@ class Kontakt extends StatelessWidget {
                           child: Flex(
                             direction: Axis.horizontal,
                             children: [
-                              Spacer(),
+                              const Spacer(),
                               Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   BottomBar(
-                                    child: SizedBox(),
+                                    child: const SizedBox(),
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 10,
                                   ),
                                 ],
                               ),
-                              Spacer(),
+                              const Spacer(),
                             ],
                           ),
                         )
@@ -277,10 +281,10 @@ class Kontakt extends StatelessWidget {
                           children: [
                             FittedBox(
                               child: BottomBar(
-                                child: SizedBox(),
+                                child: const SizedBox(),
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 10,
                             ),
                           ],

@@ -12,17 +12,17 @@ class _DDCommissionedState extends State<DDCommissioned> {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: DropdownButton<String>(
-        hint: Text("Commissioned",
+        hint: const Text("Commissioned",
             style: TextStyle(color: Colors.black, fontSize: 14)),
         elevation: 0,
         underline: Container(
           height: 0,
         ),
-        icon: SizedBox(
+        icon: const SizedBox(
           height: 0,
         ),
         onChanged: (value) {},
-        items: [
+        items: const [
           DropdownMenuItem(
             child: Text("Portfolio A",
                 style: TextStyle(color: Colors.black, fontSize: 14)),

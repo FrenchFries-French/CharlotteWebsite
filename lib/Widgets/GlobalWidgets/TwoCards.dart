@@ -50,7 +50,7 @@ class _TwoCardsState extends State<TwoCards> {
         children: [
           Container(
             constraints: screenSize.width > 440
-                ? BoxConstraints()
+                ? const BoxConstraints()
                 : BoxConstraints(
                     maxWidth: screenSize.width * 0.47,
                   ),
@@ -62,13 +62,13 @@ class _TwoCardsState extends State<TwoCards> {
                     child: Stack(
                       alignment: AlignmentDirectional.bottomEnd,
                       children: [
-                        this.widget.links != null
+                        widget.links != null
                             ? VideoCard(
-                                videoPlayerLink: this.widget.firstImageString,
+                                videoPlayerLink: widget.firstImageString,
                                 thumbnailLink:
-                                    this.widget.firbaseObject!.get("thumbnail"),
+                                    widget.firbaseObject!.get("thumbnail"),
                               )
-                            : this.widget.imageType != null
+                            : widget.imageType != null
                                 ? InkWell(
                                     onTap: () {
                                       showDialog(
@@ -92,9 +92,8 @@ class _TwoCardsState extends State<TwoCards> {
                                                     screenSize.height * 0.92,
                                                 child: Center(
                                                   child: CachedNetworkImage(
-                                                    imageUrl: this
-                                                        .widget
-                                                        .firstImageString,
+                                                    imageUrl:
+                                                        widget.firstImageString,
                                                     width:
                                                         screenSize.width * 0.92,
                                                     height: screenSize.width <
@@ -129,8 +128,7 @@ class _TwoCardsState extends State<TwoCards> {
                                           screenSize.width > 550 ? 35.h : 30.h,
                                       child: ClipRRect(
                                         child: CachedNetworkImage(
-                                          imageUrl:
-                                              this.widget.firstImageString,
+                                          imageUrl: widget.firstImageString,
                                           height: screenSize.width > 550
                                               ? 35.h
                                               : 30.h,
@@ -184,7 +182,7 @@ class _TwoCardsState extends State<TwoCards> {
                               albumName: "${widget.firstGalerieName}",
                               showGalleryText: true,
                             ), //This has to be changed to MyHomePage(),
-                            transitionDuration: Duration(seconds: 0),
+                            transitionDuration: const Duration(seconds: 0),
                           ),
                         );
                       },
@@ -204,7 +202,7 @@ class _TwoCardsState extends State<TwoCards> {
           ),
           Container(
             constraints: screenSize.width > 440
-                ? BoxConstraints()
+                ? const BoxConstraints()
                 : BoxConstraints(
                     maxWidth: screenSize.width * 0.47,
                   ),
@@ -219,16 +217,13 @@ class _TwoCardsState extends State<TwoCards> {
                         child: Stack(
                           alignment: AlignmentDirectional.bottomEnd,
                           children: [
-                            this.widget.links != null
+                            widget.links != null
                                 ? VideoCard(
-                                    thumbnailLink: this
-                                        .widget
-                                        .firbaseObject!
-                                        .get("thumbnail"),
-                                    videoPlayerLink:
-                                        this.widget.secondImageString,
+                                    thumbnailLink:
+                                        widget.firbaseObject!.get("thumbnail"),
+                                    videoPlayerLink: widget.secondImageString,
                                   )
-                                : this.widget.imageType != null
+                                : widget.imageType != null
                                     ? InkWell(
                                         onTap: () {
                                           showDialog(
@@ -252,8 +247,7 @@ class _TwoCardsState extends State<TwoCards> {
                                                         0.92,
                                                     child: Center(
                                                       child: CachedNetworkImage(
-                                                        imageUrl: this
-                                                            .widget
+                                                        imageUrl: widget
                                                             .secondImageString,
 
                                                         width:
@@ -299,8 +293,7 @@ class _TwoCardsState extends State<TwoCards> {
                                               ? 35.h
                                               : 30.h,
                                           child: CachedNetworkImage(
-                                            imageUrl:
-                                                this.widget.secondImageString,
+                                            imageUrl: widget.secondImageString,
                                             height: screenSize.width > 550
                                                 ? 35.h
                                                 : 30.h,
@@ -364,7 +357,7 @@ class _TwoCardsState extends State<TwoCards> {
                                   albumName: "${widget.secondGalerieName}",
                                   showGalleryText: true,
                                 ), //This has to be changed to MyHomePage(),
-                                transitionDuration: Duration(seconds: 0),
+                                transitionDuration: const Duration(seconds: 0),
                               ),
                             );
                           },

@@ -20,7 +20,7 @@ class _NewVideoCardState extends State<NewVideoCard> {
   @override
   void initState() {
     _controller = VideoPlayerController.network(
-      this.widget.videoPlayerLink,
+      widget.videoPlayerLink,
       videoPlayerOptions: VideoPlayerOptions(
         mixWithOthers: true,
       ),
@@ -34,7 +34,7 @@ class _NewVideoCardState extends State<NewVideoCard> {
       if (_controller.value.position.inSeconds >=
           _controller.value.duration.inSeconds) {
         isPLaying = false;
-        await _controller.seekTo(Duration(seconds: 0));
+        await _controller.seekTo(const Duration(seconds: 0));
       }
     });
   }
@@ -76,7 +76,8 @@ class _NewVideoCardState extends State<NewVideoCard> {
                           child: FittedBox(
                             fit: BoxFit.cover,
                             child: Container(
-                              margin: EdgeInsets.symmetric(horizontal: 10),
+                              margin:
+                                  const EdgeInsets.symmetric(horizontal: 10),
                               width: _controller.value.size.width,
                               height: _controller.value.size.height,
                               child: VideoPlayer(_controller),
@@ -86,7 +87,7 @@ class _NewVideoCardState extends State<NewVideoCard> {
                   //FURTHER IMPLEMENTATION
 
                   isPLaying == false
-                      ? Container(
+                      ? SizedBox(
                           height: width < 460 ? height * 0.3 : height * 0.6,
                           width: width < 767
                               ? width < 425
@@ -97,11 +98,12 @@ class _NewVideoCardState extends State<NewVideoCard> {
                             child: FittedBox(
                               fit: BoxFit.cover,
                               child: Container(
-                                margin: EdgeInsets.symmetric(horizontal: 10),
+                                margin:
+                                    const EdgeInsets.symmetric(horizontal: 10),
                                 width: _controller.value.size.width,
                                 height: _controller.value.size.height,
                                 child: CachedNetworkImage(
-                                  imageUrl: this.widget.thumbnailLink,
+                                  imageUrl: widget.thumbnailLink,
                                   // height:
                                   //     width < 460 ? height * 0.3 : height * 0.6,
                                   // width: width < 767
@@ -114,7 +116,7 @@ class _NewVideoCardState extends State<NewVideoCard> {
                                   fadeOutCurve: Curves.ease,
                                   placeholder:
                                       (BuildContext context, String url) =>
-                                          Container(
+                                          SizedBox(
                                     height: width < 460
                                         ? height * 0.3
                                         : height * 0.6,
@@ -134,7 +136,7 @@ class _NewVideoCardState extends State<NewVideoCard> {
                           ),
                         )
                       : Container(),
-                  Container(
+                  SizedBox(
                     height: width < 460 ? height * 0.3 : height * 0.6,
                     width: width < 767
                         ? width < 425
@@ -155,15 +157,15 @@ class _NewVideoCardState extends State<NewVideoCard> {
                         // _controller.pl
                       },
                       child: isPLaying
-                          ? Opacity(
+                          ? const Opacity(
                               opacity: 0,
-                              child: Icon(
+                              child: const Icon(
                                 Icons.pause,
                                 size: 42,
                                 color: Colors.white,
                               ),
                             )
-                          : Icon(
+                          : const Icon(
                               Icons.play_arrow,
                               size: 42,
                               color: Colors.white,
@@ -273,7 +275,7 @@ class _NewVideoCardState extends State<NewVideoCard> {
           return Center(
             child: Container(
               // color: Colors.white,
-              child: CircularProgressIndicator.adaptive(
+              child: const CircularProgressIndicator.adaptive(
                 backgroundColor: Colors.white,
               ),
             ),

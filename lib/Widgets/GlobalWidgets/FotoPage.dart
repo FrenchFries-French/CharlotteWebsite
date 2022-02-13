@@ -25,7 +25,7 @@ class FotoPage extends StatelessWidget {
   ScrollController _scrollController = ScrollController();
   Future<void> _scrollToTop() async {
     await _scrollController.animateTo(0,
-        duration: Duration(milliseconds: 100), curve: Curves.linear);
+        duration: const Duration(milliseconds: 100), curve: Curves.linear);
   }
 
   Widget build(BuildContext context) {
@@ -53,21 +53,21 @@ class FotoPage extends StatelessWidget {
               screenSize.width < 1080
                   ? FittedBox(
                       child: LoadMoreFireStoreWidget(
-                        collectionName: this.albumName,
+                        collectionName: albumName,
                         //  "Urban",
                         initialLimit: 10,
-                        showGalleryText: this.showGalleryText,
+                        showGalleryText: showGalleryText,
                       ),
                     )
                   : Container(
-                      margin: EdgeInsets.symmetric(
+                      margin: const EdgeInsets.symmetric(
                         horizontal: 10,
                       ),
                       child: LoadMoreFireStoreWidget(
-                        collectionName: this.albumName
+                        collectionName: albumName
                         // "Urban"
                         ,
-                        showGalleryText: this.showGalleryText,
+                        showGalleryText: showGalleryText,
                         initialLimit: 10,
                       ),
                     ),
@@ -88,7 +88,7 @@ class FotoPage extends StatelessWidget {
                         onTap: _scrollToTop,
                       ),
                     ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
             ],

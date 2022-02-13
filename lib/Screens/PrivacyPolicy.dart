@@ -3,6 +3,8 @@ import '../Widgets/GlobalWidgets/MyDynamicHeader.dart';
 import '../Widgets/GlobalWidgets/BottomNavBar.dart';
 
 class PrivacyPolicy extends StatelessWidget {
+  const PrivacyPolicy({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;

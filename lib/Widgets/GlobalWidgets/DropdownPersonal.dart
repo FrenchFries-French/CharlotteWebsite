@@ -30,37 +30,36 @@ class _DDPersonalState extends State<DDPersonal> {
             color: Colors.black,
             fontSize: 2.3.w,
           )),
-      offset: Offset(-20, 25),
+      offset: const Offset(-20, 25),
       itemBuilder: (BuildContext context) => <PopupMenuEntry<PopupMenuButton>>[
         PopupMenuItem(
           padding: EdgeInsets.zero,
           child: PopupMenuButton<String>(
             padding: EdgeInsets.zero,
-            child: SizedBox(
+            child: const SizedBox(
                 height: kMinInteractiveDimension,
-                child: Center(
-                  child: Text('Portrait'),
-                )),
+                child: Center(child: Text('Portrait'))),
 
             onSelected: (String result) {},
 
-            offset: width > 400 ? Offset(100, -20) : Offset(155, -20),
+            offset:
+                width > 400 ? const Offset(100, -20) : const Offset(155, -20),
             itemBuilder: (BuildContext context) => widget.dynamicList
                 .map(
                   (e) => PopupMenuItem<String>(
                     // value: "All Albums",
-                    value: "$e",
-                    child: Text('$e'),
+                    value: e,
+                    child: Text(e),
                     onTap: () {
                       Navigator.push(
                         context,
                         PageRouteBuilder(
                           pageBuilder: (context, animation1, animation2) =>
                               FotoPage(
-                            albumName: "$e",
+                            albumName: e,
                             showGalleryText: true,
                           ), //This has to be changed to MyHomePage(),
-                          transitionDuration: Duration(seconds: 0),
+                          transitionDuration: const Duration(seconds: 0),
                         ),
                       );
                       Navigator.push(
@@ -68,10 +67,10 @@ class _DDPersonalState extends State<DDPersonal> {
                         PageRouteBuilder(
                           pageBuilder: (context, animation1, animation2) =>
                               FotoPage(
-                            albumName: "$e",
+                            albumName: e,
                             showGalleryText: true,
                           ), //This has to be changed to MyHomePage(),
-                          transitionDuration: Duration(seconds: 0),
+                          transitionDuration: const Duration(seconds: 0),
                         ),
                       );
                     },
@@ -99,7 +98,7 @@ class _DDPersonalState extends State<DDPersonal> {
           ),
         ),
         PopupMenuItem(
-          child: Center(child: Text('Urban')),
+          child: const Center(child: Text('Urban')),
           enabled: true,
           onTap: () {
             Navigator.push(
@@ -109,7 +108,7 @@ class _DDPersonalState extends State<DDPersonal> {
                   albumName: "Urban",
                   showGalleryText: false,
                 ), //This has to be changed to MyHomePage(),
-                transitionDuration: Duration(seconds: 0),
+                transitionDuration: const Duration(seconds: 0),
               ),
             );
             Navigator.push(
@@ -119,13 +118,13 @@ class _DDPersonalState extends State<DDPersonal> {
                   albumName: "Urban",
                   showGalleryText: false,
                 ), //This has to be changed to MyHomePage(),
-                transitionDuration: Duration(seconds: 0),
+                transitionDuration: const Duration(seconds: 0),
               ),
             );
           },
         ),
         PopupMenuItem(
-          child: Center(child: Text('Landscape')),
+          child: const Center(child: Text('Landscape')),
           onTap: () {
             Navigator.push(
               context,
@@ -134,7 +133,7 @@ class _DDPersonalState extends State<DDPersonal> {
                   albumName: "Landscape",
                   showGalleryText: false,
                 ), //This has to be changed to MyHomePage(),
-                transitionDuration: Duration(seconds: 0),
+                transitionDuration: const Duration(seconds: 0),
               ),
             );
             Navigator.push(
@@ -144,13 +143,13 @@ class _DDPersonalState extends State<DDPersonal> {
                   albumName: "Landscape",
                   showGalleryText: false,
                 ), //This has to be changed to MyHomePage(),
-                transitionDuration: Duration(seconds: 0),
+                transitionDuration: const Duration(seconds: 0),
               ),
             );
           },
         ),
         PopupMenuItem(
-          child: Center(child: Text('Film')),
+          child: const Center(child: Text('Film')),
           onTap: () {
             Navigator.push(
               context,
@@ -159,7 +158,7 @@ class _DDPersonalState extends State<DDPersonal> {
                   albumName: "Film",
                   showGalleryText: false,
                 ), //This has to be changed to MyHomePage(),
-                transitionDuration: Duration(seconds: 0),
+                transitionDuration: const Duration(seconds: 0),
               ),
             );
             Navigator.push(
@@ -169,7 +168,7 @@ class _DDPersonalState extends State<DDPersonal> {
                   albumName: "Film",
                   showGalleryText: false,
                 ), //This has to be changed to MyHomePage(),
-                transitionDuration: Duration(seconds: 0),
+                transitionDuration: const Duration(seconds: 0),
               ),
             );
           },

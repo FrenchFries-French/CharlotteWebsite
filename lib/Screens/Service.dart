@@ -9,12 +9,12 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Service extends StatelessWidget {
   launchEmail() {
-    final url = 'mailto:info@never-seen.de';
+    const url = 'mailto:info@never-seen.de';
     launch(url);
   }
 
   launchPhone() {
-    final url = 'tel:+4917663248505';
+    const url = 'tel:+4917663248505';
     launch(url);
   }
 
@@ -32,7 +32,7 @@ class Service extends StatelessWidget {
         preferredSize: Size(screenSize.width, 70),
         child: TopNavBar(),
       ),
-      body: Container(
+      body: SizedBox(
         height: screenSize.height,
         child: Stack(
           // clipBehavior: Clip.none,
@@ -51,8 +51,8 @@ class Service extends StatelessWidget {
                         ),
                         Row(
                           children: [
-                            Spacer(),
-                            Container(
+                            const Spacer(),
+                            SizedBox(
                               width: screenSize.width > 767 ? 67.w : 50.w,
                               //color: Colors.grey,
                               child: Column(
@@ -126,7 +126,7 @@ class Service extends StatelessWidget {
                                 ),
                               ],
                             ),
-                            Spacer(),
+                            const Spacer(),
                           ],
                         ),
                         SizedBox(
@@ -135,9 +135,7 @@ class Service extends StatelessWidget {
                         Row(
                           // mainAxisSize: MainAxisSize.min,
                           children: [
-                            Spacer(
-                              flex: 2,
-                            ),
+                            const Spacer(flex: 2),
                             SizedBox(
                               width: 30.w,
                               child: Flex(
@@ -169,8 +167,8 @@ class Service extends StatelessWidget {
                             // SizedBox(
                             //   width: 10.w,
                             // ),
-                            Spacer(),
-                            Container(
+                            const Spacer(),
+                            SizedBox(
                               // width: 67.w,
                               width: screenSize.width > 767 ? 67.w : 50.w,
                               //color: Colors.grey,
@@ -215,7 +213,7 @@ class Service extends StatelessWidget {
                                 ],
                               ),
                             ),
-                            Spacer(),
+                            const Spacer(),
                           ],
                         ),
                         SizedBox(
@@ -223,8 +221,8 @@ class Service extends StatelessWidget {
                         ),
                         Row(
                           children: [
-                            Spacer(),
-                            Container(
+                            const Spacer(),
+                            SizedBox(
                               width: screenSize.width > 767 ? 67.w : 50.w,
                               //color: Colors.grey,
                               child: Column(
@@ -282,7 +280,7 @@ class Service extends StatelessWidget {
                                 ),
                               ],
                             ),
-                            Spacer(),
+                            const Spacer(),
                           ],
                         ),
                         SizedBox(
@@ -306,7 +304,7 @@ class Service extends StatelessWidget {
                             ),
                             IconButton(
                               onPressed: () => {launchEmail()},
-                              icon: Icon(Icons.mail),
+                              icon: const Icon(Icons.mail),
                               iconSize: screenSize.width > 545 ? 30 : 20,
                             ),
                             SizedBox(
@@ -314,7 +312,7 @@ class Service extends StatelessWidget {
                             ),
                             IconButton(
                               onPressed: () => {launchInstagram()},
-                              icon: FaIcon(FontAwesomeIcons.instagram),
+                              icon: const FaIcon(FontAwesomeIcons.instagram),
                               iconSize: screenSize.width > 545 ? 30 : 20,
                             ),
                           ],
@@ -329,20 +327,20 @@ class Service extends StatelessWidget {
                                 child: Flex(
                                   direction: Axis.horizontal,
                                   children: [
-                                    Spacer(),
+                                    const Spacer(),
                                     Column(
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,
                                       children: [
                                         BottomBar(
-                                          child: SizedBox(),
+                                          child: const SizedBox(),
                                         ),
-                                        SizedBox(
+                                        const SizedBox(
                                           height: 10,
                                         ),
                                       ],
                                     ),
-                                    Spacer(),
+                                    const Spacer(),
                                   ],
                                 ),
                               )
@@ -351,10 +349,10 @@ class Service extends StatelessWidget {
                                 children: [
                                   FittedBox(
                                     child: BottomBar(
-                                      child: SizedBox(),
+                                      child: const SizedBox(),
                                     ),
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 10,
                                   ),
                                 ],

@@ -10,7 +10,7 @@ class LoadMoreFireStoreWidget extends StatefulWidget {
   final String collectionName;
   final int? initialLimit;
   final bool? showGalleryText;
-  LoadMoreFireStoreWidget({
+  const LoadMoreFireStoreWidget({
     Key? key,
     this.initialLimit,
     this.showGalleryText,
@@ -27,7 +27,7 @@ class _LoadMoreFireStoreWidgetState extends State<LoadMoreFireStoreWidget> {
   @override
   void initState() {
     super.initState();
-    limit = this.widget.initialLimit ?? 10; // default
+    limit = widget.initialLimit ?? 10; // default
   }
 
   @override
@@ -36,7 +36,7 @@ class _LoadMoreFireStoreWidgetState extends State<LoadMoreFireStoreWidget> {
       builder: (context, state) {
         return StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
             stream: FirebaseFirestore.instance
-                .collection(this.widget.collectionName) // items
+                .collection(widget.collectionName) // items
                 .orderBy("order",
                     descending:
                         true) // wenn ich 1 als erstes haben will, das hier auf false stellen
@@ -49,7 +49,7 @@ class _LoadMoreFireStoreWidgetState extends State<LoadMoreFireStoreWidget> {
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
-                        "No Data exist in collection ${this.widget.collectionName}",
+                        "No Data exist in collection ${widget.collectionName}",
                       ),
                     ),
                   );
@@ -62,7 +62,7 @@ class _LoadMoreFireStoreWidgetState extends State<LoadMoreFireStoreWidget> {
                       direction: Axis.vertical,
                       children: stream.data!.docs.map((currentItem) {
                         return Container(
-                          padding: EdgeInsets.symmetric(vertical: 1),
+                          padding: const EdgeInsets.symmetric(vertical: 1),
                           child: currentItem.data().containsKey("type")
                               ? currentItem.get("type").toString() == "onecard"
                                   ? OneCard(
@@ -79,13 +79,13 @@ class _LoadMoreFireStoreWidgetState extends State<LoadMoreFireStoreWidget> {
                                               .data()
                                               .containsKey("showText")
                                           ? currentItem.get("showText")
-                                          : this.widget.showGalleryText,
+                                          : widget.showGalleryText,
                                     )
                                   : currentItem.get("type").toString() ==
                                           "videocard"
                                       ? OneCard(
                                           showGalleryText:
-                                              this.widget.showGalleryText,
+                                              widget.showGalleryText,
                                           imageString:
                                               currentItem.get('link')[0],
                                           heightMultiplicator: 12,
@@ -104,7 +104,7 @@ class _LoadMoreFireStoreWidgetState extends State<LoadMoreFireStoreWidget> {
                                                   .data()
                                                   .containsKey("showText")
                                               ? currentItem.get("showText")
-                                              : this.widget.showGalleryText,
+                                              : widget.showGalleryText,
                                           firstGalerieName: currentItem
                                                   .data()
                                                   .containsKey("firstname")
@@ -123,7 +123,7 @@ class _LoadMoreFireStoreWidgetState extends State<LoadMoreFireStoreWidget> {
                                           firbaseObject: currentItem,
                                         )
                               // showGalleryText: this.widget.showGalleryText,
-                              : Text("No image reference added"),
+                              : const Text("No image reference added"),
                         );
                       }).toList(),
                     ),
@@ -163,9 +163,9 @@ class _LoadMoreFireStoreWidgetState extends State<LoadMoreFireStoreWidget> {
                 );
               } else {
                 // TODO: Add your own widget for empty records
-                return Center(
+                return const Center(
                     child: Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: EdgeInsets.all(8.0),
                   child: SizedBox(
                     height: 600,
                     child: Center(

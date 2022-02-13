@@ -39,9 +39,9 @@ class ShopCard extends StatelessWidget {
           ),
           TextButton(
               onPressed: onTap,
-              child: Column(children: [
+              child: Column(children: const [
                 Padding(
-                  padding: const EdgeInsets.all(5.0),
+                  padding: EdgeInsets.all(5.0),
                   child: Text(
                     "Photo  'Reveuse' - 25€",
                     style: TextStyle(color: Colors.black, fontSize: 15),

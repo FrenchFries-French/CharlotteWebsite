@@ -34,7 +34,7 @@ class Shop extends StatelessWidget {
                             PageRouteBuilder(
                               pageBuilder: (context, animation1, animation2) =>
                                   ReveuseShop(),
-                              transitionDuration: Duration(seconds: 0),
+                              transitionDuration: const Duration(seconds: 0),
                             ),
                           );
                         },
@@ -54,9 +54,7 @@ class Shop extends StatelessWidget {
                         imageHeight: 0.75,
                         onTap: () {},
                       ),
-                      BottomBar(
-                        child: SizedBox(),
-                      ), // TODO 3: Funktionen zu den Buttons müssen hinzufügt werden
+                      BottomBar(child: const SizedBox()),
                     ]),
               )
             ],

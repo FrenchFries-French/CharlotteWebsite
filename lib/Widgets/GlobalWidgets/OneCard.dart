@@ -60,15 +60,13 @@ class _OneCardState extends State<OneCard> {
                         clipBehavior: Clip.hardEdge,
                         alignment: AlignmentDirectional.bottomEnd,
                         children: [
-                          this.widget.video != null
+                          widget.video != null
                               ? VideoCard(
-                                  thumbnailLink: this
-                                      .widget
-                                      .firbaseObject!
-                                      .get("thumbnail"),
-                                  videoPlayerLink: this.widget.imageString,
+                                  thumbnailLink:
+                                      widget.firbaseObject!.get("thumbnail"),
+                                  videoPlayerLink: widget.imageString,
                                 )
-                              : this.widget.imageType != null
+                              : widget.imageType != null
                                   ? InkWell(
                                       onTap: () {
                                         showDialog(
@@ -92,9 +90,8 @@ class _OneCardState extends State<OneCard> {
                                                       screenSize.height * 0.92,
                                                   child: Center(
                                                     child: CachedNetworkImage(
-                                                      imageUrl: this
-                                                          .widget
-                                                          .imageString,
+                                                      imageUrl:
+                                                          widget.imageString,
                                                       fit: BoxFit.contain,
                                                       width: screenSize.width *
                                                           0.92,
@@ -115,13 +112,13 @@ class _OneCardState extends State<OneCard> {
                                                   ),
                                                 ),
                                               ),
-                                              actions: [],
+                                              actions: const [],
                                             );
                                           },
                                         );
                                       },
                                       child: CachedNetworkImage(
-                                        imageUrl: this.widget.imageString,
+                                        imageUrl: widget.imageString,
                                         // width: 1000,
                                         height: screenSize.width > 550
                                             ? 40.h
@@ -171,10 +168,10 @@ class _OneCardState extends State<OneCard> {
                             PageRouteBuilder(
                               pageBuilder: (context, animation1, animation2) =>
                                   FotoPage(
-                                albumName: "${widget.galerieName}",
+                                albumName: widget.galerieName,
                                 showGalleryText: true,
                               ), //This has to be changed to MyHomePage(),
-                              transitionDuration: Duration(seconds: 0),
+                              transitionDuration: const Duration(seconds: 0),
                             ),
                           );
                         },
