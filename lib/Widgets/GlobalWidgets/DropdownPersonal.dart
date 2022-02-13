@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'FotoPage.dart';
@@ -9,7 +8,7 @@ class DDPersonal extends StatefulWidget {
   const DDPersonal({Key? key, required this.dynamicList}) : super(key: key);
   @override
   State<StatefulWidget> createState() {
-    return new _DDPersonalState();
+    return _DDPersonalState();
   }
 }
 

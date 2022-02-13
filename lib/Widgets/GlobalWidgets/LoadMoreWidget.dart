@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:charletwebsite/Widgets/GlobalWidgets/OneCard.dart';
 import 'package:charletwebsite/Widgets/GlobalWidgets/TwoCards.dart';
-import 'package:charletwebsite/Widgets/GlobalWidgets/videoCard.dart';
 import 'package:sizer/sizer.dart';
 
 //  This Widget will load list of data from Firebase
@@ -44,7 +43,7 @@ class _LoadMoreFireStoreWidgetState extends State<LoadMoreFireStoreWidget> {
                 .snapshots(),
             builder: (context, stream) {
               if (stream.hasData) {
-                if (stream.data!.docs.length <= 0) {
+                if (stream.data!.docs.isEmpty) {
                   return Center(
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
@@ -128,7 +127,7 @@ class _LoadMoreFireStoreWidgetState extends State<LoadMoreFireStoreWidget> {
                       }).toList(),
                     ),
                     stream.data!.docs.length < limit &&
-                            stream.data!.docs.length != 0
+                            stream.data!.docs.isNotEmpty
                         ? Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Container(),

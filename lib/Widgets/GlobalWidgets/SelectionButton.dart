@@ -9,11 +9,12 @@ class SelectionButton extends StatelessWidget {
   final Widget? child;
 
   const SelectionButton({
+    Key? key,
     required this.name,
     required this.onTap,
     this.fontStyle,
     this.child,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

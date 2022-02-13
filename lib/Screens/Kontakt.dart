@@ -39,7 +39,7 @@ class Kontakt extends StatelessWidget {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size(screenSize.width, 80),
-        child: TopNavBar(),
+        child: const TopNavBar(),
       ),
       backgroundColor: Colors.white,
       body: SizedBox(
@@ -262,11 +262,11 @@ class Kontakt extends StatelessWidget {
                               const Spacer(),
                               Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  const BottomBar(
+                                children: const [
+                                  BottomBar(
                                     child: SizedBox(),
                                   ),
-                                  const SizedBox(
+                                  SizedBox(
                                     height: 10,
                                   ),
                                 ],

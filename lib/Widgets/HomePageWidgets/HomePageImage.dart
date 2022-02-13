@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class HomePageImage extends StatefulWidget {
+  const HomePageImage({Key? key}) : super(key: key);
+
   @override
   _HomePageImageState createState() => _HomePageImageState();
 }

@@ -7,7 +7,7 @@ import 'package:charletwebsite/Screens/Kontakt.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class BottomBar extends StatelessWidget {
-  const BottomBar({required this.child});
+  const BottomBar({required this.child, Key? key}) : super(key: key);
 
   final Widget child;
 

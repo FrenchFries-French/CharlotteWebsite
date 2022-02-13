@@ -3,14 +3,16 @@
 import 'package:flutter/material.dart';
 
 class ShopCard extends StatelessWidget {
-  ShopCard(
-      {required this.imageString,
+  const ShopCard(
+      {Key? key,
+      required this.imageString,
       required this.imageHeight,
-      required this.onTap});
+      required this.onTap})
+      : super(key: key);
 
-  String imageString;
-  double imageHeight;
-  Function() onTap;
+  final String imageString;
+  final double imageHeight;
+  final Function() onTap;
 
   @override
   Widget build(BuildContext context) {

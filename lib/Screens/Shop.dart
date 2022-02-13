@@ -53,7 +53,7 @@ class Shop extends StatelessWidget {
                   imageHeight: 0.75,
                   onTap: () {},
                 ),
-                BottomBar(child: const SizedBox()),
+                const BottomBar(child: SizedBox()),
               ])
             ],
           ))

@@ -32,7 +32,7 @@ class Service extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: PreferredSize(
         preferredSize: Size(screenSize.width, 70),
-        child: TopNavBar(),
+        child: const TopNavBar(),
       ),
       body: SizedBox(
         height: screenSize.height,
@@ -80,27 +80,28 @@ class Service extends StatelessWidget {
                                   SizedBox(
                                     height: 1.h,
                                   ),
-                                  BulletPointService(
+                                  const BulletPointService(
                                     text: 'Corporate Photography',
                                   ),
                                   SizedBox(
                                     height: 1.h,
                                   ),
-                                  BulletPointService(
+                                  const BulletPointService(
                                     text: 'Product Photographie',
                                   ),
                                   SizedBox(
                                     height: 1.h,
                                   ),
-                                  BulletPointService(text: 'Areal Photography'),
+                                  const BulletPointService(
+                                      text: 'Areal Photography'),
                                   SizedBox(
                                     height: 1.h,
                                   ),
-                                  BulletPointService(text: 'Retouching'),
+                                  const BulletPointService(text: 'Retouching'),
                                   SizedBox(
                                     height: 1.h,
                                   ),
-                                  BulletPointService(
+                                  const BulletPointService(
                                       text: 'People Photography'),
                                 ],
                               ),
@@ -197,21 +198,22 @@ class Service extends StatelessWidget {
                                   SizedBox(
                                     height: 1.h,
                                   ),
-                                  BulletPointService(
+                                  const BulletPointService(
                                       text: 'Director of Photography'),
                                   SizedBox(
                                     height: 1.h,
                                   ),
-                                  BulletPointService(text: 'Film Production'),
+                                  const BulletPointService(
+                                      text: 'Film Production'),
                                   SizedBox(
                                     height: 1.h,
                                   ),
-                                  BulletPointService(
+                                  const BulletPointService(
                                       text: 'Schnitt und Colorist'),
                                   SizedBox(
                                     height: 1.h,
                                   ),
-                                  BulletPointService(text: 'Editor'),
+                                  const BulletPointService(text: 'Editor'),
                                 ],
                               ),
                             ),
@@ -250,7 +252,7 @@ class Service extends StatelessWidget {
                                   SizedBox(
                                     height: 1.h,
                                   ),
-                                  BulletPointService(
+                                  const BulletPointService(
                                       text:
                                           'Creative direction for photo and film'),
                                   SizedBox(
@@ -333,11 +335,11 @@ class Service extends StatelessWidget {
                                     Column(
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,
-                                      children: [
+                                      children: const [
                                         BottomBar(
-                                          child: const SizedBox(),
+                                          child: SizedBox(),
                                         ),
-                                        const SizedBox(
+                                        SizedBox(
                                           height: 10,
                                         ),
                                       ],

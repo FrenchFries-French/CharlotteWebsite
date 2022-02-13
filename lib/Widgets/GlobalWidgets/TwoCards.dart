@@ -9,7 +9,7 @@ class TwoCards extends StatefulWidget {
   final List<dynamic>? links;
   final bool? showGalleryText;
   final QueryDocumentSnapshot<Map<String, dynamic>>? firbaseObject;
-  TwoCards({
+  const TwoCards({
     Key? key,
     this.firstHeightMultiplicator = 0.45,
     this.secondHeightMultiplicator = 0.6,
@@ -23,13 +23,13 @@ class TwoCards extends StatefulWidget {
     this.firbaseObject,
   }) : super(key: key);
 
-  double firstHeightMultiplicator;
-  double secondHeightMultiplicator;
+  final double firstHeightMultiplicator;
+  final double secondHeightMultiplicator;
   final String? imageType;
-  String firstGalerieName;
-  String secondImageString;
-  String firstImageString;
-  String secondGalerieName;
+  final String firstGalerieName;
+  final String secondImageString;
+  final String firstImageString;
+  final String secondGalerieName;
 
   @override
   _TwoCardsState createState() => _TwoCardsState();
@@ -336,13 +336,11 @@ class _TwoCardsState extends State<TwoCards> {
                       ),
                       if (widget.showGalleryText == null ||
                           widget.showGalleryText == true)
-                        Container(
-                          child: Text(
-                            widget.secondGalerieName,
-                            style: TextStyle(
-                              fontSize: 1.1.h,
-                              color: Colors.black,
-                            ),
+                        Text(
+                          widget.secondGalerieName,
+                          style: TextStyle(
+                            fontSize: 1.1.h,
+                            color: Colors.black,
                           ),
                         ),
                       if (widget.showGalleryText == null ||

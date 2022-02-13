@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:charletwebsite/Screens/About.dart';
 import 'package:charletwebsite/Screens/Kontakt.dart';
 import 'package:charletwebsite/Screens/Service.dart';
@@ -8,10 +7,11 @@ import 'package:charletwebsite/Widgets/GlobalWidgets/DropdownPersonal.dart';
 import '../../Screens/HomePageFirst.dart';
 import 'DropdownPersonal.dart';
 import 'SelectionButton.dart';
-import 'package:charletwebsite/Widgets/GlobalWidgets/FotoPage.dart';
 import 'package:sizer/sizer.dart';
 
 class TopNavBar extends StatefulWidget {
+  const TopNavBar({Key? key}) : super(key: key);
+
   @override
   _TopNavBarState createState() => _TopNavBarState();
 }
@@ -37,17 +37,17 @@ class _TopNavBarState extends State<TopNavBar> {
                 List<String> dynamicList = ["AllAlbums"];
 
                 if (snapshot.data!.docs.isNotEmpty) {
-                  List<String>.from(snapshot.data!.docs[0].data()['names'])
-                      .forEach((element) {
+                  for (var element in List<String>.from(
+                      snapshot.data!.docs[0].data()['names'])) {
                     dynamicList.add(element);
-                  });
+                  }
                 }
                 return Flex(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   direction: Axis.horizontal,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Container(
+                    SizedBox(
                         height: 5.w,
                         child: Center(
                             child: Text(
@@ -76,8 +76,6 @@ class _TopNavBarState extends State<TopNavBar> {
                       child: DDPersonal(dynamicList: dynamicList),
                     ),
 
-                    // TODO: @FrenchFries-French I am removing Expanded Widget because it was throwing this exception
-                    // Use FittedBoX Widget instead to take available space
                     /**
                 * The following assertion was thrown while applying parent data.:
                   Incorrect use of ParentDataWidget.

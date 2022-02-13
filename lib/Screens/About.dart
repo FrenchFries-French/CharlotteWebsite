@@ -1,3 +1,4 @@
+// ignore: file_names
 import 'package:flutter/material.dart';
 import 'package:charletwebsite/Widgets/GlobalWidgets/TopNavBar.dart';
 import '../Widgets/GlobalWidgets/BottomNavBar.dart';
@@ -14,7 +15,7 @@ class About extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: PreferredSize(
         preferredSize: Size(screenSize.width, 80),
-        child: TopNavBar(),
+        child: const TopNavBar(),
       ),
       body: SizedBox(
         height: screenSize.height,
@@ -109,13 +110,13 @@ class About extends StatelessWidget {
                             )
                           : Column(
                               mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
+                              children: const [
                                 FittedBox(
-                                  child: const BottomBar(
+                                  child: BottomBar(
                                     child: SizedBox(),
                                   ),
                                 ),
-                                const SizedBox(
+                                SizedBox(
                                   height: 10,
                                 ),
                               ],

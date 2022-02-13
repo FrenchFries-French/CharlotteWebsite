@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:charletwebsite/Widgets/GlobalWidgets/FotoPage.dart';
 import 'package:charletwebsite/Widgets/GlobalWidgets/videoCard.dart';
@@ -10,7 +11,8 @@ class OneCard extends StatefulWidget {
   final bool? video;
   final bool? showGalleryText;
   final QueryDocumentSnapshot<Map<String, dynamic>>? firbaseObject;
-  OneCard({
+  const OneCard({
+    Key? key,
     required this.imageString,
     required this.heightMultiplicator,
     required this.galerieName,
@@ -19,21 +21,18 @@ class OneCard extends StatefulWidget {
     this.video,
     this.imageType,
     this.firbaseObject,
-  });
+  }) : super(key: key);
 
-  String imageString;
-  double heightMultiplicator = 0.65;
-  String galerieName;
-  String kuenstler;
+  final String imageString;
+  final double heightMultiplicator;
+  final String galerieName;
+  final String kuenstler;
 
   @override
   _OneCardState createState() => _OneCardState();
 }
 
 class _OneCardState extends State<OneCard> {
-  bool _isHovered = false;
-  double _opacity = 0;
-
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
@@ -46,7 +45,9 @@ class _OneCardState extends State<OneCard> {
             GestureDetector(
                 //Vorher war es Mouse Region
                 onTap: () {
-                  print("Tapped");
+                  if (kDebugMode) {
+                    print("Tapped");
+                  }
                 },
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -153,11 +154,9 @@ class _OneCardState extends State<OneCard> {
                     ),
                     if (widget.showGalleryText == null ||
                         widget.showGalleryText == true)
-                      Container(
-                        child: Text(
-                          widget.galerieName,
-                          style: TextStyle(fontSize: 1.1.h),
-                        ),
+                      Text(
+                        widget.galerieName,
+                        style: TextStyle(fontSize: 1.1.h),
                       ),
                     if (widget.showGalleryText == null ||
                         widget.showGalleryText == true)

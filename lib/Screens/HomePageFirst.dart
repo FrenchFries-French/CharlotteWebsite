@@ -1,12 +1,9 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:charletwebsite/Widgets/GlobalWidgets/LoadMoreWidget.dart';
 import 'package:charletwebsite/Widgets/GlobalWidgets/SelectionButton.dart';
 import 'package:charletwebsite/Widgets/HomePageWidgets/ImageCarousel.dart';
-import 'package:zoom_widget/zoom_widget.dart';
 import '../Widgets/GlobalWidgets/TopNavBar.dart';
 import '../Widgets/GlobalWidgets/BottomNavBar.dart';
 import '../Widgets/HomePageWidgets/ImageCarousel.dart';
@@ -64,7 +61,7 @@ class MyHomePage extends StatelessWidget {
               children: [
                 screenSize.width < 1080
                     ? Row(
-                        children: [
+                        children: const [
                           Expanded(
                             child: LoadMoreFireStoreWidget(
                               collectionName: "HomePage",

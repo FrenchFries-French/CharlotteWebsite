@@ -413,7 +413,7 @@ class _VideoCardState extends State<VideoCard> {
                               ? width
                               : width * 0.78
                           : width * 0.54,
-                      child: Icon(
+                      child: const Icon(
                         Icons.play_arrow,
                         size: 42,
                         color: Colors.white,

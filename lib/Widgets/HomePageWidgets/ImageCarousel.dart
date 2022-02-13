@@ -5,7 +5,7 @@ import 'package:sizer/sizer.dart';
 
 class ImageCarousel extends StatefulWidget {
   final double? height;
-  ImageCarousel({Key? key, this.height}) : super(key: key);
+  const ImageCarousel({Key? key, this.height}) : super(key: key);
   @override
   _ImageCarouselState createState() => _ImageCarouselState();
 }
@@ -44,16 +44,14 @@ class _ImageCarouselState extends State<ImageCarousel> {
         scrollDirection: Axis.vertical,
       ),
       items: imgList
-          .map((item) => Container(
-                child: Center(
-                    child: Image.network(
-                  item,
-                  // fit: BoxFit.fitHeight,
-                  fit: BoxFit.cover,
-                  width: 200.w,
-                  height: 200.h,
-                )),
-              ))
+          .map((item) => Center(
+                  child: Image.network(
+                item,
+                // fit: BoxFit.fitHeight,
+                fit: BoxFit.cover,
+                width: 200.w,
+                height: 200.h,
+              )))
           .toList(),
     );
   }

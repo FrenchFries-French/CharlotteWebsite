@@ -22,8 +22,8 @@ class PrivacyPolicy extends StatelessWidget {
                 color: Colors.white,
                 height: screenSize.height * 0.7,
               ),
-              BottomBar(
-                child: const SizedBox(),
+              const BottomBar(
+                child: SizedBox(),
               ),
             ]),
           )

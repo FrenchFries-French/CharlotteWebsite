@@ -22,7 +22,7 @@ class ReveuseShop extends StatelessWidget {
                 color: Colors.white,
                 height: screenSize.height * 0.7,
               ),
-              BottomBar(
+              const BottomBar(
                 child: SizedBox(),
               ),
             ]),

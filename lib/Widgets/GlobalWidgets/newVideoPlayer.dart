@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
 class NewVideoCard extends StatefulWidget {
-  String videoPlayerLink;
-  String thumbnailLink;
-  NewVideoCard(
+  final String videoPlayerLink;
+  final String thumbnailLink;
+  const NewVideoCard(
       {Key? key, required this.videoPlayerLink, required this.thumbnailLink})
       : super(key: key);
 
@@ -159,7 +159,7 @@ class _NewVideoCardState extends State<NewVideoCard> {
                       child: isPLaying
                           ? const Opacity(
                               opacity: 0,
-                              child: const Icon(
+                              child: Icon(
                                 Icons.pause,
                                 size: 42,
                                 color: Colors.white,
@@ -272,12 +272,9 @@ class _NewVideoCardState extends State<NewVideoCard> {
         } else {
           // If the VideoPlayerController is still initializing, show a
           // loading spinner.
-          return Center(
-            child: Container(
-              // color: Colors.white,
-              child: const CircularProgressIndicator.adaptive(
-                backgroundColor: Colors.white,
-              ),
+          return const Center(
+            child: CircularProgressIndicator.adaptive(
+              backgroundColor: Colors.white,
             ),
             // child: AnimatedContainer(
             //   duration: Duration(seconds: 1),

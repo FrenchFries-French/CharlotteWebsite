@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:charletwebsite/Widgets/GlobalWidgets/LoadMoreWidget.dart';
 import 'package:charletwebsite/Widgets/GlobalWidgets/SelectionButton.dart';
-import 'package:charletwebsite/Widgets/HomePageWidgets/ImageCarousel.dart';
 import 'TopNavBar.dart';
 import 'BottomNavBar.dart';
 import 'package:sizer/sizer.dart';
@@ -18,16 +17,17 @@ class FotoPage extends StatelessWidget {
   final String albumName;
   final bool showGalleryText;
   FotoPage({
+    Key? key,
     required this.albumName,
     required this.showGalleryText,
-  });
-  @override
-  ScrollController _scrollController = ScrollController();
+  }) : super(key: key);
+  final ScrollController _scrollController = ScrollController();
   Future<void> _scrollToTop() async {
     await _scrollController.animateTo(0,
         duration: const Duration(milliseconds: 100), curve: Curves.linear);
   }
 
+  @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
     return Scaffold(
@@ -43,7 +43,7 @@ class FotoPage extends StatelessWidget {
             elevation: 0,
             leading: Container(),
             backgroundColor: Colors.white,
-            flexibleSpace: TopNavBar(),
+            flexibleSpace: const TopNavBar(),
           ),
         ],
         // controller: _scrollController,

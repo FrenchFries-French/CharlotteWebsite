@@ -39,12 +39,12 @@ class MyApp extends StatelessWidget {
       routes: {
         'home': (context) => MyHomePage(),
         'kontakt': (context) => const Kontakt(),
-        'personalwork': (context) => PersonalWork(),
+        'personalwork': (context) => const PersonalWork(),
         'commissioned': (context) => const Commissioned(),
         'about': (context) => const About(),
-        'service': (context) => Service(),
-        'shop': (context) => Shop(),
-        'termsandconditions': (context) => Termsandconditions(),
+        'service': (context) => const Service(),
+        'shop': (context) => const Shop(),
+        'termsandconditions': (context) => const Termsandconditions(),
       },
     );
     // return Sizer(builder: (context, orientation, deviceType) {

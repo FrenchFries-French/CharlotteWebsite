@@ -12,12 +12,15 @@ class MyDynamicHeader extends SliverPersistentHeaderDelegate {
     bool overlapsContent,
   ) {
     return LayoutBuilder(builder: (context, constraints) {
-      return TopNavBar();
+      return const TopNavBar();
     });
   }
 
   @override
-  bool shouldRebuild(SliverPersistentHeaderDelegate _) => true;
+  bool shouldRebuild(
+          // ignore: avoid_renaming_method_parameters
+          SliverPersistentHeaderDelegate sliverPersistentHeaderDelegate) =>
+      true;
 
   @override
   double get maxExtent =>

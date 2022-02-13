@@ -29,7 +29,7 @@ class PortfolioA extends StatelessWidget {
             leading: Container(),
             elevation: 0,
             backgroundColor: Colors.white,
-            flexibleSpace: TopNavBar(),
+            flexibleSpace: const TopNavBar(),
           ),
         ],
         body: CustomScrollView(
@@ -44,7 +44,7 @@ class PortfolioA extends StatelessWidget {
                   ? FittedBox(
                       child: Container(
                         margin: const EdgeInsets.symmetric(horizontal: 20),
-                        child: SizedBox(
+                        child: const SizedBox(
                           child: OneCard(
                             imageString: 'assets/images/reveuse2.jpeg',
                             heightMultiplicator: 0,
@@ -54,7 +54,7 @@ class PortfolioA extends StatelessWidget {
                         ),
                       ),
                     )
-                  : OneCard(
+                  : const OneCard(
                       imageString: 'assets/images/reveuse2.jpeg',
                       heightMultiplicator: 0,
                       galerieName: "Paula",
@@ -67,7 +67,7 @@ class PortfolioA extends StatelessWidget {
                   ? FittedBox(
                       child: Container(
                         margin: const EdgeInsets.symmetric(horizontal: 20),
-                        child: TwoCards(
+                        child: const TwoCards(
                           firstImageString: 'assets/images/reveuse2.jpeg',
                           firstHeightMultiplicator: 0,
                           secondImageString: 'assets/images/envogue.jpg',
@@ -77,7 +77,7 @@ class PortfolioA extends StatelessWidget {
                         ),
                       ),
                     )
-                  : TwoCards(
+                  : const TwoCards(
                       firstImageString: 'assets/images/reveuse2.jpeg',
                       firstHeightMultiplicator: 0,
                       secondImageString: 'assets/images/envogue.jpg',
@@ -92,7 +92,7 @@ class PortfolioA extends StatelessWidget {
                   ? FittedBox(
                       child: Container(
                         margin: const EdgeInsets.symmetric(horizontal: 20),
-                        child: OneCard(
+                        child: const OneCard(
                           imageString: 'assets/images/Mathildedoppelt.jpeg',
                           heightMultiplicator: 0,
                           galerieName: "Mathilde",
@@ -100,7 +100,7 @@ class PortfolioA extends StatelessWidget {
                         ),
                       ),
                     )
-                  : OneCard(
+                  : const OneCard(
                       imageString: 'assets/images/Mathildedoppelt.jpeg',
                       heightMultiplicator: 0,
                       galerieName: "Mathilde",
@@ -113,7 +113,7 @@ class PortfolioA extends StatelessWidget {
                   ? FittedBox(
                       child: Container(
                         margin: const EdgeInsets.symmetric(horizontal: 20),
-                        child: TwoCards(
+                        child: const TwoCards(
                           firstImageString: 'assets/images/reveuse2.jpeg',
                           firstHeightMultiplicator: 0,
                           secondImageString: 'assets/images/envogue.jpg',
@@ -123,7 +123,7 @@ class PortfolioA extends StatelessWidget {
                         ),
                       ),
                     )
-                  : TwoCards(
+                  : const TwoCards(
                       firstImageString: 'assets/images/reveuse2.jpeg',
                       firstHeightMultiplicator: 0,
                       secondImageString: 'assets/images/envogue.jpg',
@@ -138,7 +138,7 @@ class PortfolioA extends StatelessWidget {
                   ? FittedBox(
                       child: Container(
                         margin: const EdgeInsets.symmetric(horizontal: 20),
-                        child: OneCard(
+                        child: const OneCard(
                           imageString: 'assets/images/reveuse2.jpeg',
                           heightMultiplicator: 0,
                           galerieName: "Paula",
@@ -146,7 +146,7 @@ class PortfolioA extends StatelessWidget {
                         ),
                       ),
                     )
-                  : OneCard(
+                  : const OneCard(
                       imageString: 'assets/images/reveuse2.jpeg',
                       heightMultiplicator: 0,
                       galerieName: "Paula",
@@ -159,7 +159,7 @@ class PortfolioA extends StatelessWidget {
                   ? FittedBox(
                       child: Container(
                         margin: const EdgeInsets.symmetric(horizontal: 20),
-                        child: TwoCards(
+                        child: const TwoCards(
                           firstImageString: 'assets/images/reveuse2.jpeg',
                           firstHeightMultiplicator: 0,
                           secondImageString: 'assets/images/envogue.jpg',
@@ -169,7 +169,7 @@ class PortfolioA extends StatelessWidget {
                         ),
                       ),
                     )
-                  : TwoCards(
+                  : const TwoCards(
                       firstImageString: 'assets/images/reveuse2.jpeg',
                       firstHeightMultiplicator: 0,
                       secondImageString: 'assets/images/envogue.jpg',
@@ -184,7 +184,7 @@ class PortfolioA extends StatelessWidget {
                   ? FittedBox(
                       child: Container(
                         margin: const EdgeInsets.symmetric(horizontal: 20),
-                        child: OneCard(
+                        child: const OneCard(
                           imageString: 'assets/images/Mathildedoppelt.jpeg',
                           heightMultiplicator: 0,
                           galerieName: "Mathilde",
@@ -192,7 +192,7 @@ class PortfolioA extends StatelessWidget {
                         ),
                       ),
                     )
-                  : OneCard(
+                  : const OneCard(
                       imageString: 'assets/images/Mathildedoppelt.jpeg',
                       heightMultiplicator: 0,
                       galerieName: "Mathilde",
