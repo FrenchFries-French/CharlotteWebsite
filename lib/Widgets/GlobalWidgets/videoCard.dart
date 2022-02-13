@@ -333,7 +333,7 @@ class _VideoCardState extends State<VideoCard> {
           barrierColor: Colors.black.withOpacity(0.4),
           context: context,
           builder: (context) {
-            return Container(
+            return SizedBox(
               height: width < 460 ? height * 0.3 : height * 0.6,
               width: width < 767
                   ? width < 425
@@ -387,29 +387,18 @@ class _VideoCardState extends State<VideoCard> {
               child: Stack(
                 clipBehavior: Clip.none,
                 children: [
-                  Container(
-                    // constraints: BoxConstraints(
-                    //     maxWidth: MediaQuery.of(context).size.width * 0.9),
-                    // height: width < 460 ? height * 0.3 : height * 0.6,
-                    // width: width < 767
-                    //     ? width < 425
-                    //         ? width
-                    //         : width * 0.78
-                    //     : width * 0.54,
-                    child: SizedBox.expand(
-                      child: CachedNetworkImage(
-                        imageUrl: widget.thumbnailLink,
-                        fit: BoxFit.fill,
-                        fadeInCurve: Curves.ease,
-                        fadeOutCurve: Curves.ease,
-                        placeholder: (BuildContext context, String url) =>
-                            Container(
-                          constraints: BoxConstraints(
-                              maxWidth:
-                                  MediaQuery.of(context).size.width * 0.9),
-                          height: width < 460 ? height * 0.3 : height * 0.6,
-                          // color: Colors.white,
-                        ),
+                  SizedBox.expand(
+                    child: CachedNetworkImage(
+                      imageUrl: widget.thumbnailLink,
+                      fit: BoxFit.fill,
+                      fadeInCurve: Curves.ease,
+                      fadeOutCurve: Curves.ease,
+                      placeholder: (BuildContext context, String url) =>
+                          Container(
+                        constraints: BoxConstraints(
+                            maxWidth: MediaQuery.of(context).size.width * 0.9),
+                        height: width < 460 ? height * 0.3 : height * 0.6,
+                        // color: Colors.white,
                       ),
                     ),
                   ),
