@@ -18,6 +18,7 @@ class SelectionButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
     return Padding(
       padding: const EdgeInsets.all(0),
       child: TextButton(
@@ -27,7 +28,7 @@ class SelectionButton extends StatelessWidget {
           children: [
             Text(name,
                 style: GoogleFonts.ubuntu(
-                    fontSize: 2.3.w,
+                    fontSize: 16,
                     fontWeight: FontWeight.w400,
                     color: Colors.black)
                 /*style: TextStyle(

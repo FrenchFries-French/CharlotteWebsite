@@ -7,7 +7,7 @@ import 'package:charletwebsite/Widgets/GlobalWidgets/DropdownPersonal.dart';
 import '../../Screens/HomePageFirst.dart';
 import 'DropdownPersonal.dart';
 import 'SelectionButton.dart';
-import 'package:sizer/sizer.dart';
+// import 'package:sizer/sizer.dart';
 
 class TopNavBar extends StatefulWidget {
   const TopNavBar({Key? key}) : super(key: key);
@@ -21,6 +21,7 @@ class _TopNavBarState extends State<TopNavBar> {
 
   @override
   Widget build(BuildContext context) {
+    double w = MediaQuery.of(context).size.width;
     return Material(
       color: Colors.white,
       child: Flex(
@@ -48,15 +49,17 @@ class _TopNavBarState extends State<TopNavBar> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     SizedBox(
-                        height: 5.w,
+                        height: 0.05 * w,
                         child: Center(
                             child: Text(
                           "Charlotte Lobry",
                           style: TextStyle(
-                              fontSize: 2.5.w, fontWeight: FontWeight.bold),
+                            fontSize: 0.025 * w,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ))),
                     SizedBox(
-                      width: 15.w,
+                      width: 0.12 * w,
                       child: SelectionButton(
                         name: "Home",
                         onTap: () {
@@ -72,7 +75,7 @@ class _TopNavBarState extends State<TopNavBar> {
                       ),
                     ),
                     SizedBox(
-                      width: 12.w,
+                      width: 0.12 * w,
                       child: DDPersonal(dynamicList: dynamicList),
                     ),
 
@@ -87,8 +90,9 @@ class _TopNavBarState extends State<TopNavBar> {
                  */
                     SizedBox(
                       // width: 12.w,
-                      width:
-                          MediaQuery.of(context).size.width > 480 ? 12.w : 13.w,
+                      width: MediaQuery.of(context).size.width > 480
+                          ? 0.12 * w
+                          : 0.13 * w,
                       child: SelectionButton(
                           name: "Service",
                           // child: Container(),
@@ -106,7 +110,9 @@ class _TopNavBarState extends State<TopNavBar> {
                     ),
                     SizedBox(
                       // width: 12.w,
-                      // width: MediaQuery.of(context).size.width > 480 ? 12.w : 13.w,
+                      width: MediaQuery.of(context).size.width > 480
+                          ? 0.12 * w
+                          : 0.13 * w,
                       child: SelectionButton(
                           name: "Kontakt",
                           // child: SizedBox(),
@@ -125,7 +131,7 @@ class _TopNavBarState extends State<TopNavBar> {
                     //DDPersonal(),
                     //DDCommissioned(),
                     SizedBox(
-                      width: 12.w,
+                      width: 0.12 * w,
                       child: SelectionButton(
                           name: "About",
                           // child: SizedBox(),
@@ -185,7 +191,7 @@ class _TopNavBarState extends State<TopNavBar> {
             },
           ),
           Container(
-            width: 1000.w,
+            // width: 1000.w,
             // height: 0.1.h,
             child: Divider(
               // height: 10,

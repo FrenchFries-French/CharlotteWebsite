@@ -27,7 +27,7 @@ class _DDPersonalState extends State<DDPersonal> {
       child: Text("Portfolios",
           style: TextStyle(
             color: Colors.black,
-            fontSize: 2.3.w,
+            fontSize: 16,
           )),
       offset: const Offset(-20, 25),
       itemBuilder: (BuildContext context) => <PopupMenuEntry<PopupMenuButton>>[
