@@ -88,7 +88,7 @@ class _TopNavBarState extends State<TopNavBar> {
                   Typically, Expanded widgets are placed directly inside Flex widgets.
 
                  */
-                    SizedBox(
+                    /*SizedBox(
                       // width: 12.w,
                       width: MediaQuery.of(context).size.width > 480
                           ? 0.12 * w
@@ -107,7 +107,7 @@ class _TopNavBarState extends State<TopNavBar> {
                               ),
                             );
                           }),
-                    ),
+                    ),*/
                     SizedBox(
                       // width: 12.w,
                       width: MediaQuery.of(context).size.width > 480
