@@ -49,15 +49,15 @@ class _TopNavBarState extends State<TopNavBar> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     SizedBox(
-                        height: 0.05 * w,
+                        // height: 0.05 * w,
                         child: Center(
                             child: Text(
-                          "Charlotte Lobry",
-                          style: TextStyle(
-                            fontSize: 0.025 * w,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ))),
+                      "Charlotte Lobry",
+                      style: TextStyle(
+                        fontSize: 0.025 * w,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ))),
                     SizedBox(
                       width: 0.12 * w,
                       child: SelectionButton(
