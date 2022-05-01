@@ -24,14 +24,14 @@ class _DDPersonalState extends State<DDPersonal> {
 
     return PopupMenuButton(
       padding: EdgeInsets.zero,
-      child: Text("Portfolios",
+      child: Text("Portfolio",
           style: TextStyle(
             color: Colors.black,
             fontSize: 16,
           )),
       offset: const Offset(-20, 25),
       itemBuilder: (BuildContext context) => <PopupMenuEntry<PopupMenuButton>>[
-        PopupMenuItem(
+        /*PopupMenuItem(
           padding: EdgeInsets.zero,
           child: PopupMenuButton<String>(
             padding: EdgeInsets.zero,
@@ -121,15 +121,15 @@ class _DDPersonalState extends State<DDPersonal> {
               ),
             );
           },
-        ),
+        ),*/
         PopupMenuItem(
-          child: const Center(child: Text('Landscape')),
+          child: const Center(child: Text('Portrait and Creative photography')),
           onTap: () {
             Navigator.push(
               context,
               PageRouteBuilder(
                 pageBuilder: (context, animation1, animation2) => FotoPage(
-                  albumName: "Landscape",
+                  albumName: "Portrait and Creative photography",
                   showGalleryText: false,
                 ), //This has to be changed to MyHomePage(),
                 transitionDuration: const Duration(seconds: 0),
@@ -139,7 +139,7 @@ class _DDPersonalState extends State<DDPersonal> {
               context,
               PageRouteBuilder(
                 pageBuilder: (context, animation1, animation2) => FotoPage(
-                  albumName: "Landscape",
+                  albumName: "Portrait and Creative photography",
                   showGalleryText: false,
                 ), //This has to be changed to MyHomePage(),
                 transitionDuration: const Duration(seconds: 0),
@@ -148,13 +148,13 @@ class _DDPersonalState extends State<DDPersonal> {
           },
         ),
         PopupMenuItem(
-          child: const Center(child: Text('Film')),
+          child: const Center(child: Text('Everyday (coming soon)')),
           onTap: () {
             Navigator.push(
               context,
               PageRouteBuilder(
                 pageBuilder: (context, animation1, animation2) => FotoPage(
-                  albumName: "Film",
+                  albumName: "Everyday",
                   showGalleryText: false,
                 ), //This has to be changed to MyHomePage(),
                 transitionDuration: const Duration(seconds: 0),
@@ -164,7 +164,7 @@ class _DDPersonalState extends State<DDPersonal> {
               context,
               PageRouteBuilder(
                 pageBuilder: (context, animation1, animation2) => FotoPage(
-                  albumName: "Film",
+                  albumName: "Everyday",
                   showGalleryText: false,
                 ), //This has to be changed to MyHomePage(),
                 transitionDuration: const Duration(seconds: 0),
