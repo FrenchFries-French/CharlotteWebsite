@@ -130,7 +130,7 @@ class _DDPersonalState extends State<DDPersonal> {
               PageRouteBuilder(
                 pageBuilder: (context, animation1, animation2) => FotoPage(
                   albumName: "Portrait and Creative photography",
-                  showGalleryText: false,
+                  showGalleryText: true,
                 ), //This has to be changed to MyHomePage(),
                 transitionDuration: const Duration(seconds: 0),
               ),
@@ -140,7 +140,7 @@ class _DDPersonalState extends State<DDPersonal> {
               PageRouteBuilder(
                 pageBuilder: (context, animation1, animation2) => FotoPage(
                   albumName: "Portrait and Creative photography",
-                  showGalleryText: false,
+                  showGalleryText: true,
                 ), //This has to be changed to MyHomePage(),
                 transitionDuration: const Duration(seconds: 0),
               ),
