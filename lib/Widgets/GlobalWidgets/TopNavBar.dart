@@ -1,3 +1,4 @@
+import 'package:charletwebsite/Screens/CollectionScreens.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:charletwebsite/Screens/About.dart';
@@ -68,6 +69,22 @@ class _TopNavBarState extends State<TopNavBar> {
                             PageRouteBuilder(
                               pageBuilder: (context, animation1, animation2) =>
                                   MyHomePage(), //This has to be changed to MyHomePage(),
+                              transitionDuration: const Duration(seconds: 0),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                    SizedBox(
+                      width: 0.12 * w,
+                      child: SelectionButton(
+                        name: "Collection",
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            PageRouteBuilder(
+                              pageBuilder: (context, animation1, animation2) =>
+                                  CollectionScreen(), //This has to be changed to MyHomePage(),
                               transitionDuration: const Duration(seconds: 0),
                             ),
                           );
