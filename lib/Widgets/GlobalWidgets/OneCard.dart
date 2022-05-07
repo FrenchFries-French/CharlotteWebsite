@@ -61,91 +61,62 @@ class _OneCardState extends State<OneCard> {
                         clipBehavior: Clip.hardEdge,
                         alignment: AlignmentDirectional.bottomEnd,
                         children: [
-                          widget.video != null
-                              ? VideoCard(
-                                  thumbnailLink:
-                                      widget.firbaseObject!.get("thumbnail"),
-                                  videoPlayerLink: widget.imageString,
-                                )
-                              : widget.imageType != null
-                                  ? InkWell(
+                          InkWell(
+                            onTap: () {
+                              showDialog(
+                                context: context,
+                                barrierColor: Colors.black.withOpacity(0.6),
+                                builder: (context) {
+                                  return AlertDialog(
+                                    elevation: 300,
+                                    backgroundColor: Colors.transparent,
+                                    contentPadding: EdgeInsets.zero,
+                                    content: GestureDetector(
                                       onTap: () {
-                                        showDialog(
-                                          context: context,
-                                          barrierColor:
-                                              Colors.black.withOpacity(0.6),
-                                          builder: (context) {
-                                            return AlertDialog(
-                                              elevation: 300,
-                                              backgroundColor:
-                                                  Colors.transparent,
-                                              contentPadding: EdgeInsets.zero,
-                                              content: GestureDetector(
-                                                onTap: () {
-                                                  Navigator.pop(context);
-                                                },
-                                                child: SizedBox(
-                                                  width:
-                                                      screenSize.width * 0.92,
-                                                  height:
-                                                      screenSize.height * 0.92,
-                                                  child: Center(
-                                                    child: CachedNetworkImage(
-                                                      imageUrl:
-                                                          widget.imageString,
-                                                      fit: BoxFit.contain,
-                                                      width: screenSize.width *
-                                                          0.92,
-                                                      height: screenSize.width <
-                                                              480
-                                                          ? screenSize.height *
-                                                              0.5
-                                                          : screenSize.height *
-                                                              0.92,
-                                                      fadeInCurve: Curves.ease,
-                                                      fadeOutCurve: Curves.ease,
-                                                      placeholder:
-                                                          (BuildContext context,
-                                                                  String url) =>
-                                                              Container(),
-                                                      // imageRenderMethodForWeb: ImageR,
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                              actions: const [],
-                                            );
-                                          },
-                                        );
+                                        Navigator.pop(context);
                                       },
-                                      child: CachedNetworkImage(
-                                        imageUrl: widget.imageString,
-                                        // width: 1000,
-                                        height: screenSize.width > 550
-                                            ? 40.h
-                                            : 30.h,
-                                        fit: screenSize.width > 550
-                                            ? BoxFit.contain
-                                            : BoxFit.fill,
-                                        fadeInCurve: Curves.ease,
-                                        fadeOutCurve: Curves.ease,
-                                        placeholder: (BuildContext context,
-                                                String url) =>
-                                            Container(
-                                          // width: 320,
-                                          height: screenSize.width > 550
-                                              ? 40.h
-                                              : 30.h,
-                                          // color: Colors.white,
+                                      child: Center(
+                                        child: CachedNetworkImage(
+                                          imageUrl: widget.imageString,
+                                          fit: BoxFit.contain,
+                                          width: screenSize.width * 0.92,
+                                          height: screenSize.width < 480
+                                              ? screenSize.height * 0.5
+                                              : screenSize.height * 0.52,
+                                          fadeInCurve: Curves.ease,
+                                          fadeOutCurve: Curves.ease,
+                                          placeholder: (BuildContext context,
+                                                  String url) =>
+                                              Container(),
+                                          // imageRenderMethodForWeb: ImageR,
                                         ),
-                                        // imageRenderMethodForWeb: ImageR,
                                       ),
-                                    )
-                                  : Image.asset(
-                                      widget.imageString,
-                                      height: 40.h,
-                                      fit: BoxFit.cover,
                                     ),
+                                    actions: const [],
+                                  );
+                                },
+                              );
+                            },
+                            child: CachedNetworkImage(
+                              imageUrl: widget.imageString,
+                              fit: screenSize.width > 550
+                                  ? BoxFit.cover
+                                  : BoxFit.fill,
+                              // width: screenSize.width * 0.92,
+                              height: screenSize.width < 480
+                                  ? screenSize.height * 0.6
+                                  : screenSize.height * 0.6,
+                              fadeInCurve: Curves.ease,
+                              fadeOutCurve: Curves.ease,
+                              placeholder: (BuildContext context, String url) =>
+                                  Container(
+                                // width: 320,
+                                height: screenSize.width > 550 ? 40.h : 30.h,
+                                // color: Colors.white,
+                              ),
+                              // imageRenderMethodForWeb: ImageR,
+                            ),
+                          )
                         ],
                       ),
                     ),
@@ -156,7 +127,10 @@ class _OneCardState extends State<OneCard> {
                         widget.showGalleryText == true)
                       Text(
                         widget.galerieName,
-                        style: TextStyle(fontSize: 1.1.h),
+                        style: TextStyle(
+                          // fontSize: screenSize.height * 0.016,
+                          fontSize: 18,
+                        ),
                       ),
                     if (widget.showGalleryText == null ||
                         widget.showGalleryText == true)
@@ -177,7 +151,9 @@ class _OneCardState extends State<OneCard> {
                         child: Text(
                           "See galery",
                           style: TextStyle(
-                              fontSize: 1.1.h, color: Colors.grey[600]),
+                              // fontSize: screenSize.height * 0.01,
+                              fontSize: 16,
+                              color: Colors.grey[600]),
                         ),
                       ),
                   ],

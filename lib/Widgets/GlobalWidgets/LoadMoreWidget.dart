@@ -61,96 +61,53 @@ class _LoadMoreFireStoreWidgetState extends State<LoadMoreFireStoreWidget> {
                       direction: Axis.vertical,
                       children: stream.data!.docs.map((currentItem) {
                         return Container(
+                          // color: Colors.black,
                           padding: const EdgeInsets.symmetric(vertical: 1),
                           child: currentItem.data().containsKey("type")
-                              ? currentItem.get("type").toString() == "onecard"
-                                  ? OneCard(
-                                      imageString: currentItem.get('link')[0],
-                                      heightMultiplicator: 12,
-                                      galerieName:
-                                          currentItem.data().containsKey("name")
-                                              ? currentItem.get('name')
-                                              : "",
-                                      kuenstler: "test",
-                                      imageType: "network",
-                                      firbaseObject: currentItem,
-                                      showGalleryText: currentItem
-                                              .data()
-                                              .containsKey("showText")
+                              ? OneCard(
+                                  imageString: currentItem.get('link')[0],
+                                  heightMultiplicator: 12,
+                                  galerieName:
+                                      currentItem.data().containsKey("name")
+                                          ? currentItem.get('name')
+                                          : "",
+                                  kuenstler: "test",
+                                  imageType: "network",
+                                  firbaseObject: currentItem,
+                                  showGalleryText:
+                                      currentItem.data().containsKey("showText")
                                           ? currentItem.get("showText")
                                           : widget.showGalleryText,
-                                    )
-                                  : currentItem.get("type").toString() ==
-                                          "videocard"
-                                      ? OneCard(
-                                          showGalleryText:
-                                              widget.showGalleryText,
-                                          imageString:
-                                              currentItem.get('link')[0],
-                                          heightMultiplicator: 12,
-                                          galerieName: currentItem
-                                                  .data()
-                                                  .containsKey("name")
-                                              ? currentItem.get('name')
-                                              : "",
-                                          kuenstler: "test",
-                                          imageType: "network",
-                                          video: true,
-                                          firbaseObject: currentItem,
-                                        )
-                                      : TwoCards(
-                                          showGalleryText: currentItem
-                                                  .data()
-                                                  .containsKey("showText")
-                                              ? currentItem.get("showText")
-                                              : widget.showGalleryText,
-                                          firstGalerieName: currentItem
-                                                  .data()
-                                                  .containsKey("firstname")
-                                              ? currentItem.get('firstname')
-                                              : "",
-                                          secondImageString:
-                                              currentItem.get('link')[1],
-                                          firstImageString:
-                                              currentItem.get('link')[0],
-                                          secondGalerieName: currentItem
-                                                  .data()
-                                                  .containsKey("secondname")
-                                              ? currentItem.get('secondname')
-                                              : "",
-                                          imageType: "network",
-                                          firbaseObject: currentItem,
-                                        )
-                              // showGalleryText: this.widget.showGalleryText,
+                                )
                               : const Text("No image reference added"),
                         );
                       }).toList(),
                     ),
-                    stream.data!.docs.length < limit &&
-                            stream.data!.docs.isNotEmpty
-                        ? Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Container(),
-                          )
-                        : Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: TextButton(
-                              child: Text(
-                                "Show more",
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 2.w,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                              onPressed: () {
-                                //  Here it will load more data based on limit if initially we have 10 items now it will load 10 more
-                                //  and so on
-                                state.call(() {
-                                  limit = limit + 5;
-                                });
-                              },
-                            ),
-                          )
+                    //   stream.data!.docs.length < limit &&
+                    //           stream.data!.docs.isNotEmpty
+                    //       ? Padding(
+                    //           padding: const EdgeInsets.all(8.0),
+                    //           child: Container(),
+                    //         )
+                    //       : Padding(
+                    //           padding: const EdgeInsets.all(8.0),
+                    //           child: TextButton(
+                    //             child: Text(
+                    //               "Show more",
+                    //               style: TextStyle(
+                    //                   color: Colors.black,
+                    //                   fontSize: 2.w,
+                    //                   fontWeight: FontWeight.bold),
+                    //             ),
+                    //             onPressed: () {
+                    //               //  Here it will load more data based on limit if initially we have 10 items now it will load 10 more
+                    //               //  and so on
+                    //               state.call(() {
+                    //                 limit = limit + 5;
+                    //               });
+                    //             },
+                    //           ),
+                    //         )
                   ],
                 );
               } else if (stream.hasError) {
