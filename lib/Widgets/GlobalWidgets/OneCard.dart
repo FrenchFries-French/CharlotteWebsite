@@ -57,9 +57,9 @@ class _OneCardState extends State<OneCard> {
                           // minWidth: MediaQuery.of(context).size.width * 0.8,
                           maxWidth: MediaQuery.of(context).size.width * 0.95),
                       alignment: AlignmentDirectional.center,
-                      child: Stack(
-                        clipBehavior: Clip.hardEdge,
-                        alignment: AlignmentDirectional.bottomEnd,
+                      child: Column(
+                        // clipBehavior: Clip.hardEdge,
+                        // alignment: AlignmentDirectional.bottomEnd,
                         children: [
                           InkWell(
                             onTap: () {
@@ -82,7 +82,7 @@ class _OneCardState extends State<OneCard> {
                                           width: screenSize.width * 0.92,
                                           height: screenSize.width < 480
                                               ? screenSize.height * 0.5
-                                              : screenSize.height * 0.52,
+                                              : screenSize.height * 0.85,
                                           fadeInCurve: Curves.ease,
                                           fadeOutCurve: Curves.ease,
                                           placeholder: (BuildContext context,
@@ -100,12 +100,10 @@ class _OneCardState extends State<OneCard> {
                             child: CachedNetworkImage(
                               imageUrl: widget.imageString,
                               fit: screenSize.width > 550
-                                  ? BoxFit.cover
+                                  ? BoxFit.contain
                                   : BoxFit.fill,
-                              // width: screenSize.width * 0.92,
-                              height: screenSize.width < 480
-                                  ? screenSize.height * 0.6
-                                  : screenSize.height * 0.6,
+                              // width: screenSize.width * 0.5,
+                              height: MediaQuery.of(context).size.height * 0.6,
                               fadeInCurve: Curves.ease,
                               fadeOutCurve: Curves.ease,
                               placeholder: (BuildContext context, String url) =>
