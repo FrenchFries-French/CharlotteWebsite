@@ -97,11 +97,11 @@ class _LoadMoreFireStoreWidgetState extends State<LoadMoreFireStoreWidget> {
                                 )
                               : imageType == ImageType.TwoCardImage
                                   ? TwoCards(
-                                      firstGalerieName: "${docData['name']}",
+                                      firstGalerieName: "${docData['firstname']}",
                                       secondImageString:
                                           "${docData['link'][1]}",
                                       firstImageString: "${docData['link'][0]}",
-                                      secondGalerieName: "${docData['name']}",
+                                      secondGalerieName: "${docData['secondname']}",
                                     )
                                   : imageType == ImageType.VideoCard
                                       ? VideoCard(
