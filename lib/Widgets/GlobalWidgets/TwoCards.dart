@@ -69,152 +69,149 @@ class _TwoCardsState extends State<TwoCards> {
                                 thumbnailLink:
                                     widget.firbaseObject!.get("thumbnail"),
                               )
-                            : widget.imageType != null
-                                ? InkWell(
-                                    onTap: () {
-                                      showDialog(
-                                        context: context,
-                                        barrierColor:
-                                            Colors.black.withOpacity(0.6),
-                                        builder: (context) {
-                                          return AlertDialog(
-                                            elevation: 300,
-                                            backgroundColor: Colors.transparent,
-                                            contentPadding: EdgeInsets.zero,
-                                            content: GestureDetector(
-                                              onTap: () {
-                                                Navigator.pop(context);
-                                              },
-                                              child: SizedBox(
-                                                // height: screenSize.height * 0.8,
-                                                // width: screenSize.width * 0.8,
+                            :
+                            // :
+                            //  widget.imageType != null
+                            //     ? InkWell(
+                            //         onTap: () {
+                            //           showDialog(
+                            //             context: context,
+                            //             barrierColor:
+                            //                 Colors.black.withOpacity(0.6),
+                            //             builder: (context) {
+                            //               return AlertDialog(
+                            //                 elevation: 300,
+                            //                 backgroundColor: Colors.transparent,
+                            //                 contentPadding: EdgeInsets.zero,
+                            //                 content: GestureDetector(
+                            //                   onTap: () {
+                            //                     Navigator.pop(context);
+                            //                   },
+                            //                   child: SizedBox(
+                            //                     // height: screenSize.height * 0.8,
+                            //                     // width: screenSize.width * 0.8,
+                            //                     width: screenSize.width * 0.92,
+                            //                     height:
+                            //                         screenSize.height * 0.92,
+                            //                     child: Center(
+                            //                       child: CachedNetworkImage(
+                            //                         imageUrl:
+                            //                             widget.firstImageString,
+                            //                         width:
+                            //                             screenSize.width * 0.92,
+                            //                         height: screenSize.width <
+                            //                                 480
+                            //                             ? screenSize.height *
+                            //                                 0.5
+                            //                             : screenSize.height *
+                            //                                 0.92,
+                            //                         fit: BoxFit.contain,
+                            //                         fadeInCurve: Curves.ease,
+                            //                         fadeOutCurve: Curves.ease,
+                            //                         placeholder:
+                            //                             (BuildContext context,
+                            //                                     String url) =>
+                            //                                 Container(
+                            //                           // width: 320,
+                            //                           height: 40.h,
+                            //                           // color: Colors.white,
+                            //                         ),
+                            //                         // imageRenderMethodForWeb: ImageR,
+                            //                       ),
+                            //                     ),
+                            //                   ),
+                            //                 ),
+                            //                 actions: const [],
+                            //               );
+                            //             },
+                            //           );
+                            //         },
+                            //         child: SizedBox(
+                            //           height:
+                            //               screenSize.width > 550 ? 35.h : 30.h,
+                            //           child: ClipRRect(
+                            //             child: CachedNetworkImage(
+                            //               imageUrl: widget.firstImageString,
+                            //               height: screenSize.width > 550
+                            //                   ? 35.h
+                            //                   : 30.h,
+                            //               fit: screenSize.width > 550
+                            //                   ? BoxFit.contain
+                            //                   : BoxFit.fill,
+                            //               fadeInCurve: Curves.ease,
+                            //               fadeOutCurve: Curves.ease,
+                            //               placeholder: (BuildContext context,
+                            //                       String url) =>
+                            //                   Container(
+                            //                 // width: 320,
+                            //                 height: 35.h,
+                            //                 // color: Colors.white,
+                            //               ),
+                            //             ),
+                            //           ),
+                            //         ),
+                            //       )
+                            //     :
+                            InkWell(
+                                onTap: () {
+                                  showDialog(
+                                    context: context,
+                                    barrierColor: Colors.black.withOpacity(0.6),
+                                    builder: (context) {
+                                      return AlertDialog(
+                                        elevation: 300,
+                                        backgroundColor: Colors.transparent,
+                                        contentPadding: EdgeInsets.zero,
+                                        content: GestureDetector(
+                                          onTap: () {
+                                            Navigator.pop(context);
+                                          },
+                                          child: SizedBox(
+                                            width: screenSize.width * 0.92,
+                                            height: screenSize.height * 0.92,
+                                            child: Center(
+                                              child: CachedNetworkImage(
+                                                imageUrl:
+                                                    widget.firstImageString,
+
                                                 width: screenSize.width * 0.92,
-                                                height:
-                                                    screenSize.height * 0.92,
-                                                child: Center(
-                                                  child: CachedNetworkImage(
-                                                    imageUrl:
-                                                        widget.firstImageString,
-                                                    width:
-                                                        screenSize.width * 0.92,
-                                                    height: screenSize.width <
-                                                            480
-                                                        ? screenSize.height *
-                                                            0.5
-                                                        : screenSize.height *
-                                                            0.92,
-                                                    fit: BoxFit.contain,
-                                                    fadeInCurve: Curves.ease,
-                                                    fadeOutCurve: Curves.ease,
-                                                    placeholder:
-                                                        (BuildContext context,
-                                                                String url) =>
-                                                            Container(
-                                                      // width: 320,
-                                                      height: 40.h,
-                                                      // color: Colors.white,
-                                                    ),
-                                                    // imageRenderMethodForWeb: ImageR,
-                                                  ),
+                                                height: screenSize.width < 480
+                                                    ? screenSize.height * 0.5
+                                                    : screenSize.height * 0.92,
+
+                                                fit: BoxFit.contain,
+                                                fadeInCurve: Curves.ease,
+                                                fadeOutCurve: Curves.ease,
+                                                placeholder:
+                                                    (BuildContext context,
+                                                            String url) =>
+                                                        Container(
+                                                  // width: 320,
+                                                  height: 40.h,
+                                                  // color: Colors.white,
                                                 ),
+                                                // imageRenderMethodForWeb: ImageR,
                                               ),
                                             ),
-                                            actions: const [],
-                                          );
-                                        },
-                                      );
-                                    },
-                                    child: SizedBox(
-                                      height:
-                                          screenSize.width > 550 ? 35.h : 30.h,
-                                      child: ClipRRect(
-                                        child: CachedNetworkImage(
-                                          imageUrl: widget.firstImageString,
-                                          height: screenSize.width > 550
-                                              ? 35.h
-                                              : 30.h,
-                                          fit: screenSize.width > 550
-                                              ? BoxFit.contain
-                                              : BoxFit.fill,
-                                          fadeInCurve: Curves.ease,
-                                          fadeOutCurve: Curves.ease,
-                                          placeholder: (BuildContext context,
-                                                  String url) =>
-                                              Container(
-                                            // width: 320,
-                                            height: 35.h,
-                                            // color: Colors.white,
                                           ),
                                         ),
-                                      ),
-                                    ),
-                                  )
-                                : InkWell(
-                                    onTap: () {
-                                      showDialog(
-                                        context: context,
-                                        barrierColor:
-                                            Colors.black.withOpacity(0.6),
-                                        builder: (context) {
-                                          return AlertDialog(
-                                            elevation: 300,
-                                            backgroundColor: Colors.transparent,
-                                            contentPadding: EdgeInsets.zero,
-                                            content: GestureDetector(
-                                              onTap: () {
-                                                Navigator.pop(context);
-                                              },
-                                              child: SizedBox(
-                                                width: screenSize.width * 0.92,
-                                                height:
-                                                    screenSize.height * 0.92,
-                                                child: Center(
-                                                  child: CachedNetworkImage(
-                                                    imageUrl:
-                                                        widget.firstImageString,
-
-                                                    width:
-                                                        screenSize.width * 0.92,
-                                                    height: screenSize.width <
-                                                            480
-                                                        ? screenSize.height *
-                                                            0.5
-                                                        : screenSize.height *
-                                                            0.92,
-
-                                                    fit: BoxFit.contain,
-                                                    fadeInCurve: Curves.ease,
-                                                    fadeOutCurve: Curves.ease,
-                                                    placeholder:
-                                                        (BuildContext context,
-                                                                String url) =>
-                                                            Container(
-                                                      // width: 320,
-                                                      height: 40.h,
-                                                      // color: Colors.white,
-                                                    ),
-                                                    // imageRenderMethodForWeb: ImageR,
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                            actions: const [],
-                                          );
-                                        },
+                                        actions: const [],
                                       );
                                     },
-                                    child: Image.network(
-                                      widget.firstImageString,
-                                      // height: 25.h,
-                                      height: 35.h,
-                                      errorBuilder:
-                                          (context, error, stackTrace) {
-                                        return Text(
-                                          "We are having problem while loading images ${widget.firstImageString}}",
-                                        );
-                                      },
-                                    ),
-                                  ),
+                                  );
+                                },
+                                child: Image.network(
+                                  widget.firstImageString,
+                                  // height: 25.h,
+                                  // height: 35.h,
+                                  height: 65.h,
+                                  errorBuilder: (context, error, stackTrace) {
+                                    return Text(
+                                      "We are having problem while loading images ${widget.firstImageString}}",
+                                    );
+                                  },
+                                ),
+                              ),
                       ],
                     ),
                   ),
@@ -225,7 +222,7 @@ class _TwoCardsState extends State<TwoCards> {
                       widget.showGalleryText == true)
                     Text(
                       widget.firstGalerieName,
-                      style: TextStyle(fontSize: 1.1.h, color: Colors.black),
+                      style: const TextStyle(fontSize: 17, color: Colors.black),
                     ),
                   if (widget.showGalleryText == null ||
                       widget.showGalleryText == true)
@@ -245,8 +242,7 @@ class _TwoCardsState extends State<TwoCards> {
                       },
                       child: Text(
                         "See galery",
-                        style:
-                            TextStyle(fontSize: 1.1.h, color: Colors.grey[600]),
+                        style: TextStyle(fontSize: 16, color: Colors.grey[600]),
                       ),
                     ),
                 ],
@@ -255,7 +251,7 @@ class _TwoCardsState extends State<TwoCards> {
           ),
           SizedBox(
             // width: 10.w,
-            width: screenSize.width > 440 ? 10.w : 4,
+            width: screenSize.width > 440 ? 6.w : 4,
           ),
           Container(
             constraints: screenSize.width > 440
@@ -352,7 +348,7 @@ class _TwoCardsState extends State<TwoCards> {
                                           child: CachedNetworkImage(
                                             imageUrl: widget.secondImageString,
                                             height: screenSize.width > 550
-                                                ? 35.h
+                                                ? 60.h
                                                 : 30.h,
                                             fadeInCurve: Curves.ease,
                                             fadeOutCurve: Curves.ease,
@@ -364,7 +360,8 @@ class _TwoCardsState extends State<TwoCards> {
                                                 Container(
                                               // width: 320,
                                               height: screenSize.width > 550
-                                                  ? 35.h
+                                                  ? 65.h
+                                                  // ? 35.h
                                                   : 30.h,
                                               // height: 240,
                                               // color: Colors.white,
@@ -440,7 +437,7 @@ class _TwoCardsState extends State<TwoCards> {
                                         child: Image.network(
                                           widget.secondImageString,
                                           fit: BoxFit.cover,
-                                          height: 35.h,
+                                          height: 65.h,
                                           errorBuilder:
                                               (context, error, stackTrace) {
                                             return Text(
@@ -459,8 +456,9 @@ class _TwoCardsState extends State<TwoCards> {
                           widget.showGalleryText == true)
                         Text(
                           widget.secondGalerieName,
-                          style: TextStyle(
-                            fontSize: 1.1.h,
+                          style: const TextStyle(
+                            // fontSize: 1.1.h,
+                            fontSize: 17,
                             color: Colors.black,
                           ),
                         ),
@@ -484,7 +482,10 @@ class _TwoCardsState extends State<TwoCards> {
                           child: Text(
                             "See galery",
                             style: TextStyle(
-                                fontSize: 1.1.h, color: Colors.grey[600]),
+                              // fontSize: 1.1.h,
+                              fontSize: 16,
+                              color: Colors.grey[600],
+                            ),
                           ),
                         ),
                     ],
