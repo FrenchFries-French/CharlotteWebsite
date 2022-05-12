@@ -67,11 +67,11 @@ class MyHomePage extends StatelessWidget {
                 //   margin: EdgeInsets.symmetric(
                 //     horizontal: 0,
                 //   ),
-                //   child: LoadMoreFireStoreWidget(
-                //     collectionName: "HomePage",
-                //     initialLimit: 10,
-
-                //   ),
+                //   child:
+                LoadMoreFireStoreWidget(
+                  collectionName: "HomePage",
+                  initialLimit: 10,
+                ),
                 // ),
 
                 screenSize.width < 1080

@@ -1,3 +1,5 @@
+import 'package:charletwebsite/Widgets/GlobalWidgets/videoCard.dart';
+import 'package:charletwebsite/utils/enums.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:charletwebsite/Widgets/GlobalWidgets/OneCard.dart';
@@ -60,54 +62,58 @@ class _LoadMoreFireStoreWidgetState extends State<LoadMoreFireStoreWidget> {
                     Flex(
                       direction: Axis.vertical,
                       children: stream.data!.docs.map((currentItem) {
+                        var docData = currentItem.data();
+                        ImageType imageType = ImageType.OneCardImage;
+
+                        if (docData.containsKey("type")) {
+                          if ("${docData["type"]}".toLowerCase() == "onecard") {
+                            imageType = ImageType.OneCardImage;
+                          } else if ("${docData["type"]}".toLowerCase() ==
+                              "twocard") {
+                            imageType = ImageType.TwoCardImage;
+                          } else if ("${docData["type"]}".toLowerCase() ==
+                              "videocard") {
+                            imageType = ImageType.VideoCard;
+                          }
+                        }
+
                         return Container(
                           // color: Colors.black,
                           padding: const EdgeInsets.symmetric(vertical: 1),
-                          child: currentItem.data().containsKey("type")
+                          child: imageType == ImageType.OneCardImage
                               ? OneCard(
-                                  imageString: currentItem.get('link')[0],
+                                  imageString: docData['link'][0],
                                   heightMultiplicator: 12,
-                                  galerieName:
-                                      currentItem.data().containsKey("name")
-                                          ? currentItem.get('name')
-                                          : "",
+                                  galerieName: docData.containsKey("name")
+                                      ? docData['name']
+                                      : "",
                                   kuenstler: "test",
                                   imageType: "network",
                                   firbaseObject: currentItem,
                                   showGalleryText:
-                                      currentItem.data().containsKey("showText")
-                                          ? currentItem.get("showText")
+                                      docData.containsKey("showText")
+                                          ? docData["showText"]
                                           : widget.showGalleryText,
                                 )
-                              : const Text("No image reference added"),
+                              : imageType == ImageType.TwoCardImage
+                                  ? TwoCards(
+                                      firstGalerieName: "${docData['name']}",
+                                      secondImageString:
+                                          "${docData['link'][1]}",
+                                      firstImageString: "${docData['link'][0]}",
+                                      secondGalerieName: "${docData['name']}",
+                                    )
+                                  : imageType == ImageType.VideoCard
+                                      ? VideoCard(
+                                          thumbnailLink:
+                                              "${docData[ThumbnailKey][1]}",
+                                          videoPlayerLink:
+                                              "${docData['link'][0]}",
+                                        )
+                                      : const Text("No image reference added"),
                         );
                       }).toList(),
                     ),
-                    //   stream.data!.docs.length < limit &&
-                    //           stream.data!.docs.isNotEmpty
-                    //       ? Padding(
-                    //           padding: const EdgeInsets.all(8.0),
-                    //           child: Container(),
-                    //         )
-                    //       : Padding(
-                    //           padding: const EdgeInsets.all(8.0),
-                    //           child: TextButton(
-                    //             child: Text(
-                    //               "Show more",
-                    //               style: TextStyle(
-                    //                   color: Colors.black,
-                    //                   fontSize: 2.w,
-                    //                   fontWeight: FontWeight.bold),
-                    //             ),
-                    //             onPressed: () {
-                    //               //  Here it will load more data based on limit if initially we have 10 items now it will load 10 more
-                    //               //  and so on
-                    //               state.call(() {
-                    //                 limit = limit + 5;
-                    //               });
-                    //             },
-                    //           ),
-                    //         )
                   ],
                 );
               } else if (stream.hasError) {
