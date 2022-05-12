@@ -149,15 +149,71 @@ class _TwoCardsState extends State<TwoCards> {
                                       ),
                                     ),
                                   )
-                                : Image.network(
-                                    widget.firstImageString,
-                                    // height: 25.h,
-                                    height: 35.h,
-                                    errorBuilder: (context, error, stackTrace) {
-                                      return Text(
-                                        "We are having problem while loading images ${widget.firstImageString}}",
+                                : InkWell(
+                                    onTap: () {
+                                      showDialog(
+                                        context: context,
+                                        barrierColor:
+                                            Colors.black.withOpacity(0.6),
+                                        builder: (context) {
+                                          return AlertDialog(
+                                            elevation: 300,
+                                            backgroundColor: Colors.transparent,
+                                            contentPadding: EdgeInsets.zero,
+                                            content: GestureDetector(
+                                              onTap: () {
+                                                Navigator.pop(context);
+                                              },
+                                              child: SizedBox(
+                                                width: screenSize.width * 0.92,
+                                                height:
+                                                    screenSize.height * 0.92,
+                                                child: Center(
+                                                  child: CachedNetworkImage(
+                                                    imageUrl:
+                                                        widget.firstImageString,
+
+                                                    width:
+                                                        screenSize.width * 0.92,
+                                                    height: screenSize.width <
+                                                            480
+                                                        ? screenSize.height *
+                                                            0.5
+                                                        : screenSize.height *
+                                                            0.92,
+
+                                                    fit: BoxFit.contain,
+                                                    fadeInCurve: Curves.ease,
+                                                    fadeOutCurve: Curves.ease,
+                                                    placeholder:
+                                                        (BuildContext context,
+                                                                String url) =>
+                                                            Container(
+                                                      // width: 320,
+                                                      height: 40.h,
+                                                      // color: Colors.white,
+                                                    ),
+                                                    // imageRenderMethodForWeb: ImageR,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                            actions: const [],
+                                          );
+                                        },
                                       );
                                     },
+                                    child: Image.network(
+                                      widget.firstImageString,
+                                      // height: 25.h,
+                                      height: 35.h,
+                                      errorBuilder:
+                                          (context, error, stackTrace) {
+                                        return Text(
+                                          "We are having problem while loading images ${widget.firstImageString}}",
+                                        );
+                                      },
+                                    ),
                                   ),
                       ],
                     ),
@@ -317,16 +373,81 @@ class _TwoCardsState extends State<TwoCards> {
                                           ),
                                         ),
                                       )
-                                    : Image.network(
-                                        widget.secondImageString,
-                                        fit: BoxFit.cover,
-                                        height: 35.h,
-                                        errorBuilder:
-                                            (context, error, stackTrace) {
-                                          return Text(
-                                            "We are having problem while loading images ${error.toString()}",
+                                    : InkWell(
+                                        onTap: () {
+                                          showDialog(
+                                            context: context,
+                                            barrierColor:
+                                                Colors.black.withOpacity(0.6),
+                                            builder: (context) {
+                                              return AlertDialog(
+                                                elevation: 300,
+                                                backgroundColor:
+                                                    Colors.transparent,
+                                                contentPadding: EdgeInsets.zero,
+                                                content: GestureDetector(
+                                                  onTap: () {
+                                                    Navigator.pop(context);
+                                                  },
+                                                  child: SizedBox(
+                                                    width:
+                                                        screenSize.width * 0.92,
+                                                    height: screenSize.height *
+                                                        0.92,
+                                                    child: Center(
+                                                      child: CachedNetworkImage(
+                                                        imageUrl: widget
+                                                            .secondImageString,
+
+                                                        width:
+                                                            screenSize.width *
+                                                                0.92,
+                                                        height: screenSize
+                                                                    .width <
+                                                                480
+                                                            ? screenSize
+                                                                    .height *
+                                                                0.5
+                                                            : screenSize
+                                                                    .height *
+                                                                0.92,
+
+                                                        fit: BoxFit.contain,
+                                                        fadeInCurve:
+                                                            Curves.ease,
+                                                        fadeOutCurve:
+                                                            Curves.ease,
+                                                        placeholder:
+                                                            (BuildContext
+                                                                        context,
+                                                                    String
+                                                                        url) =>
+                                                                Container(
+                                                          // width: 320,
+                                                          height: 40.h,
+                                                          // color: Colors.white,
+                                                        ),
+                                                        // imageRenderMethodForWeb: ImageR,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                                actions: const [],
+                                              );
+                                            },
                                           );
                                         },
+                                        child: Image.network(
+                                          widget.secondImageString,
+                                          fit: BoxFit.cover,
+                                          height: 35.h,
+                                          errorBuilder:
+                                              (context, error, stackTrace) {
+                                            return Text(
+                                              "We are having problem while loading images ${error.toString()}",
+                                            );
+                                          },
+                                        ),
                                       ),
                           ],
                         ),
