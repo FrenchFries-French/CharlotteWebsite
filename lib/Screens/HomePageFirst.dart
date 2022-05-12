@@ -63,15 +63,16 @@ class MyHomePage extends StatelessWidget {
             child: Column(
               children: [
                 // :
-                Container(
-                  margin: EdgeInsets.symmetric(
-                    horizontal: 0,
-                  ),
-                  child: LoadMoreFireStoreWidget(
-                    collectionName: "HomePage",
-                    initialLimit: 10,
-                  ),
-                ),
+                // Container(
+                //   margin: EdgeInsets.symmetric(
+                //     horizontal: 0,
+                //   ),
+                //   child: LoadMoreFireStoreWidget(
+                //     collectionName: "HomePage",
+                //     initialLimit: 10,
+
+                //   ),
+                // ),
 
                 screenSize.width < 1080
                     ? FittedBox(

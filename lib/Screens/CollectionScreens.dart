@@ -67,9 +67,8 @@ class _CollectionScreenState extends State<CollectionScreen> {
                     // LeftColumn Stream
                     Expanded(
                       child: Container(
-                        // height: screenSize.height * 0.6,
-                        width: double.infinity,
-                        // color: Colors.black,
+                        // decoration: BoxDecoration(
+                        //     border: Border.all(color: Colors.black, width: 2)),
                         child: StreamBuilder<
                                 QuerySnapshot<Map<String, dynamic>>>(
                             stream: FirebaseFirestore.instance
@@ -85,10 +84,13 @@ class _CollectionScreenState extends State<CollectionScreen> {
                               }
                               return Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.end,
                                 children: [
                                   if (screenSize.width < 1080) ...[
                                     for (var item in snapshot.data!.docs)
                                       Container(
+                                          margin: const EdgeInsets.only(
+                                              left: 14, top: 14),
                                           width: screenSize.width > 767
                                               ? 22.w
                                               : 46.w,
@@ -100,13 +102,20 @@ class _CollectionScreenState extends State<CollectionScreen> {
                                   ],
                                   if (screenSize.width > 1080) ...[
                                     Wrap(
-                                      spacing: 3.w,
-                                      runSpacing: 2.w,
-                                      alignment: WrapAlignment.start,
+                                      // crossAxisCount: 3,
+                                      // spacing: 3.w,
+                                      // runSpacing: 2.w,
+                                      // alignment: WrapAlignment.start,
                                       children: [
                                         for (var item in snapshot.data!.docs)
                                           Container(
-                                            width: 100.w > 767 ? 22.w : 46.w,
+                                            margin: const EdgeInsets.only(
+                                                left: 14, top: 14),
+                                            width: 100.w > 1200
+                                                ? 14.w
+                                                : 100.w > 767
+                                                    ? 22.w
+                                                    : 46.w,
                                             height: 60.h,
                                             color: Colors.yellow,
                                             child: CachedNetworkImage(
@@ -124,9 +133,8 @@ class _CollectionScreenState extends State<CollectionScreen> {
                     // Right Side Column
                     Expanded(
                       child: Container(
-                        // height: screenSize.height * 0.6,
-                        width: double.infinity,
-                        // color: Colors.black,
+                        // decoration: BoxDecoration(
+                        //     border: Border.all(color: Colors.black, width: 2)),
                         child: StreamBuilder<
                                 QuerySnapshot<Map<String, dynamic>>>(
                             stream: FirebaseFirestore.instance
@@ -142,10 +150,13 @@ class _CollectionScreenState extends State<CollectionScreen> {
                               }
                               return Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   if (screenSize.width < 1080) ...[
                                     for (var item in snapshot.data!.docs)
                                       Container(
+                                          margin: const EdgeInsets.only(
+                                              left: 14, top: 14),
                                           width: screenSize.width > 767
                                               ? 22.w
                                               : 46.w,
@@ -157,13 +168,19 @@ class _CollectionScreenState extends State<CollectionScreen> {
                                   ],
                                   if (screenSize.width > 1080) ...[
                                     Wrap(
-                                      spacing: 3.w,
-                                      runSpacing: 2.w,
+                                      // spacing: 3.w,
+                                      // runSpacing: 2.w,
                                       alignment: WrapAlignment.start,
                                       children: [
                                         for (var item in snapshot.data!.docs)
                                           Container(
-                                            width: 100.w > 767 ? 22.w : 46.w,
+                                            margin: const EdgeInsets.only(
+                                                left: 14, top: 14),
+                                            width: 100.w > 1200
+                                                ? 14.w
+                                                : 100.w > 767
+                                                    ? 22.w
+                                                    : 46.w,
                                             height: 60.h,
                                             color: Colors.yellow,
                                             child: CachedNetworkImage(
