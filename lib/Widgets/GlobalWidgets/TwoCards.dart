@@ -149,13 +149,13 @@ class _TwoCardsState extends State<TwoCards> {
                                       ),
                                     ),
                                   )
-                                : Image.asset(
+                                : Image.network(
                                     widget.firstImageString,
                                     // height: 25.h,
                                     height: 35.h,
                                     errorBuilder: (context, error, stackTrace) {
                                       return Text(
-                                        "We are having problem while loading images ${error.toString()}",
+                                        "We are having problem while loading images ${widget.firstImageString}}",
                                       );
                                     },
                                   ),
@@ -317,7 +317,7 @@ class _TwoCardsState extends State<TwoCards> {
                                           ),
                                         ),
                                       )
-                                    : Image.asset(
+                                    : Image.network(
                                         widget.secondImageString,
                                         fit: BoxFit.cover,
                                         height: 35.h,
