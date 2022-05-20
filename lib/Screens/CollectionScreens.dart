@@ -3,6 +3,7 @@ import 'package:charletwebsite/Widgets/GlobalWidgets/BottomNavBar.dart';
 import 'package:charletwebsite/Widgets/GlobalWidgets/SelectionButton.dart';
 import 'package:charletwebsite/Widgets/GlobalWidgets/TopNavBar.dart';
 import 'package:charletwebsite/Widgets/HomePageWidgets/ImageCarousel.dart';
+import 'package:charletwebsite/utils/responsiveness.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
@@ -24,6 +25,7 @@ class _CollectionScreenState extends State<CollectionScreen> {
   final ScrollController _scrollController = ScrollController();
   @override
   Widget build(BuildContext context) {
+    const defaultPadding = 16.0;
     Size screenSize = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Colors.white,
@@ -60,194 +62,210 @@ class _CollectionScreenState extends State<CollectionScreen> {
           child: SizedBox(
             // width: screenSize.width,
             // height: screenSize.height,
-            child: Column(
-              children: [
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    // LeftColumn Stream
-                    Expanded(
-                      child: Container(
-                        margin: const EdgeInsets.only(left: 8),
-                        // decoration: BoxDecoration(
-                        //     border: Border.all(color: Colors.black, width: 2)),
-                        child:
-                            StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
-                                stream: FirebaseFirestore.instance
-                                    .collection("LeftColumn")
-                                    .snapshots(),
-                                builder: (context, snapshot) {
-                                  if (!snapshot.hasData) {
-                                    return const CircularProgressIndicator
-                                        .adaptive();
-                                  }
-                                  if (snapshot.data!.docs.isEmpty) {
-                                    return const Text("No Data Exists");
-                                  }
-                                  return Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment: CrossAxisAlignment.end,
-                                    children: [
-                                      if (screenSize.width < 1080) ...[
-                                        for (var item in snapshot.data!.docs)
-                                          Container(
-                                              margin: const EdgeInsets.only(
-                                                  left: 14, top: 14),
-                                              width: screenSize.width > 767
-                                                  ? 22.w
-                                                  : 46.w,
-                                              height: 60.h,
-                                              color: Colors.yellow,
-                                              child: CachedNetworkImage(
-                                                  fit: BoxFit.cover,
-                                                  imageUrl:
-                                                      item.data()['link']))
+            child: (!Responsive.isDesktop(context))
+                ? Column(
+                    children: [
+                      SizedBox(height: defaultPadding),
+                      Text('Mobile Display')
+                    ],
+                  )
+                : Column(
+                    children: [
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          // LeftColumn Stream
+                          Expanded(
+                            child: Container(
+                              margin: const EdgeInsets.only(left: 8),
+                              // decoration: BoxDecoration(
+                              //     border: Border.all(color: Colors.black, width: 2)),
+                              child: StreamBuilder<
+                                      QuerySnapshot<Map<String, dynamic>>>(
+                                  stream: FirebaseFirestore.instance
+                                      .collection("LeftColumn")
+                                      .snapshots(),
+                                  builder: (context, snapshot) {
+                                    if (!snapshot.hasData) {
+                                      return const CircularProgressIndicator
+                                          .adaptive();
+                                    }
+                                    if (snapshot.data!.docs.isEmpty) {
+                                      return const Text("No Data Exists");
+                                    }
+                                    return Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.end,
+                                      children: [
+                                        if (screenSize.width < 1080) ...[
+                                          for (var item in snapshot.data!.docs)
+                                            Container(
+                                                margin: const EdgeInsets.only(
+                                                    left: 14, top: 14),
+                                                width: screenSize.width > 767
+                                                    ? 22.w
+                                                    : 46.w,
+                                                height: 60.h,
+                                                color: Colors.yellow,
+                                                child: CachedNetworkImage(
+                                                    fit: BoxFit.cover,
+                                                    imageUrl:
+                                                        item.data()['link']))
+                                        ],
+                                        if (screenSize.width > 1080) ...[
+                                          StaggeredGrid.count(
+                                            crossAxisCount: 3,
+                                            mainAxisSpacing: 8,
+                                            crossAxisSpacing: 8,
+                                            children: [
+                                              for (var item
+                                                  in snapshot.data!.docs)
+                                                // Container(),
+                                                StaggeredGridTile.count(
+                                                  crossAxisCellCount: 1,
+                                                  mainAxisCellCount:
+                                                      item.data()['height'] ??
+                                                          1,
+                                                  child: Container(
+                                                    // margin: const EdgeInsets.only(
+                                                    //     left: 14, top: 14),
+                                                    // width: 100.w > 1200
+                                                    //     ? 14.w
+                                                    //     : 100.w > 767
+                                                    //         ? 22.w
+                                                    //         : 46.w,
+                                                    // height: 60.h,
+                                                    // color: Colors.yellow,
+                                                    child: CachedNetworkImage(
+                                                        fit: BoxFit.cover,
+                                                        imageUrl: item
+                                                            .data()['link']),
+                                                  ),
+                                                ),
+                                            ],
+                                          ),
+                                        ],
                                       ],
-                                      if (screenSize.width > 1080) ...[
-                                        StaggeredGrid.count(
-                                          crossAxisCount: 3,
-                                          mainAxisSpacing: 8,
-                                          crossAxisSpacing: 8,
-                                          children: [
-                                            for (var item
-                                                in snapshot.data!.docs)
-                                              // Container(),
-                                              StaggeredGridTile.count(
-                                                crossAxisCellCount: 1,
-                                                mainAxisCellCount:
-                                                    item.data()['height'] ?? 1,
-                                                child: Container(
-                                                  // margin: const EdgeInsets.only(
-                                                  //     left: 14, top: 14),
-                                                  // width: 100.w > 1200
-                                                  //     ? 14.w
-                                                  //     : 100.w > 767
-                                                  //         ? 22.w
-                                                  //         : 46.w,
-                                                  // height: 60.h,
-                                                  // color: Colors.yellow,
+                                    );
+                                  }),
+                            ),
+                          ),
+                          // Right Side Column
+                          Expanded(
+                            child: Container(
+                              margin: const EdgeInsets.symmetric(horizontal: 8),
+                              // decoration: BoxDecoration(
+                              //     border: Border.all(color: Colors.black, width: 2)),
+                              child: StreamBuilder<
+                                      QuerySnapshot<Map<String, dynamic>>>(
+                                  stream: FirebaseFirestore.instance
+                                      .collection("RightColumn")
+                                      .snapshots(),
+                                  builder: (context, snapshot) {
+                                    if (!snapshot.hasData) {
+                                      return const CircularProgressIndicator
+                                          .adaptive();
+                                    }
+                                    if (snapshot.data!.docs.isEmpty) {
+                                      return const Text("No Data Exists");
+                                    }
+                                    return Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        if (screenSize.width < 1080) ...[
+                                          for (var item in snapshot.data!.docs)
+                                            Container(
+                                                margin: const EdgeInsets.only(
+                                                    left: 14, top: 14),
+                                                width: screenSize.width > 767
+                                                    ? 22.w
+                                                    : 46.w,
+                                                height: 60.h,
+                                                color: Colors.yellow,
+                                                child: CachedNetworkImage(
+                                                    fit: BoxFit.cover,
+                                                    imageUrl:
+                                                        item.data()['link']))
+                                        ],
+                                        // if (screenSize.width > 1080) ...[
+                                        if (screenSize.width > 1080) ...[
+                                          StaggeredGrid.count(
+                                            crossAxisCount: 3,
+                                            mainAxisSpacing: 8,
+                                            crossAxisSpacing: 8,
+                                            children: [
+                                              for (var item
+                                                  in snapshot.data!.docs)
+                                                // Container(),
+                                                StaggeredGridTile.count(
+                                                  crossAxisCellCount: 1,
+                                                  mainAxisCellCount:
+                                                      item.data()['height'] ??
+                                                          1,
                                                   child: CachedNetworkImage(
                                                       fit: BoxFit.cover,
                                                       imageUrl:
                                                           item.data()['link']),
                                                 ),
-                                              ),
-                                          ],
-                                        ),
-                                      ],
-                                    ],
-                                  );
-                                }),
-                      ),
-                    ),
-                    // Right Side Column
-                    Expanded(
-                      child: Container(
-                        margin: const EdgeInsets.symmetric(horizontal: 8),
-                        // decoration: BoxDecoration(
-                        //     border: Border.all(color: Colors.black, width: 2)),
-                        child: StreamBuilder<
-                                QuerySnapshot<Map<String, dynamic>>>(
-                            stream: FirebaseFirestore.instance
-                                .collection("RightColumn")
-                                .snapshots(),
-                            builder: (context, snapshot) {
-                              if (!snapshot.hasData) {
-                                return const CircularProgressIndicator
-                                    .adaptive();
-                              }
-                              if (snapshot.data!.docs.isEmpty) {
-                                return const Text("No Data Exists");
-                              }
-                              return Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  if (screenSize.width < 1080) ...[
-                                    for (var item in snapshot.data!.docs)
-                                      Container(
-                                          margin: const EdgeInsets.only(
-                                              left: 14, top: 14),
-                                          width: screenSize.width > 767
-                                              ? 22.w
-                                              : 46.w,
-                                          height: 60.h,
-                                          color: Colors.yellow,
-                                          child: CachedNetworkImage(
-                                              fit: BoxFit.cover,
-                                              imageUrl: item.data()['link']))
-                                  ],
-                                  // if (screenSize.width > 1080) ...[
-                                  if (screenSize.width > 1080) ...[
-                                    StaggeredGrid.count(
-                                      crossAxisCount: 3,
-                                      mainAxisSpacing: 8,
-                                      crossAxisSpacing: 8,
-                                      children: [
-                                        for (var item in snapshot.data!.docs)
-                                          // Container(),
-                                          StaggeredGridTile.count(
-                                            crossAxisCellCount: 1,
-                                            mainAxisCellCount:
-                                                item.data()['height'] ?? 1,
-                                            child: CachedNetworkImage(
-                                                fit: BoxFit.cover,
-                                                imageUrl: item.data()['link']),
+                                            ],
                                           ),
+                                          // Wrap(
+                                          //   // spacing: 3.w,
+                                          //   // runSpacing: 2.w,
+                                          //   alignment: WrapAlignment.start,
+                                          //   children: [
+                                          //     for (var item in snapshot.data!.docs)
+                                          //       Container(
+                                          //         margin: const EdgeInsets.only(
+                                          //             left: 14, top: 14),
+                                          //         // width: 100.w > 1200
+                                          //         //     ? 14.w
+                                          //         //     : 100.w > 767
+                                          //         //         ? 22.w
+                                          //         //         : 46.w,
+                                          //         height: 60.h,
+                                          //         color: Colors.yellow,
+                                          //         child: CachedNetworkImage(
+                                          //             fit: BoxFit.cover,
+                                          //             imageUrl: item.data()['link']),
+                                          //       )
+                                          //   ],
+                                          // ),
+                                        ],
                                       ],
-                                    ),
-                                    // Wrap(
-                                    //   // spacing: 3.w,
-                                    //   // runSpacing: 2.w,
-                                    //   alignment: WrapAlignment.start,
-                                    //   children: [
-                                    //     for (var item in snapshot.data!.docs)
-                                    //       Container(
-                                    //         margin: const EdgeInsets.only(
-                                    //             left: 14, top: 14),
-                                    //         // width: 100.w > 1200
-                                    //         //     ? 14.w
-                                    //         //     : 100.w > 767
-                                    //         //         ? 22.w
-                                    //         //         : 46.w,
-                                    //         height: 60.h,
-                                    //         color: Colors.yellow,
-                                    //         child: CachedNetworkImage(
-                                    //             fit: BoxFit.cover,
-                                    //             imageUrl: item.data()['link']),
-                                    //       )
-                                    //   ],
-                                    // ),
-                                  ],
-                                ],
-                              );
-                            }),
-                      ),
-                    ),
-                  ],
-                ),
-                screenSize.width < 1080
-                    ? FittedBox(
-                        child: BottomBar(
-                          child: SelectionButton(
-                            // child: SizedBox(),
-                            name: "To the top",
-                            onTap: _scrollToTop,
+                                    );
+                                  }),
+                            ),
                           ),
-                        ),
-                      )
-                    : BottomBar(
-                        child: SelectionButton(
-                          // child: SizedBox(),
-                          name: "To the top",
-                          onTap: _scrollToTop,
-                        ),
+                        ],
                       ),
-                const SizedBox(
-                  height: 20,
-                ),
-              ],
-            ),
+                      screenSize.width < 1080
+                          ? FittedBox(
+                              child: BottomBar(
+                                child: SelectionButton(
+                                  // child: SizedBox(),
+                                  name: "To the top",
+                                  onTap: _scrollToTop,
+                                ),
+                              ),
+                            )
+                          : BottomBar(
+                              child: SelectionButton(
+                                // child: SizedBox(),
+                                name: "To the top",
+                                onTap: _scrollToTop,
+                              ),
+                            ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                    ],
+                  ),
           ),
         ),
       ),
