@@ -65,8 +65,95 @@ class _CollectionScreenState extends State<CollectionScreen> {
             child: (!Responsive.isDesktop(context))
                 ? Column(
                     children: [
-                      SizedBox(height: defaultPadding),
-                      Text('Mobile Display')
+                      StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
+                          stream: FirebaseFirestore.instance
+                              .collection("LeftColumn")
+                              .snapshots(),
+                          builder: (context, snapshot) {
+                            if (!snapshot.hasData) {
+                              return const CircularProgressIndicator.adaptive();
+                            }
+                            if (snapshot.data!.docs.isEmpty) {
+                              return const Text("No Data Exists");
+                            }
+                            return Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: [
+                                if (Responsive.isMobile(context)) ...[
+                                  // for (var item in snapshot.data!.docs)
+                                  //   Container(
+                                  //       margin: const EdgeInsets.only(
+                                  //           left: 14, top: 14),
+                                  //       width: double.infinity,
+                                  //       height: 60.h,
+                                  //       color: Colors.yellow,
+                                  //       child: CachedNetworkImage(
+                                  //           fit: BoxFit.cover,
+                                  //           imageUrl: item.data()['link']))
+
+                                  StaggeredGrid.count(
+                                    crossAxisCount: 2,
+                                    mainAxisSpacing: 8,
+                                    crossAxisSpacing: 8,
+                                    children: [
+                                      for (var item in snapshot.data!.docs)
+                                        // Container(),
+                                        StaggeredGridTile.count(
+                                          crossAxisCellCount: 1,
+                                          mainAxisCellCount:
+                                              item.data()['height'] ?? 1,
+                                          child: Container(
+                                            // margin: const EdgeInsets.only(
+                                            //     left: 14, top: 14),
+                                            // width: 100.w > 1200
+                                            //     ? 14.w
+                                            //     : 100.w > 767
+                                            //         ? 22.w
+                                            //         : 46.w,
+                                            // height: 60.h,
+                                            // color: Colors.yellow,
+                                            child: CachedNetworkImage(
+                                                fit: BoxFit.cover,
+                                                imageUrl: item.data()['link']),
+                                          ),
+                                        ),
+                                    ],
+                                  ),
+                                ],
+                                if (Responsive.isTablet(context)) ...[
+                                  StaggeredGrid.count(
+                                    crossAxisCount: 3,
+                                    mainAxisSpacing: 8,
+                                    crossAxisSpacing: 8,
+                                    children: [
+                                      for (var item in snapshot.data!.docs)
+                                        // Container(),
+                                        StaggeredGridTile.count(
+                                          crossAxisCellCount: 1,
+                                          mainAxisCellCount:
+                                              item.data()['height'] ?? 1,
+                                          child: Container(
+                                            // margin: const EdgeInsets.only(
+                                            //     left: 14, top: 14),
+                                            // width: 100.w > 1200
+                                            //     ? 14.w
+                                            //     : 100.w > 767
+                                            //         ? 22.w
+                                            //         : 46.w,
+                                            // height: 60.h,
+                                            // color: Colors.yellow,
+                                            child: CachedNetworkImage(
+                                                fit: BoxFit.cover,
+                                                imageUrl: item.data()['link']),
+                                          ),
+                                        ),
+                                    ],
+                                  ),
+                                ]
+                              ],
+                            );
+                          }),
                     ],
                   )
                 : Column(
