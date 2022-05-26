@@ -9,6 +9,7 @@ import '../../Screens/HomePageFirst.dart';
 import 'DropdownPersonal.dart';
 import 'SelectionButton.dart';
 // import 'package:sizer/sizer.dart';
+import 'package:sizer/sizer.dart';
 
 class TopNavBar extends StatefulWidget {
   const TopNavBar({Key? key}) : super(key: key);
@@ -49,16 +50,11 @@ class _TopNavBarState extends State<TopNavBar> {
                   direction: Axis.horizontal,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    SizedBox(
+                     SizedBox(
                         // height: 0.05 * w,
                         child: Center(
-                            child: Text(
-                      "Charlotte Lobry",
-                      style: TextStyle(
-                        fontSize: 0.025 * w,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ))),
+                          child: Image(image: AssetImage("assets/images/Charlotte_Logo.png"), height: 5.h,),
+                        ),),
                     SizedBox(
                       width: 0.12 * w,
                       child: SelectionButton(
@@ -75,7 +71,7 @@ class _TopNavBarState extends State<TopNavBar> {
                         },
                       ),
                     ),
-                    SizedBox(
+                    /*SizedBox(
                       width: 0.12 * w,
                       child: SelectionButton(
                         name: "Collection",
@@ -94,7 +90,7 @@ class _TopNavBarState extends State<TopNavBar> {
                     SizedBox(
                       width: 0.12 * w,
                       child: DDPersonal(dynamicList: dynamicList),
-                    ),
+                    ),*/
 
                     /**
                 * The following assertion was thrown while applying parent data.:
@@ -131,7 +127,7 @@ class _TopNavBarState extends State<TopNavBar> {
                           ? 0.12 * w
                           : 0.13 * w,
                       child: SelectionButton(
-                          name: "Kontakt",
+                          name: "Contact",
                           // child: SizedBox(),
                           onTap: () {
                             Navigator.push(

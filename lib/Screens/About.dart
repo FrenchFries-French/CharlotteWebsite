@@ -40,18 +40,30 @@ class About extends StatelessWidget {
                           width: 100.w > 700 ? 60.w : 80.w,
                           padding: const EdgeInsets.all(10),
                           // height: 40.h,
-                          child: Text(
-                            'Charlotte and Björn is a creative duo that offers photography, film and creative concept development. We aim to create appealing and engaging visual communication - both as a hollistic concept and as a bookable individual service. Creating emotions and putting moments in one or more frames is our speciality.',
-                            style: GoogleFonts.poppins(
-                              fontSize: screenSize.width > 1080 ? 2.5.w : 4.w,
-                              // lets say total width is 400 then 5.w will make font size 20 pixel
-                            ),
-                            textAlign: TextAlign.center,
+                          child: Column(
+                            children: [
+                              Text(
+                                "I want to represent reality through my eyes, which makes it abstract and individual. I want to tell stories and at the same time create room for interpretation, so that stories can be reinvented. Photography is a wonderful means to an end for me. I try to make a subjective representation of things into a collective feeling that will inspire sharing and bring people together. As the daughter of a Parisian-born father, the energy of Parisian savoir vivre has inspired me for as long as I can remember, and much of my photography is inspired by my everyday life in Paris. The experienced in general is probably the biggest source of inspiration, with all its ups and downs. Still, I've always found it hard to define my person, but when my brother recently told me: you're not a photographer - you're an artist. That's when it suddenly hit me: ",
+                                style: GoogleFonts.poppins(
+                                  fontSize: screenSize.width > 1080 ? 1.5.w : 3.w,
+                                  // lets say total width is 400 then 5.w will make font size 20 pixel
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                              Text(
+                                "Yes - I am an artist.",
+                                style: GoogleFonts.poppins(
+                                  fontSize: screenSize.width > 1080 ? 1.5.w : 3.w,
+                                  // lets say total width is 400 then 5.w will make font size 20 pixel
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                            ],
                           ),
                         ),
                       ),
                       SizedBox(
-                        height: 3.w,
+                        height: 2.w,
                       ),
                       Flex(
                         direction: Axis.horizontal,
@@ -67,7 +79,7 @@ class About extends StatelessWidget {
                               fit: BoxFit.cover,
                             ),
                           ),
-                          Container(
+                          /*Container(
                             margin: EdgeInsets.only(
                               left: screenSize.width > 767 ? 40 : 20,
                             ),
@@ -78,7 +90,7 @@ class About extends StatelessWidget {
                               'assets/images/Bjorn_About_zu.jpeg',
                               fit: BoxFit.cover,
                             ),
-                          ),
+                          ),*/
                         ],
                       ),
                       // Spacer(),

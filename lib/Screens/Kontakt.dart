@@ -8,7 +8,7 @@ class Kontakt extends StatelessWidget {
   const Kontakt({Key? key}) : super(key: key);
 
   launchEmail() async {
-    const url = 'mailto:info@never-seen.de';
+    const url = 'mailto:info@charlottelobry.com';
     launch(url);
   }
 
@@ -74,7 +74,7 @@ class Kontakt extends StatelessWidget {
                                     ),
                                     width: screenSize.width > 767 ? 140 : 80,
                                     child: Text(
-                                      "Charlotte Müller",
+                                      "Charlotte Lobry",
                                       style: _responsiveTextStyle(
                                         size: screenSize,
                                       ),
@@ -84,7 +84,7 @@ class Kontakt extends StatelessWidget {
                                     height: 8,
                                   ),
                                   Text(
-                                    "Björn Müller",
+                                    "Artistic Photgrapher",
                                     style: _responsiveTextStyle(
                                       size: screenSize,
                                     ),
@@ -134,7 +134,7 @@ class Kontakt extends StatelessWidget {
                                                 width: 100,
                                                 child: InkWell(
                                                   child: Text(
-                                                    "info@never-seen.de",
+                                                    "info@charlottelobry.con",
                                                     style: _responsiveTextStyle(
                                                         size: screenSize),
                                                     textAlign: TextAlign.end,
@@ -206,26 +206,26 @@ class Kontakt extends StatelessWidget {
                             Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Text(
-                                "Never Seen",
+                                "Please text me",
                                 style: _responsiveTextStyle(size: screenSize),
                               ),
                             ),
                             Text(
-                              "Müllerstraße 9",
+                              "For further requests",
                               // style: TextStyle(
                               //   fontSize: screenSize.width < 700 ? 10 : 14,
                               // ),
                               style: _responsiveTextStyle(size: screenSize),
                             ),
                             Text(
-                              "12453 München",
+                              "You can text me on my email",
                               // style: TextStyle(
                               //   fontSize: screenSize.width < 700 ? 10 : 14,
                               // ),
                               style: _responsiveTextStyle(size: screenSize),
                             ),
                             Text(
-                              "Germany",
+                              "And I will try my best to help you",
                               // style: TextStyle(
                               //   fontSize: screenSize.width < 700 ? 10 : 14,
                               // ),
