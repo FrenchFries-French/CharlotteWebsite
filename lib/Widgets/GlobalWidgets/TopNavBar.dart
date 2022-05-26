@@ -24,6 +24,7 @@ class _TopNavBarState extends State<TopNavBar> {
   @override
   Widget build(BuildContext context) {
     double w = MediaQuery.of(context).size.width;
+    var screenSize = MediaQuery.of(context).size;
     return Material(
       color: Colors.white,
       child: Flex(
@@ -53,7 +54,9 @@ class _TopNavBarState extends State<TopNavBar> {
                      SizedBox(
                         // height: 0.05 * w,
                         child: Center(
-                          child: Image(image: AssetImage("assets/images/Charlotte_Logo.png"), height: 5.h,),
+                          child: Image(image: AssetImage("assets/images/Charlotte_Logo.png"), height: screenSize.width > 767
+                              ? screenSize.width * 5.h
+                              : screenSize.width * 2.h,),
                         ),),
                     SizedBox(
                       width: 0.12 * w,
