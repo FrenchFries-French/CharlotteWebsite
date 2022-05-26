@@ -81,7 +81,7 @@ class _OneCardState extends State<OneCard> {
                                           fit: BoxFit.contain,
                                           width: screenSize.width * 0.92,
                                           height: screenSize.width < 480
-                                              ? screenSize.height * 0.5
+                                              ? screenSize.height * 0.45
                                               : screenSize.height * 0.85,
                                           fadeInCurve: Curves.ease,
                                           fadeOutCurve: Curves.ease,
@@ -103,13 +103,13 @@ class _OneCardState extends State<OneCard> {
                                   ? BoxFit.contain
                                   : BoxFit.fill,
                               // width: screenSize.width * 0.5,
-                              height: MediaQuery.of(context).size.height * 0.6,
+                              height: MediaQuery.of(context).size.height * 0.35,
                               fadeInCurve: Curves.ease,
                               fadeOutCurve: Curves.ease,
                               placeholder: (BuildContext context, String url) =>
                                   Container(
                                 // width: 320,
-                                height: screenSize.width > 550 ? 40.h : 30.h,
+                                height: screenSize.width > 550 ? 40.h : 25.h,
                                 // color: Colors.white,
                               ),
                               // imageRenderMethodForWeb: ImageR,
@@ -125,7 +125,7 @@ class _OneCardState extends State<OneCard> {
                         widget.showGalleryText == true)
                       Text(
                         widget.galerieName,
-                        style: TextStyle(
+                        style: const TextStyle(
                           // fontSize: screenSize.height * 0.016,
                           fontSize: 18,
                         ),
