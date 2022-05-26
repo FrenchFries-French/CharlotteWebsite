@@ -8,6 +8,7 @@ import 'package:charletwebsite/Widgets/GlobalWidgets/DropdownPersonal.dart';
 import '../../Screens/HomePageFirst.dart';
 import 'DropdownPersonal.dart';
 import 'SelectionButton.dart';
+import '../../utils/responsiveness.dart';
 // import 'package:sizer/sizer.dart';
 import 'package:sizer/sizer.dart';
 
@@ -54,9 +55,7 @@ class _TopNavBarState extends State<TopNavBar> {
                      SizedBox(
                         // height: 0.05 * w,
                         child: Center(
-                          child: Image(image: AssetImage("assets/images/Charlotte_Logo.png"), height: screenSize.width > 767
-                              ? screenSize.width * 5.h
-                              : screenSize.width * 2.h,),
+                          child: Image(image: AssetImage("assets/images/Charlotte_Logo.png"), height: 5.h,),
                         ),),
                     SizedBox(
                       width: 0.12 * w,
