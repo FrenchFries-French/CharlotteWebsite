@@ -12,11 +12,11 @@ class ImageCarousel extends StatefulWidget {
 
 class _ImageCarouselState extends State<ImageCarousel> {
   List imgList = [
-    'assets/images/Header_A.JPG',
-    'assets/images/Header_B.JPG',
-    'assets/images/Header_C.JPG',
-    'assets/images/Header_D.JPG',
-    'assets/images/Header_E.JPG',
+    'assets/assets/images/Header_A.JPG',
+    'assets/assets/images/Header_B.JPG',
+    'assets/assets/images/Header_C.JPG',
+    'assets/assets/images/Header_D.JPG',
+    'assets/assets/images/Header_E.JPG',
   ];
 
   @override
@@ -42,7 +42,7 @@ class _ImageCarouselState extends State<ImageCarousel> {
             .map((item) => Container(
           child: Center(
               child: Image.network(
-                "assets/" + item,
+                item,
                 // fit: BoxFit.fitHeight,
                 fit: BoxFit.cover,
                 width: 200.w,
