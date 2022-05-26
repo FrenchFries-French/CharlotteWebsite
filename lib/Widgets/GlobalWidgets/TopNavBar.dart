@@ -52,152 +52,154 @@ class _TopNavBarState extends State<TopNavBar> {
                   direction: Axis.horizontal,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                     SizedBox(
+                    if (screenSize.width > 667)
+                      SizedBox(
+                        width: screenSize.width < 667
+                            ? screenSize.width * 0.3
+                            : screenSize.width * 0.3,
                         // height: 0.05 * w,
                         child: Center(
-                          child: Image(image: AssetImage("assets/images/Charlotte_Logo.png"), height: 5.h,),
-                        ),),
-                    SizedBox(
-                      width: 0.12 * w,
-                      child: SelectionButton(
-                        name: "Home",
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            PageRouteBuilder(
-                              pageBuilder: (context, animation1, animation2) =>
-                                  MyHomePage(), //This has to be changed to MyHomePage(),
-                              transitionDuration: const Duration(seconds: 0),
-                            ),
-                          );
-                        },
+                          child: Image(
+                            image: const AssetImage(
+                                "assets/images/Charlotte_Logo.png"),
+                            height: 5.h,
+                          ),
+                        ),
+                      )
+                    else
+                      SizedBox(
+                        width: screenSize.width < 667
+                            ? screenSize.width * 0.3
+                            : screenSize.width * 0.3,
+                        // height: 0.05 * w,
+                        child: Center(
+                          child: Image(
+                            /// Please add  logo here for small screen here
+                            image: const AssetImage(
+                                "assets/images/Charlotte_Logo.png"),
+                            height: 5.h,
+                          ),
+                        ),
                       ),
-                    ),
-                    /*SizedBox(
-                      width: 0.12 * w,
-                      child: SelectionButton(
-                        name: "Collection",
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            PageRouteBuilder(
-                              pageBuilder: (context, animation1, animation2) =>
-                                  CollectionScreen(), //This has to be changed to MyHomePage(),
-                              transitionDuration: const Duration(seconds: 0),
-                            ),
-                          );
-                        },
-                      ),
-                    ),
-                    SizedBox(
-                      width: 0.12 * w,
-                      child: DDPersonal(dynamicList: dynamicList),
-                    ),*/
-
-                    /**
-                * The following assertion was thrown while applying parent data.:
-                  Incorrect use of ParentDataWidget.
-                  The ParentDataWidget Expanded(flex: 1) wants to apply ParentData of type FlexParentData to a RenderObject,
-                  which has been set up to accept ParentData of incompatible type ParentData.
-                  Usually, this means that the Expanded widget has the wrong ancestor RenderObjectWidget.
-                  Typically, Expanded widgets are placed directly inside Flex widgets.
-
-                 */
-                    /*SizedBox(
-                      // width: 12.w,
-                      width: MediaQuery.of(context).size.width > 480
-                          ? 0.12 * w
-                          : 0.13 * w,
-                      child: SelectionButton(
-                          name: "Service",
-                          // child: Container(),
+                    if (screenSize.width < 667)
+                      SizedBox(
+                        width: screenSize.width < 676 ? 30 : 0.12 * w,
+                        child: FittedBox(
+                          child: SelectionButton(
+                            name: "Home",
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                PageRouteBuilder(
+                                  pageBuilder: (context, animation1,
+                                          animation2) =>
+                                      MyHomePage(), //This has to be changed to MyHomePage(),
+                                  transitionDuration:
+                                      const Duration(seconds: 0),
+                                ),
+                              );
+                            },
+                          ),
+                        ),
+                      )
+                    else
+                      SizedBox(
+                        width: screenSize.width < 676 ? 30 : 0.12 * w,
+                        child: SelectionButton(
+                          name: "Home",
                           onTap: () {
                             Navigator.push(
                               context,
                               PageRouteBuilder(
-                                pageBuilder:
-                                    (context, animation1, animation2) =>
-                                        const Service(),
+                                pageBuilder: (context, animation1,
+                                        animation2) =>
+                                    MyHomePage(), //This has to be changed to MyHomePage(),
                                 transitionDuration: const Duration(seconds: 0),
                               ),
                             );
-                          }),
-                    ),*/
-                    SizedBox(
-                      // width: 12.w,
-                      width: MediaQuery.of(context).size.width > 480
-                          ? 0.12 * w
-                          : 0.13 * w,
-                      child: SelectionButton(
-                          name: "Contact",
-                          // child: SizedBox(),
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              PageRouteBuilder(
-                                pageBuilder:
-                                    (context, animation1, animation2) =>
-                                        const Kontakt(),
-                                transitionDuration: const Duration(seconds: 0),
-                              ),
-                            );
-                          }),
-                    ),
-                    //DDPersonal(),
-                    //DDCommissioned(),
-                    SizedBox(
-                      width: 0.12 * w,
-                      child: SelectionButton(
-                          name: "About",
-                          // child: SizedBox(),
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              PageRouteBuilder(
-                                pageBuilder:
-                                    (context, animation1, animation2) =>
-                                        const About(),
-                                transitionDuration: const Duration(seconds: 0),
-                              ),
-                            );
-                          }),
-                    ),
-                    /*SizedBox(
-                  child: SelectionButton(
-                      name: "Shop",
-                      child: Stack(
-                        children: [
-                          IconButton(
-                            icon: Icon(
-                              Icons.shopping_bag_outlined,
-                              color: Colors.black,
-                            ),
-                            onPressed: () {},
-                          ),
-                          Positioned(
-                            child: Opacity(
-                                opacity: shopItems == 0 ? 0 : 1,
-                                child: Text(
-                                  "$shopItems",
-                                  style: TextStyle(
-                                      color: Colors.black, fontSize: 10),
-                                )),
-                            left: 18,
-                            top: 16,
-                          ),
-                        ],
+                          },
+                        ),
                       ),
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          PageRouteBuilder(
-                            pageBuilder: (context, animation1, animation2) =>
-                                Shop(),
-                            transitionDuration: Duration(seconds: 0),
-                          ),
-                        );
-                      }),
-                ),*/
+                    if (screenSize.width < 667)
+                      SizedBox(
+                        width: screenSize.width < 676 ? 30 : 0.12 * w,
+                        child: FittedBox(
+                          child: SelectionButton(
+                              name: "Contact",
+                              // child: SizedBox(),
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  PageRouteBuilder(
+                                    pageBuilder:
+                                        (context, animation1, animation2) =>
+                                            const Kontakt(),
+                                    transitionDuration:
+                                        const Duration(seconds: 0),
+                                  ),
+                                );
+                              }),
+                        ),
+                      )
+                    else
+                      SizedBox(
+                        width: screenSize.width < 676 ? 30 : 0.12 * w,
+                        child: SelectionButton(
+                            name: "Contact",
+                            // child: SizedBox(),
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                PageRouteBuilder(
+                                  pageBuilder:
+                                      (context, animation1, animation2) =>
+                                          const Kontakt(),
+                                  transitionDuration:
+                                      const Duration(seconds: 0),
+                                ),
+                              );
+                            }),
+                      ),
+                    if (screenSize.width < 667)
+                      SizedBox(
+                        width: screenSize.width < 676 ? 30 : 0.12 * w,
+                        child: FittedBox(
+                          child: SelectionButton(
+                              name: "About",
+                              // child: SizedBox(),
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  PageRouteBuilder(
+                                    pageBuilder:
+                                        (context, animation1, animation2) =>
+                                            const About(),
+                                    transitionDuration:
+                                        const Duration(seconds: 0),
+                                  ),
+                                );
+                              }),
+                        ),
+                      )
+                    else
+                      SizedBox(
+                        width: screenSize.width < 676 ? 30 : 0.12 * w,
+                        child: SelectionButton(
+                            name: "About",
+                            // child: SizedBox(),
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                PageRouteBuilder(
+                                  pageBuilder:
+                                      (context, animation1, animation2) =>
+                                          const About(),
+                                  transitionDuration:
+                                      const Duration(seconds: 0),
+                                ),
+                              );
+                            }),
+                      ),
                   ],
                 );
               } else {
