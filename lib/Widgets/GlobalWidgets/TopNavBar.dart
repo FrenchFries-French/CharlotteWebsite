@@ -55,7 +55,9 @@ class _TopNavBarState extends State<TopNavBar> {
                      SizedBox(
                         // height: 0.05 * w,
                         child: Center(
-                          child: Image(image: AssetImage("assets/images/Charlotte_Logo.png"), height: 5.h,),
+                          child: Image(image: AssetImage("assets/images/Charlotte_Logo.png"), height: screenSize.width < 480
+                              ? screenSize.height * 5.h
+                              : screenSize.height * 2.h),
                         ),),
                     SizedBox(
                       width: 0.12 * w,
