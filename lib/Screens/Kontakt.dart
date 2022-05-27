@@ -150,7 +150,7 @@ class Kontakt extends StatelessWidget {
                                                 // width: 100,
                                                 child: InkWell(
                                                   child: Text(
-                                                    "info@never-seen.de",
+                                                    "info@charlottelobry.com",
                                                     style: _responsiveTextStyle(
                                                         size: screenSize),
                                                     textAlign: TextAlign.end,
@@ -203,37 +203,34 @@ class Kontakt extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                "Please text me",
-                                style: _responsiveTextStyle(size: screenSize),
-                              ),
+                            Text(
+                              "To contact me",
+                              style: _responsiveTextStyle(size: screenSize),
                             ),
                             Text(
-                              "For further requests",
+                              "you can send me an email",
                               // style: TextStyle(
                               //   fontSize: screenSize.width < 700 ? 10 : 14,
                               // ),
                               style: _responsiveTextStyle(size: screenSize),
                             ),
                             Text(
-                              "You can text me on my email",
+                              "and I will get back to you soon",
                               // style: TextStyle(
                               //   fontSize: screenSize.width < 700 ? 10 : 14,
                               // ),
                               style: _responsiveTextStyle(size: screenSize),
                             ),
-                            Text(
+                            /*Text(
                               "And I will try my best to help you",
                               // style: TextStyle(
                               //   fontSize: screenSize.width < 700 ? 10 : 14,
                               // ),
                               style: _responsiveTextStyle(size: screenSize),
-                            ),
+                            ),*/
                             TextButton(
                               child: Text(
-                                "+49 176 81126474",
+                                "info@charlottelobry.com",
                                 // style: TextStyle(
                                 //   color: Colors.black,
                                 //   fontSize: screenSize.width < 700 ? 10 : 14,
