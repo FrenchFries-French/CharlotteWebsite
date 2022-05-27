@@ -17,6 +17,9 @@ class _ImageCarouselState extends State<ImageCarousel> {
     'assets/assets/images/Header_C.JPG',
     'assets/assets/images/Header_D.JPG',
     'assets/assets/images/Header_E.JPG',
+    'assets/assets/images/Header_F.JPG',
+    'assets/assets/images/Header_G.JPG',
+    'assets/assets/images/Header_H.JPG',
   ];
 
   @override
