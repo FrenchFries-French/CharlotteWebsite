@@ -101,15 +101,17 @@ class _OneCardState extends State<OneCard> {
                               imageUrl: widget.imageString,
                               fit: screenSize.width > 550
                                   ? BoxFit.contain
-                                  : BoxFit.fill,
+                                  : BoxFit.contain,
                               // width: screenSize.width * 0.5,
-                              height: MediaQuery.of(context).size.height * 0.35,
+                              height: screenSize.width < 567 ? 45.h : 65.h,
+                              // height: MediaQuery.of(context).size.height * 0.45,
                               fadeInCurve: Curves.ease,
                               fadeOutCurve: Curves.ease,
                               placeholder: (BuildContext context, String url) =>
                                   Container(
                                 // width: 320,
-                                height: screenSize.width > 550 ? 40.h : 25.h,
+                                height: screenSize.width < 567 ? 25.h : 65.h,
+                                // height: screenSize.width > 550 ? 40.h : 25.h,
                                 // color: Colors.white,
                               ),
                               // imageRenderMethodForWeb: ImageR,
@@ -140,7 +142,7 @@ class _OneCardState extends State<OneCard> {
                               pageBuilder: (context, animation1, animation2) =>
                                   FotoPage(
                                 albumName: widget.galerieName,
-                                showGalleryText: true,
+                                showGalleryText: widget.showGalleryText ?? true,
                               ), //This has to be changed to MyHomePage(),
                               transitionDuration: const Duration(seconds: 0),
                             ),

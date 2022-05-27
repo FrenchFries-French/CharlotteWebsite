@@ -177,7 +177,15 @@ class _TwoCardsState extends State<TwoCards> {
           ),
           SizedBox(
             // width: 10.w,
-            width: screenSize.width > 440 ? 6.w : 4,
+
+            width: screenSize.width > 1000
+
+                /// In Two Card YOu can specify value based on your need..
+                /// here i am using 3% width of screen
+                ? 3.w
+                : screenSize.width > 440
+                    ? 6.w
+                    : 4,
           ),
           Container(
             constraints: screenSize.width > 440

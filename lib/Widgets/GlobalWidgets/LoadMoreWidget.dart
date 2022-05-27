@@ -90,18 +90,19 @@ class _LoadMoreFireStoreWidgetState extends State<LoadMoreFireStoreWidget> {
                                   kuenstler: "test",
                                   imageType: "network",
                                   firbaseObject: currentItem,
-                                  showGalleryText:
-                                      docData.containsKey("showText")
-                                          ? docData["showText"]
-                                          : widget.showGalleryText,
+                                  showGalleryText: docData['showText'] ?? true,
                                 )
                               : imageType == ImageType.TwoCardImage
                                   ? TwoCards(
-                                      firstGalerieName: "${docData['firstname']}",
+                                      firstGalerieName:
+                                          "${docData['firstname']}",
                                       secondImageString:
                                           "${docData['link'][1]}",
                                       firstImageString: "${docData['link'][0]}",
-                                      secondGalerieName: "${docData['secondname']}",
+                                      secondGalerieName:
+                                          "${docData['secondname']}",
+                                      showGalleryText:
+                                          docData['showText'] ?? true,
                                     )
                                   : imageType == ImageType.VideoCard
                                       ? VideoCard(
