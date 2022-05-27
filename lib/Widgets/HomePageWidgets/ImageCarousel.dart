@@ -12,7 +12,6 @@ class ImageCarousel extends StatefulWidget {
 
 class _ImageCarouselState extends State<ImageCarousel> {
   List imgList = [
-    'assets/assets/images/Header_A.JPG',
     'assets/assets/images/Header_B.JPG',
     'assets/assets/images/Header_C.JPG',
     'assets/assets/images/Header_D.JPG',
