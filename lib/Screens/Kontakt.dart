@@ -134,7 +134,7 @@ class Kontakt extends StatelessWidget {
                                                 width: 100,
                                                 child: InkWell(
                                                   child: Text(
-                                                    "info@charlottelobry.con",
+                                                    "info@charlottelobry.com",
                                                     style: _responsiveTextStyle(
                                                         size: screenSize),
                                                     textAlign: TextAlign.end,
