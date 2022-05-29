@@ -28,7 +28,7 @@ class BottomBar extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8),
               child: SelectionButton(
-                  name: "Kontakt",
+                  name: "Contact",
                   child: const SizedBox(),
                   onTap: () {
                     Navigator.push(
