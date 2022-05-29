@@ -204,18 +204,18 @@ class Kontakt extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             Text(
-                              "To contact me",
+                              "For any purchasing requests ",
                               style: _responsiveTextStyle(size: screenSize),
                             ),
                             Text(
-                              "you can send me an email",
+                              "send me an email and I will",
                               // style: TextStyle(
                               //   fontSize: screenSize.width < 700 ? 10 : 14,
                               // ),
                               style: _responsiveTextStyle(size: screenSize),
                             ),
                             Text(
-                              "and I will get back to you soon",
+                              "get back to you soon",
                               // style: TextStyle(
                               //   fontSize: screenSize.width < 700 ? 10 : 14,
                               // ),
