@@ -225,12 +225,12 @@ class _TwoCardsState extends State<TwoCards> {
                                             showDialog(
                                               context: context,
                                               barrierColor:
-                                                  Colors.black.withOpacity(0.6),
+                                                  Colors.white,
                                               builder: (context) {
                                                 return AlertDialog(
                                                   elevation: 300,
                                                   backgroundColor:
-                                                      Colors.transparent,
+                                                      Colors.white,
                                                   contentPadding:
                                                       EdgeInsets.zero,
                                                   content: GestureDetector(
@@ -251,16 +251,16 @@ class _TwoCardsState extends State<TwoCards> {
 
                                                           width:
                                                               screenSize.width *
-                                                                  0.92,
+                                                                  2,
                                                           height: screenSize
                                                                       .width <
                                                                   480
                                                               ? screenSize
                                                                       .height *
-                                                                  0.5
+                                                                  1.8
                                                               : screenSize
                                                                       .height *
-                                                                  0.92,
+                                                                  1.8,
 
                                                           fit: BoxFit.contain,
                                                           fadeInCurve:
@@ -321,12 +321,12 @@ class _TwoCardsState extends State<TwoCards> {
                                           showDialog(
                                             context: context,
                                             barrierColor:
-                                                Colors.black.withOpacity(0.6),
+                                                Colors.white,
                                             builder: (context) {
                                               return AlertDialog(
                                                 elevation: 300,
                                                 backgroundColor:
-                                                    Colors.transparent,
+                                                    Colors.white,
                                                 contentPadding: EdgeInsets.zero,
                                                 content: GestureDetector(
                                                   onTap: () {
@@ -344,16 +344,16 @@ class _TwoCardsState extends State<TwoCards> {
 
                                                         width:
                                                             screenSize.width *
-                                                                0.92,
+                                                                2,
                                                         height: screenSize
                                                                     .width <
                                                                 480
                                                             ? screenSize
                                                                     .height *
-                                                                0.5
+                                                                1.8
                                                             : screenSize
                                                                     .height *
-                                                                0.92,
+                                                                1.8,
 
                                                         fit: BoxFit.contain,
                                                         fadeInCurve:
