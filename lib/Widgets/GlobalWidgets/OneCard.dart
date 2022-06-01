@@ -6,6 +6,7 @@ import 'package:charletwebsite/Widgets/GlobalWidgets/FotoPage.dart';
 import 'package:charletwebsite/Widgets/GlobalWidgets/videoCard.dart';
 import 'package:sizer/sizer.dart';
 
+
 class OneCard extends StatefulWidget {
   final String? imageType;
   final bool? video;
@@ -121,7 +122,8 @@ class _OneCardState extends State<OneCard> {
                       ),
                     ),
                     SizedBox(
-                      height: screenSize.width > 560 ? 0.5.h : 10,
+                      // height: screenSize.width > 560 ? 0.5.h : 10,
+                      height: 0.5.h,
                     ),
                     if (widget.showGalleryText == null ||
                         widget.showGalleryText == true)
@@ -129,7 +131,7 @@ class _OneCardState extends State<OneCard> {
                         widget.galerieName,
                         style: const TextStyle(
                           // fontSize: screenSize.height * 0.016,
-                          fontSize: 18,
+                          fontSize: 16,
                         ),
                       ),
                     if (widget.showGalleryText == null ||
@@ -148,14 +150,19 @@ class _OneCardState extends State<OneCard> {
                             ),
                           );
                         },
+                        style: TextButton.styleFrom(
+                          minimumSize: Size.zero, // Set this
+                          padding: EdgeInsets.zero, // and this
+                        ),
                         child: Text(
                           "See galery",
                           style: TextStyle(
                               // fontSize: screenSize.height * 0.01,
-                              fontSize: 16,
+                              fontSize: 14,
                               color: Colors.grey[600]),
                         ),
                       ),
+                    SizedBox(height: 1.h,)
                   ],
                 )),
           ],

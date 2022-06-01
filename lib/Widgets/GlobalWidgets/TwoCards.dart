@@ -142,13 +142,14 @@ class _TwoCardsState extends State<TwoCards> {
                     ),
                   ),
                   SizedBox(
-                    height: screenSize.width < 667 ? 12 : 0.5.h,
+                    // height: screenSize.width < 667 ? 12 : 0.5.h,
+                    height: 0.5.h,
                   ),
                   if (widget.showGalleryText == null ||
                       widget.showGalleryText == true)
                     Text(
                       widget.firstGalerieName,
-                      style: const TextStyle(fontSize: 17, color: Colors.black),
+                      style: const TextStyle(fontSize: 16, color: Colors.black),
                     ),
                   if (widget.showGalleryText == null ||
                       widget.showGalleryText == true)
@@ -166,9 +167,13 @@ class _TwoCardsState extends State<TwoCards> {
                           ),
                         );
                       },
+                      style: TextButton.styleFrom(
+                        minimumSize: Size.zero, // Set this
+                        padding: EdgeInsets.zero, // and this
+                      ),
                       child: Text(
                         "See galery",
-                        style: TextStyle(fontSize: 16, color: Colors.grey[600]),
+                        style: TextStyle(fontSize: 14, color: Colors.grey[600]),
                       ),
                     ),
                 ],
@@ -394,7 +399,8 @@ class _TwoCardsState extends State<TwoCards> {
                         ),
                       ),
                       SizedBox(
-                        height: screenSize.width < 667 ? 12 : 0.5.h,
+                        //height: screenSize.width < 667 ? 12 : 0.5.h,
+                        height: 0.5.h,
                       ),
                       if (widget.showGalleryText == null ||
                           widget.showGalleryText == true)
@@ -402,7 +408,7 @@ class _TwoCardsState extends State<TwoCards> {
                           widget.secondGalerieName,
                           style: const TextStyle(
                             // fontSize: 1.1.h,
-                            fontSize: 17,
+                            fontSize: 16,
                             color: Colors.black,
                           ),
                         ),
@@ -423,11 +429,15 @@ class _TwoCardsState extends State<TwoCards> {
                               ),
                             );
                           },
+                          style: TextButton.styleFrom(
+                            minimumSize: Size.zero, // Set this
+                            padding: EdgeInsets.zero, // and this
+                          ),
                           child: Text(
                             "See galery",
                             style: TextStyle(
                               // fontSize: 1.1.h,
-                              fontSize: 16,
+                              fontSize: 14,
                               color: Colors.grey[600],
                             ),
                           ),
