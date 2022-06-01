@@ -94,10 +94,10 @@ class _TwoCardsState extends State<TwoCards> {
                                                 imageUrl:
                                                     widget.firstImageString,
 
-                                                width: screenSize.width * 0.92,
+                                                width: screenSize.width * 2,
                                                 height: screenSize.width < 480
-                                                    ? screenSize.height * 0.5
-                                                    : screenSize.height * 0.92,
+                                                    ? screenSize.height * 1.8
+                                                    : screenSize.height * 2.8,
 
                                                 fit: BoxFit.contain,
                                                 fadeInCurve: Curves.ease,
