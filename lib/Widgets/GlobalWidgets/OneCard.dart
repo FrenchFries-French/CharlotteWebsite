@@ -66,7 +66,7 @@ class _OneCardState extends State<OneCard> {
                             onTap: () {
                               showDialog(
                                 context: context,
-                                barrierColor: Colors.black.withOpacity(0.6),
+                                barrierColor: Colors.transparent,
                                 builder: (context) {
                                   return AlertDialog(
                                     elevation: 300,
@@ -80,7 +80,7 @@ class _OneCardState extends State<OneCard> {
                                         child: CachedNetworkImage(
                                           imageUrl: widget.imageString,
                                           fit: BoxFit.contain,
-                                          width: screenSize.width * 0.92,
+                                          width: screenSize.width * 2,
                                           height: screenSize.width < 480
                                               ? screenSize.height * 0.99
                                               : screenSize.height * 0.99,
