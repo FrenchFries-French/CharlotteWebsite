@@ -76,11 +76,11 @@ class _TwoCardsState extends State<TwoCards> {
                                   log("message");
                                   showDialog(
                                     context: context,
-                                    barrierColor: Colors.black.withOpacity(0.6),
+                                    barrierColor: Colors.white,
                                     builder: (context) {
                                       return AlertDialog(
                                         elevation: 300,
-                                        backgroundColor: Colors.transparent,
+                                        backgroundColor: Colors.white,
                                         contentPadding: EdgeInsets.zero,
                                         content: GestureDetector(
                                           onTap: () {
