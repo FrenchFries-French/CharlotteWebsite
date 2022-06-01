@@ -34,7 +34,8 @@ class MyApp extends StatelessWidget {
         title: 'Charlotte Lobry',
         theme: ThemeData(
           textTheme: GoogleFonts.poppinsTextTheme(),
-          primarySwatch: Colors.blue,
+          //primarySwatch: Colors.white,
+          primaryColor: Colors.white,
           backgroundColor: Colors.white,
         ),
         initialRoute: 'home',
