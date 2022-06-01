@@ -82,8 +82,8 @@ class _OneCardState extends State<OneCard> {
                                           fit: BoxFit.contain,
                                           width: screenSize.width * 0.92,
                                           height: screenSize.width < 480
-                                              ? screenSize.height * 0.45
-                                              : screenSize.height * 0.85,
+                                              ? screenSize.height * 0.99
+                                              : screenSize.height * 0.99,
                                           fadeInCurve: Curves.ease,
                                           fadeOutCurve: Curves.ease,
                                           placeholder: (BuildContext context,
