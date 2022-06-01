@@ -66,7 +66,7 @@ class _OneCardState extends State<OneCard> {
                             onTap: () {
                               showDialog(
                                 context: context,
-                                barrierColor: Colors.transparent,
+                                barrierColor: Colors.black.withOpacity(0.3),
                                 builder: (context) {
                                   return AlertDialog(
                                     elevation: 300,
@@ -82,8 +82,8 @@ class _OneCardState extends State<OneCard> {
                                           fit: BoxFit.contain,
                                           width: screenSize.width * 2,
                                           height: screenSize.width < 480
-                                              ? screenSize.height * 0.99
-                                              : screenSize.height * 0.99,
+                                              ? screenSize.height * 1.8
+                                              : screenSize.height * 1.8,
                                           fadeInCurve: Curves.ease,
                                           fadeOutCurve: Curves.ease,
                                           placeholder: (BuildContext context,
