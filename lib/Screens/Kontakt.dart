@@ -18,7 +18,7 @@ class Kontakt extends StatelessWidget {
   }
 
   launchInstagram() {
-    var url = 'https://www.instagram.com/';
+    var url = 'https://www.instagram.com/charlottelobry/';
     launch(url);
   }
 
@@ -237,7 +237,7 @@ class Kontakt extends StatelessWidget {
                                 // ),
                                 style: _responsiveTextStyle(size: screenSize),
                               ),
-                              onPressed: () => {launchPhone()},
+                              onPressed: () => {launchEmail()},
                             ),
                             const SizedBox(
                               height: 30,
