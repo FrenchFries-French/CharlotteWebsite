@@ -42,7 +42,7 @@ class Kontakt extends StatelessWidget {
         child: const TopNavBar(),
       ),
       backgroundColor: Colors.white,
-      body: screenSize.width < 3000
+      body: screenSize.width < 800
           ? Container(
             width: screenSize.width,
             child: Column(
