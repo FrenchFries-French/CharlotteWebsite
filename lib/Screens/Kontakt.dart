@@ -172,16 +172,13 @@ class Kontakt extends StatelessWidget {
                         onPressed: () => {launchEmail()},
                       ),
                       const SizedBox(
-                        height: 30,
+                        height: 50,
                       ),
                       // BottomBar(child: SizedBox()),
                     ]),
-                const Positioned(
-                  bottom: 1,
-                  child: FittedBox(
-                    child: BottomBar(
-                      child: SizedBox(),
-                    ),
+                const FittedBox(
+                  child: BottomBar(
+                    child: SizedBox(),
                   ),
                 ),
               ],
