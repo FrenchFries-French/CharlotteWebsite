@@ -22,9 +22,11 @@ class Termsandconditions extends StatelessWidget {
                 color: Colors.white,
                 height: screenSize.height * 0.7,
               ),
-              const BottomBar(
+            const FittedBox(
+              child: BottomBar(
                 child: SizedBox(),
               ),
+            ),
             ]),
           )
         ],
