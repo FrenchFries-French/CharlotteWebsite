@@ -43,8 +43,8 @@ class Kontakt extends StatelessWidget {
       ),
       backgroundColor: Colors.white,
       body: screenSize.width < 800
-          ? Container(
-            width: screenSize.width,
+          ? SizedBox(
+            height: screenSize.height,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -176,11 +176,11 @@ class Kontakt extends StatelessWidget {
                       ),
                       // BottomBar(child: SizedBox()),
                     ]),
-                /*FittedBox(
+                const FittedBox(
                   child: BottomBar(
                     child: SizedBox(),
                   ),
-                ),*/
+                ),
               ],
             ),
           )
