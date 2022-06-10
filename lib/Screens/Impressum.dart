@@ -99,9 +99,6 @@ class Impressum extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                 ),
               ),
-              const BottomBar(
-                child: SizedBox(),
-              ),
             ]),
           )
         ],
