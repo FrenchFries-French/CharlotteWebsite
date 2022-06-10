@@ -176,9 +176,12 @@ class Kontakt extends StatelessWidget {
                       ),
                       // BottomBar(child: SizedBox()),
                     ]),
-                const FittedBox(
-                  child: BottomBar(
-                    child: SizedBox(),
+                const Positioned(
+                  bottom: 1,
+                  child: FittedBox(
+                    child: BottomBar(
+                      child: SizedBox(),
+                    ),
                   ),
                 ),
               ],
