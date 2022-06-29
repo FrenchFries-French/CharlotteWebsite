@@ -43,17 +43,9 @@ class About extends StatelessWidget {
                           child: Column(
                             children: [
                               Text(
-                                "I want to represent reality through my eyes, which makes it abstract and individual. I want to tell stories and at the same time create room for interpretation, so that stories can be reinvented. Photography is a wonderful means for the purpose to me. I try to make a subjective representation of things into a collective feeling that will hopefully inspire sharing and bringing people together. As the daughter of a Parisian-born father, the energy of the Parisian savoir-vivre has inspired me for as long as I can remember, and much of my photography is inspired by my everyday life in Paris. The experienced in general is probably the biggest source of inspiration, with all its ups and downs. Still, I've always found it hard to define my person, but when my brother recently told me: you're not a photographer - you're an artist. That's when it suddenly hit me: ",
+                                "I am a photogarpher based between Berlin and Paris. With my photography I want to represent reality through my eyes, which makes it abstract and individual. I want to tell stories and at the same time create room for interpretation, so that stories can be reinvented. Photography is a wonderful means for the purpose to me. I try to make a subjective representation of things into a collective feeling that will hopefully inspire sharing and bringing people together. As the daughter of a Parisian-born father, the energy of the Parisian savoir-vivre has inspired me for as long as I can remember, and much of my photography is inspired by my everyday life in Paris. The experienced in general is probably the biggest source of inspiration, with all its ups and downs.",
                                 style: GoogleFonts.poppins(
-                                  fontSize: screenSize.width > 1080 ? 1.5.w : 3.w,
-                                  // lets say total width is 400 then 5.w will make font size 20 pixel
-                                ),
-                                textAlign: TextAlign.center,
-                              ),
-                              Text(
-                                "Yes - I am an artist.",
-                                style: GoogleFonts.poppins(
-                                  fontSize: screenSize.width > 1080 ? 1.5.w : 3.w,
+                                  fontSize: screenSize.width > 1080 ? 1.5.w : 2.w,
                                   // lets say total width is 400 then 5.w will make font size 20 pixel
                                 ),
                                 textAlign: TextAlign.center,

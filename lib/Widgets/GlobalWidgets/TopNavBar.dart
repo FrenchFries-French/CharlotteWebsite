@@ -86,7 +86,7 @@ class _TopNavBarState extends State<TopNavBar> {
                         width: screenSize.width < 676 ? 30 : 0.12 * w,
                         child: FittedBox(
                           child: SelectionButton(
-                            name: "Home",
+                            name: "Portfolio",
                             onTap: () {
                               Navigator.push(
                                 context,
@@ -106,7 +106,7 @@ class _TopNavBarState extends State<TopNavBar> {
                       SizedBox(
                         width: screenSize.width < 676 ? 30 : 0.12 * w,
                         child: SelectionButton(
-                          name: "Home",
+                          name: "Portfolio",
                           onTap: () {
                             Navigator.push(
                               context,
