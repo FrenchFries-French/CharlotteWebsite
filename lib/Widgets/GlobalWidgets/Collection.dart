@@ -93,7 +93,7 @@ class _CollectionState extends State<Collection> {
 
 Future<List<Map<String, dynamic>>> getItemsFromFirebase() async {
   final List<Map<String, dynamic>> _items = [];
-  await FirebaseFirestore.instance.collection('Poolside').get().then((value) {
+  await FirebaseFirestore.instance.collection('Collection').get().then((value) {
     value.docs.forEach((element) {
       print(element.id);
       Map<String, dynamic> data = {
