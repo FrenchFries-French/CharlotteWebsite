@@ -6,6 +6,7 @@ import 'package:charletwebsite/Screens/Kontakt.dart';
 import 'package:charletwebsite/Screens/Service.dart';
 import 'package:charletwebsite/Widgets/GlobalWidgets/DropdownPersonal.dart';
 import '../../Screens/HomePageFirst.dart';
+import 'Collection.dart';
 import 'DropdownPersonal.dart';
 import 'SelectionButton.dart';
 import '../../utils/responsiveness.dart';
@@ -120,6 +121,50 @@ class _TopNavBarState extends State<TopNavBar> {
                           },
                         ),
                       ),
+
+                    if (screenSize.width < 667)
+                      SizedBox(
+                        width: screenSize.width < 676 ? 30 : 0.12 * w,
+                        child: FittedBox(
+                          child: SelectionButton(
+                            name: "Collection",
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                PageRouteBuilder(
+                                  pageBuilder: (context, animation1,
+                                      animation2) =>
+                                      Collection(), //This has to be changed to MyHomePage(),
+                                  transitionDuration:
+                                  const Duration(seconds: 0),
+                                ),
+                              );
+                            },
+                          ),
+                        ),
+                      )
+                    else
+                      SizedBox(
+                        width: screenSize.width < 676 ? 30 : 0.12 * w,
+                        child: SelectionButton(
+                          name: "Collection",
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              PageRouteBuilder(
+                                pageBuilder: (context, animation1,
+                                    animation2) =>
+                                    Collection(), //This has to be changed to MyHomePage(),
+                                transitionDuration: const Duration(seconds: 0),
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+
+
+
+
                     if (screenSize.width < 667)
                       SizedBox(
                         width: screenSize.width < 676 ? 30 : 0.12 * w,
