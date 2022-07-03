@@ -37,8 +37,7 @@ class _CollectionState extends State<Collection> {
         child: const TopNavBar(),
       ),
       backgroundColor: Colors.white,
-      body:
-      MasonryGridView.count(
+      body: MasonryGridView.count(
         itemCount: _items.length,
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 1),
         crossAxisCount: 4,
