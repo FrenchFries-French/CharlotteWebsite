@@ -35,7 +35,7 @@ class _PhotoGalleryState extends State<PhotoGallery> {
         body: MasonryGridView.count(
           itemCount: _items.length,
           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 1),
-          crossAxisCount: screenSize.width < 400 ? 3 : 3,
+          crossAxisCount: 3,
           mainAxisSpacing: 10,
           crossAxisSpacing: 10,
           itemBuilder: (context, index) {
