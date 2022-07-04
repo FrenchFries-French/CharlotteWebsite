@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:photo_view/photo_view.dart';
+import 'package:sizer/sizer.dart';
 
 class PhotoGallery extends StatefulWidget {
   const PhotoGallery({Key? key}) : super(key: key);
@@ -26,6 +27,7 @@ class _PhotoGalleryState extends State<PhotoGallery> {
 
   @override
   Widget build(BuildContext context) {
+    var screenSize = MediaQuery.of(context).size;
     return Scaffold(
         appBar: AppBar(
           title: const Text('Samet Sarial'),
@@ -33,7 +35,7 @@ class _PhotoGalleryState extends State<PhotoGallery> {
         body: MasonryGridView.count(
           itemCount: _items.length,
           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 1),
-          crossAxisCount: 4,
+          crossAxisCount: screenSize.width < 500 ? 3 : 4,
           mainAxisSpacing: 10,
           crossAxisSpacing: 10,
           itemBuilder: (context, index) {
