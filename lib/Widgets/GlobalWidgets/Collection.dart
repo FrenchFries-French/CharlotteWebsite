@@ -94,8 +94,6 @@ class _CollectionState extends State<Collection> {
     //To get images from firebase add or remove collection names from list.
     final List<String> listOfCollections = [
       'Collection',
-      "Poolside",
-      "Ensoleillée"
     ];
     //This side will provide firebase collection nameS
     for (int i = 0; i < listOfCollections.length; i++) {
