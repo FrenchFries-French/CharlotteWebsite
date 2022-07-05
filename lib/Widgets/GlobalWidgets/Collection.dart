@@ -4,8 +4,6 @@ import 'package:charletwebsite/Widgets/GlobalWidgets/TopNavBar.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:sizer/sizer.dart';
-import 'BottomNavBar.dart';
 
 class Collection extends StatefulWidget {
   const Collection({Key? key}) : super(key: key);
@@ -17,7 +15,7 @@ class Collection extends StatefulWidget {
 class _CollectionState extends State<Collection> {
   final List<Map<String, dynamic>> _items = [];
   double elevation = 4.0;
-  Offset translate = Offset(0, 0);
+  Offset translate = const Offset(0, 0);
   @override
   void initState() {
     getItemsFromFirebase().then((value) {
@@ -63,10 +61,12 @@ class _CollectionState extends State<Collection> {
                   context,
                   MaterialPageRoute(
                     builder: (context) => HeroPhotoViewRouteWrapper(
-                      imageProvider: NetworkImage(
-                        _items[index]['link'],
-                      ),
-                    ),
+                        imageProvider: canLaunch(_items[index]['link']) != null
+                            ? NetworkImage(
+                                _items[index]['link'],
+                              )
+                            : const NetworkImage(
+                                "https://cdn.wallpapersafari.com/34/82/YRzXPk.jpeg")),
                   ),
                 );
               },
@@ -75,7 +75,7 @@ class _CollectionState extends State<Collection> {
                   color: Colors.white,
                   boxShadow: [
                     BoxShadow(
-                      color: Color.fromARGB(255, 0, 0, 0),
+                      color: const Color.fromARGB(255, 0, 0, 0),
                       blurRadius: _items[index]['elevation'],
                     ),
                   ],
