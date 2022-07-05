@@ -51,7 +51,7 @@ class MyApp extends StatelessWidget {
           'service': (context) => const Service(),
           'shop': (context) => const Shop(),
           'termsandconditions': (context) => const Termsandconditions(),
-          'collection': (context) => Collection()
+          'collection': (context) => const Collection()
         },
       );
     });
