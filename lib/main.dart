@@ -1,4 +1,5 @@
 import 'package:charletwebsite/Screens/PhotoGallery.dart';
+import 'package:charletwebsite/Widgets/GlobalWidgets/sampleCollection.dart';
 import 'package:charletwebsite/firebase_options.dart';
 import 'package:flutter/material.dart';
 import 'package:charletwebsite/Screens/Kontakt.dart';
@@ -51,7 +52,8 @@ class MyApp extends StatelessWidget {
           'service': (context) => const Service(),
           'shop': (context) => const Shop(),
           'termsandconditions': (context) => const Termsandconditions(),
-          'collection': (context) => const Collection()
+          'collection': (context) => const Collection(),
+          'alternativecollection': (contexty) => const SampleCollection()
         },
       );
     });
