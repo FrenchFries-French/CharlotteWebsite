@@ -1,4 +1,5 @@
 import 'package:charletwebsite/Screens/CollectionScreens.dart';
+import 'package:charletwebsite/Widgets/GlobalWidgets/sampleCollection.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:charletwebsite/Screens/About.dart';
@@ -154,7 +155,7 @@ class _TopNavBarState extends State<TopNavBar> {
                               PageRouteBuilder(
                                 pageBuilder: (context, animation1,
                                     animation2) =>
-                                    Collection(), //This has to be changed to MyHomePage(),
+                                    SampleCollection(), //This has to be changed to MyHomePage(),
                                 transitionDuration: const Duration(seconds: 0),
                               ),
                             );

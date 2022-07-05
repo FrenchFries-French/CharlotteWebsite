@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget {
           primaryColor: Colors.white,
           backgroundColor: Colors.white,
         ),
-        initialRoute: 'home',
+        initialRoute: 'alternativecollection',
         routes: {
           'home': (context) => MyHomePage(),
           'kontakt': (context) => const Kontakt(),
@@ -52,7 +52,7 @@ class MyApp extends StatelessWidget {
           'service': (context) => const Service(),
           'shop': (context) => const Shop(),
           'termsandconditions': (context) => const Termsandconditions(),
-          'collection': (context) => const Collection(),
+          'collection': (context) => const SampleCollection(),
           'alternativecollection': (contexty) => const SampleCollection()
         },
       );
