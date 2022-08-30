@@ -15,6 +15,7 @@ class OneCard extends StatefulWidget {
   final bool? video;
   final bool? showGalleryText;
   final bool? isHomePageForward;
+  final bool? isHorizontal;
   final QueryDocumentSnapshot<Map<String, dynamic>>? firbaseObject;
   const OneCard({
     Key? key,
@@ -27,6 +28,7 @@ class OneCard extends StatefulWidget {
     this.video,
     this.imageType,
     this.firbaseObject,
+    this.isHorizontal,
   }) : super(key: key);
 
   final String imageString;
@@ -39,11 +41,6 @@ class OneCard extends StatefulWidget {
 }
 
 class _OneCardState extends State<OneCard> {
-  @override
-  void initState() {
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
@@ -128,12 +125,14 @@ class _OneCardState extends State<OneCard> {
                             child: CachedNetworkImage(
                               imageUrl: widget.imageString,
                               fit: screenSize.width > 550
-                                  ? BoxFit.fitHeight
-                                  : BoxFit.fitHeight,
+                                  ? BoxFit.contain
+                                  : BoxFit.contain,
                               width: screenSize.width < 550
                                   ? screenSize.width
                                   : screenSize.width * 0.5,
-                              height: screenSize.width < 550 ? 87.h : 85.h,
+                              height: widget.isHorizontal!
+                                  ? (screenSize.width < 550 ? 35.h : 55.h)
+                                  : (screenSize.width < 550 ? 87.h : 80.h),
                               // height: MediaQuery.of(context).size.height * 0.45,
                               fadeInCurve: Curves.ease,
                               fadeOutCurve: Curves.ease,
