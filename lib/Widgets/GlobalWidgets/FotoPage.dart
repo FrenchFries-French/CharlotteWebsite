@@ -54,6 +54,7 @@ class FotoPage extends StatelessWidget {
                   ? FittedBox(
                       child: LoadMoreFireStoreWidget(
                         collectionName: albumName,
+                        isHomePageForward: false,
                         //  "Urban",
                         initialLimit: 10,
                         showGalleryText: showGalleryText,
@@ -64,6 +65,7 @@ class FotoPage extends StatelessWidget {
                         horizontal: 10,
                       ),
                       child: LoadMoreFireStoreWidget(
+                        isHomePageForward: false,
                         collectionName: albumName
                         // "Urban"
                         ,

@@ -11,10 +11,12 @@ class LoadMoreFireStoreWidget extends StatefulWidget {
   final String collectionName;
   final int? initialLimit;
   final bool? showGalleryText;
+  final bool? isHomePageForward;
   const LoadMoreFireStoreWidget({
     Key? key,
     this.initialLimit,
     this.showGalleryText,
+    required this.isHomePageForward,
     required this.collectionName,
   }) : super(key: key);
 
@@ -84,6 +86,7 @@ class _LoadMoreFireStoreWidgetState extends State<LoadMoreFireStoreWidget> {
                               ? OneCard(
                                   imageString: docData['link'][0],
                                   heightMultiplicator: 12,
+                                  isHomePageForward: widget.isHomePageForward,
                                   galerieName: docData.containsKey("name")
                                       ? docData['name']
                                       : "",
@@ -94,6 +97,7 @@ class _LoadMoreFireStoreWidgetState extends State<LoadMoreFireStoreWidget> {
                                 )
                               : imageType == ImageType.TwoCardImage
                                   ? TwoCards(
+                                    isHomePageForward: widget.isHomePageForward,
                                       firstGalerieName:
                                           "${docData['firstname']}",
                                       secondImageString:

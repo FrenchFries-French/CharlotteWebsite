@@ -6,11 +6,11 @@ import 'package:charletwebsite/Widgets/GlobalWidgets/FotoPage.dart';
 import 'package:charletwebsite/Widgets/GlobalWidgets/videoCard.dart';
 import 'package:sizer/sizer.dart';
 
-
 class OneCard extends StatefulWidget {
   final String? imageType;
   final bool? video;
   final bool? showGalleryText;
+  final bool? isHomePageForward;
   final QueryDocumentSnapshot<Map<String, dynamic>>? firbaseObject;
   const OneCard({
     Key? key,
@@ -19,6 +19,7 @@ class OneCard extends StatefulWidget {
     required this.galerieName,
     required this.kuenstler,
     this.showGalleryText,
+    this.isHomePageForward,
     this.video,
     this.imageType,
     this.firbaseObject,
@@ -46,6 +47,7 @@ class _OneCardState extends State<OneCard> {
             GestureDetector(
                 //Vorher war es Mouse Region
                 onTap: () {
+                  print("Tapped");
                   if (kDebugMode) {
                     print("Tapped");
                   }
@@ -64,47 +66,63 @@ class _OneCardState extends State<OneCard> {
                         children: [
                           InkWell(
                             onTap: () {
-                              showDialog(
-                                context: context,
-                                barrierColor: Colors.white,
-                                builder: (context) {
-                                  return AlertDialog(
-                                    elevation: 300,
-                                    backgroundColor: Colors.white,
-                                    contentPadding: EdgeInsets.zero,
-                                    content: GestureDetector(
-                                      onTap: () {
-                                        Navigator.pop(context);
-                                      },
-                                      child: Center(
-                                        child: CachedNetworkImage(
-                                          imageUrl: widget.imageString,
-                                          fit: BoxFit.contain,
-                                          width: screenSize.width * 2,
-                                          height: screenSize.width < 480
-                                              ? screenSize.height * 1.8
-                                              : screenSize.height * 1.8,
-                                          fadeInCurve: Curves.ease,
-                                          fadeOutCurve: Curves.ease,
-                                          placeholder: (BuildContext context,
-                                                  String url) =>
-                                              Container(),
-                                          // imageRenderMethodForWeb: ImageR,
+                              if (widget.isHomePageForward == true) {
+                                Navigator.push(
+                                  context,
+                                  PageRouteBuilder(
+                                    pageBuilder:
+                                        (context, animation1, animation2) =>
+                                            FotoPage(
+                                      albumName: widget.galerieName,
+                                      showGalleryText:
+                                          widget.showGalleryText ?? true,
+                                    ), //This has to be changed to MyHomePage(),
+                                    transitionDuration:
+                                        const Duration(seconds: 0),
+                                  ),
+                                );
+                              } else {
+                                showDialog(
+                                  context: context,
+                                  barrierColor: Colors.white,
+                                  builder: (context) {
+                                    return AlertDialog(
+                                      elevation: 300,
+                                      backgroundColor: Colors.white,
+                                      contentPadding: EdgeInsets.zero,
+                                      content: GestureDetector(
+                                        onTap: () {
+                                          Navigator.pop(context);
+                                        },
+                                        child: Center(
+                                          child: CachedNetworkImage(
+                                            imageUrl: widget.imageString,
+                                            fit: BoxFit.contain,
+                                            width: screenSize.width * 2,
+                                            height: screenSize.width < 480
+                                                ? screenSize.height * 1.8
+                                                : screenSize.height * 1.8,
+                                            fadeInCurve: Curves.ease,
+                                            fadeOutCurve: Curves.ease,
+                                            placeholder: (BuildContext context,
+                                                    String url) =>
+                                                Container(),
+                                            // imageRenderMethodForWeb: ImageR,
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                    actions: const [],
-                                  );
-                                },
-                              );
+                                    );
+                                  },
+                                );
+                              }
                             },
                             child: CachedNetworkImage(
                               imageUrl: widget.imageString,
                               fit: screenSize.width > 550
                                   ? BoxFit.contain
                                   : BoxFit.contain,
-                              // width: screenSize.width * 0.5,
-                              height: screenSize.width < 567 ? 45.h : 65.h,
+                              width: screenSize.width * 0.5,
+                              height: screenSize.width < 550 ? 87.h : 85.h,
                               // height: MediaQuery.of(context).size.height * 0.45,
                               fadeInCurve: Curves.ease,
                               fadeOutCurve: Curves.ease,
@@ -162,7 +180,9 @@ class _OneCardState extends State<OneCard> {
                               color: Colors.grey[600]),
                         ),
                       ),
-                    SizedBox(height: 1.h,)
+                    SizedBox(
+                      height: 1.h,
+                    )
                   ],
                 )),
           ],

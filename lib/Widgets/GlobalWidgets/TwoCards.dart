@@ -10,6 +10,7 @@ import 'package:sizer/sizer.dart';
 class TwoCards extends StatefulWidget {
   final List<dynamic>? links;
   final bool? showGalleryText;
+  final bool? isHomePageForward;
   final QueryDocumentSnapshot<Map<String, dynamic>>? firbaseObject;
   const TwoCards({
     Key? key,
@@ -19,6 +20,7 @@ class TwoCards extends StatefulWidget {
     required this.secondImageString,
     required this.firstImageString,
     required this.secondGalerieName,
+    this.isHomePageForward,
     this.showGalleryText,
     this.imageType,
     this.links,
@@ -74,51 +76,67 @@ class _TwoCardsState extends State<TwoCards> {
                             : InkWell(
                                 onTap: () {
                                   log("message");
-                                  showDialog(
-                                    context: context,
-                                    barrierColor: Colors.white,
-                                    builder: (context) {
-                                      return AlertDialog(
-                                        elevation: 300,
-                                        backgroundColor: Colors.white,
-                                        contentPadding: EdgeInsets.zero,
-                                        content: GestureDetector(
-                                          onTap: () {
-                                            Navigator.pop(context);
-                                          },
-                                          child: SizedBox(
-                                            width: screenSize.width * 0.92,
-                                            height: screenSize.height * 0.92,
-                                            child: Center(
-                                              child: CachedNetworkImage(
-                                                imageUrl:
-                                                    widget.firstImageString,
+                                  if (widget.isHomePageForward == true) {
+                                    Navigator.push(
+                                      context,
+                                      PageRouteBuilder(
+                                        pageBuilder:
+                                            (context, animation1, animation2) =>
+                                                FotoPage(
+                                          albumName: widget.firstGalerieName,
+                                          showGalleryText: true,
+                                        ), //This has to be changed to MyHomePage(),
+                                        transitionDuration:
+                                            const Duration(seconds: 0),
+                                      ),
+                                    );
+                                  } else {
+                                    showDialog(
+                                      context: context,
+                                      barrierColor: Colors.white,
+                                      builder: (context) {
+                                        return AlertDialog(
+                                          elevation: 300,
+                                          backgroundColor: Colors.white,
+                                          contentPadding: EdgeInsets.zero,
+                                          content: GestureDetector(
+                                            onTap: () {
+                                              Navigator.pop(context);
+                                            },
+                                            child: SizedBox(
+                                              width: screenSize.width * 0.92,
+                                              height: screenSize.height * 0.92,
+                                              child: Center(
+                                                child: CachedNetworkImage(
+                                                  imageUrl:
+                                                      widget.firstImageString,
 
-                                                width: screenSize.width * 2,
-                                                height: screenSize.width < 480
-                                                    ? screenSize.height * 1.8
-                                                    : screenSize.height * 2.8,
+                                                  width: screenSize.width * 2,
+                                                  height: screenSize.width < 480
+                                                      ? screenSize.height * 1.8
+                                                      : screenSize.height * 2.8,
 
-                                                fit: BoxFit.contain,
-                                                fadeInCurve: Curves.ease,
-                                                fadeOutCurve: Curves.ease,
-                                                placeholder:
-                                                    (BuildContext context,
-                                                            String url) =>
-                                                        Container(
-                                                  // width: 320,
-                                                  height: 40.h,
-                                                  // color: Colors.white,
+                                                  fit: BoxFit.contain,
+                                                  fadeInCurve: Curves.ease,
+                                                  fadeOutCurve: Curves.ease,
+                                                  placeholder:
+                                                      (BuildContext context,
+                                                              String url) =>
+                                                          Container(
+                                                    // width: 320,
+                                                    height: 40.h,
+                                                    // color: Colors.white,
+                                                  ),
+                                                  // imageRenderMethodForWeb: ImageR,
                                                 ),
-                                                // imageRenderMethodForWeb: ImageR,
                                               ),
                                             ),
                                           ),
-                                        ),
-                                        actions: const [],
-                                      );
-                                    },
-                                  );
+                                          actions: const [],
+                                        );
+                                      },
+                                    );
+                                  }
                                 },
                                 child: Image.network(
                                   widget.firstImageString,
@@ -222,70 +240,89 @@ class _TwoCardsState extends State<TwoCards> {
                                             : 65.h,
                                         child: InkWell(
                                           onTap: () {
-                                            showDialog(
-                                              context: context,
-                                              barrierColor:
-                                                  Colors.white,
-                                              builder: (context) {
-                                                return AlertDialog(
-                                                  elevation: 300,
-                                                  backgroundColor:
-                                                      Colors.white,
-                                                  contentPadding:
-                                                      EdgeInsets.zero,
-                                                  content: GestureDetector(
-                                                    onTap: () {
-                                                      Navigator.pop(context);
-                                                    },
-                                                    child: SizedBox(
-                                                      width: screenSize.width *
-                                                          0.92,
-                                                      height:
-                                                          screenSize.height *
-                                                              0.92,
-                                                      child: Center(
-                                                        child:
-                                                            CachedNetworkImage(
-                                                          imageUrl: widget
-                                                              .secondImageString,
+                                            if (widget.isHomePageForward ==
+                                                true) {
+                                              Navigator.push(
+                                                context,
+                                                PageRouteBuilder(
+                                                  pageBuilder: (context,
+                                                          animation1,
+                                                          animation2) =>
+                                                      FotoPage(
+                                                    albumName:
+                                                        widget.firstGalerieName,
+                                                    showGalleryText: true,
+                                                  ), //This has to be changed to MyHomePage(),
+                                                  transitionDuration:
+                                                      const Duration(
+                                                          seconds: 0),
+                                                ),
+                                              );
+                                            } else {
+                                              showDialog(
+                                                context: context,
+                                                barrierColor: Colors.white,
+                                                builder: (context) {
+                                                  return AlertDialog(
+                                                    elevation: 300,
+                                                    backgroundColor:
+                                                        Colors.white,
+                                                    contentPadding:
+                                                        EdgeInsets.zero,
+                                                    content: GestureDetector(
+                                                      onTap: () {
+                                                        Navigator.pop(context);
+                                                      },
+                                                      child: SizedBox(
+                                                        width:
+                                                            screenSize.width *
+                                                                0.92,
+                                                        height:
+                                                            screenSize.height *
+                                                                0.92,
+                                                        child: Center(
+                                                          child:
+                                                              CachedNetworkImage(
+                                                            imageUrl: widget
+                                                                .firstImageString,
 
-                                                          width:
-                                                              screenSize.width *
-                                                                  2,
-                                                          height: screenSize
-                                                                      .width <
-                                                                  480
-                                                              ? screenSize
-                                                                      .height *
-                                                                  1.8
-                                                              : screenSize
-                                                                      .height *
-                                                                  1.8,
+                                                            width: screenSize
+                                                                    .width *
+                                                                2,
+                                                            height: screenSize
+                                                                        .width <
+                                                                    480
+                                                                ? screenSize
+                                                                        .height *
+                                                                    1.8
+                                                                : screenSize
+                                                                        .height *
+                                                                    2.8,
 
-                                                          fit: BoxFit.contain,
-                                                          fadeInCurve:
-                                                              Curves.ease,
-                                                          fadeOutCurve:
-                                                              Curves.ease,
-                                                          placeholder:
-                                                              (BuildContext
-                                                                          context,
-                                                                      String
-                                                                          url) =>
-                                                                  Container(
-                                                            // width: 320,
-                                                            height: 40.h,
-                                                            // color: Colors.white,
+                                                            fit: BoxFit.contain,
+                                                            fadeInCurve:
+                                                                Curves.ease,
+                                                            fadeOutCurve:
+                                                                Curves.ease,
+                                                            placeholder: (BuildContext
+                                                                        context,
+                                                                    String
+                                                                        url) =>
+                                                                Container(
+                                                              // width: 320,
+                                                              height: 40.h,
+                                                              // color: Colors.white,
+                                                            ),
+                                                            // imageRenderMethodForWeb: ImageR,
                                                           ),
-                                                          // imageRenderMethodForWeb: ImageR,
                                                         ),
                                                       ),
                                                     ),
-                                                  ),
-                                                  actions: const [],
-                                                );
-                                              },
-                                            );
+                                                    actions: const [],
+                                                  );
+                                                },
+                                              );
+                                            }
                                           },
                                           child: CachedNetworkImage(
                                             imageUrl: widget.secondImageString,
@@ -318,67 +355,87 @@ class _TwoCardsState extends State<TwoCards> {
                                       )
                                     : InkWell(
                                         onTap: () {
-                                          showDialog(
-                                            context: context,
-                                            barrierColor:
-                                                Colors.white,
-                                            builder: (context) {
-                                              return AlertDialog(
-                                                elevation: 300,
-                                                backgroundColor:
-                                                    Colors.white,
-                                                contentPadding: EdgeInsets.zero,
-                                                content: GestureDetector(
-                                                  onTap: () {
-                                                    Navigator.pop(context);
-                                                  },
-                                                  child: SizedBox(
-                                                    width:
-                                                        screenSize.width * 0.92,
-                                                    height: screenSize.height *
-                                                        0.92,
-                                                    child: Center(
-                                                      child: CachedNetworkImage(
-                                                        imageUrl: widget
-                                                            .secondImageString,
+                                          if (widget.isHomePageForward ==
+                                              true) {
+                                            Navigator.push(
+                                              context,
+                                              PageRouteBuilder(
+                                                pageBuilder: (context,
+                                                        animation1,
+                                                        animation2) =>
+                                                    FotoPage(
+                                                  albumName:
+                                                      widget.firstGalerieName,
+                                                  showGalleryText: true,
+                                                ), //This has to be changed to MyHomePage(),
+                                                transitionDuration:
+                                                    const Duration(seconds: 0),
+                                              ),
+                                            );
+                                          } else {
+                                            showDialog(
+                                              context: context,
+                                              barrierColor: Colors.white,
+                                              builder: (context) {
+                                                return AlertDialog(
+                                                  elevation: 300,
+                                                  backgroundColor: Colors.white,
+                                                  contentPadding:
+                                                      EdgeInsets.zero,
+                                                  content: GestureDetector(
+                                                    onTap: () {
+                                                      Navigator.pop(context);
+                                                    },
+                                                    child: SizedBox(
+                                                      width: screenSize.width *
+                                                          0.92,
+                                                      height:
+                                                          screenSize.height *
+                                                              0.92,
+                                                      child: Center(
+                                                        child:
+                                                            CachedNetworkImage(
+                                                          imageUrl: widget
+                                                              .firstImageString,
 
-                                                        width:
-                                                            screenSize.width *
-                                                                2,
-                                                        height: screenSize
-                                                                    .width <
-                                                                480
-                                                            ? screenSize
-                                                                    .height *
-                                                                1.8
-                                                            : screenSize
-                                                                    .height *
-                                                                1.8,
+                                                          width:
+                                                              screenSize.width *
+                                                                  2,
+                                                          height: screenSize
+                                                                      .width <
+                                                                  480
+                                                              ? screenSize
+                                                                      .height *
+                                                                  1.8
+                                                              : screenSize
+                                                                      .height *
+                                                                  2.8,
 
-                                                        fit: BoxFit.contain,
-                                                        fadeInCurve:
-                                                            Curves.ease,
-                                                        fadeOutCurve:
-                                                            Curves.ease,
-                                                        placeholder:
-                                                            (BuildContext
-                                                                        context,
-                                                                    String
-                                                                        url) =>
-                                                                Container(
-                                                          // width: 320,
-                                                          height: 40.h,
-                                                          // color: Colors.white,
+                                                          fit: BoxFit.contain,
+                                                          fadeInCurve:
+                                                              Curves.ease,
+                                                          fadeOutCurve:
+                                                              Curves.ease,
+                                                          placeholder:
+                                                              (BuildContext
+                                                                          context,
+                                                                      String
+                                                                          url) =>
+                                                                  Container(
+                                                            // width: 320,
+                                                            height: 40.h,
+                                                            // color: Colors.white,
+                                                          ),
+                                                          // imageRenderMethodForWeb: ImageR,
                                                         ),
-                                                        // imageRenderMethodForWeb: ImageR,
                                                       ),
                                                     ),
                                                   ),
-                                                ),
-                                                actions: const [],
-                                              );
-                                            },
-                                          );
+                                                  actions: const [],
+                                                );
+                                              },
+                                            );
+                                          }
                                         },
                                         child: Image.network(
                                           widget.secondImageString,
@@ -442,6 +499,10 @@ class _TwoCardsState extends State<TwoCards> {
                             ),
                           ),
                         ),
+                      SizedBox(
+                        // height: screenSize.width > 560 ? 0.5.h : 10,
+                        height: 0.5.h,
+                      ),
                     ],
                   ),
                 ),

@@ -46,8 +46,8 @@ class MyHomePage extends StatelessWidget {
             ),
           ),
           SliverAppBar(
-            expandedHeight: 100.w > 767 ? 150 : kToolbarHeight,
-            collapsedHeight: 100.w > 767 ? 100 : kToolbarHeight,
+            expandedHeight: kToolbarHeight + 10,
+            collapsedHeight: kToolbarHeight + 10,
             pinned: true,
             elevation: 0,
             leading: Container(),
@@ -69,6 +69,7 @@ class MyHomePage extends StatelessWidget {
                 //   ),
                 //   child:
                 LoadMoreFireStoreWidget(
+                  isHomePageForward: true,
                   collectionName: "HomePage",
                   initialLimit: 10,
                 ),

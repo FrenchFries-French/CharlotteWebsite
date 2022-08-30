@@ -38,7 +38,7 @@ class _TopNavBarState extends State<TopNavBar> {
         children: [
           FutureBuilder<QuerySnapshot<Map<String, dynamic>>>(
             future:
-            FirebaseFirestore.instance.collection("dropDownNames").get(),
+                FirebaseFirestore.instance.collection("dropDownNames").get(),
             builder: (context, snapshot) {
               if (snapshot.hasData) {
                 List<String> dynamicList = ["AllAlbums"];
@@ -94,10 +94,10 @@ class _TopNavBarState extends State<TopNavBar> {
                                 context,
                                 PageRouteBuilder(
                                   pageBuilder: (context, animation1,
-                                      animation2) =>
+                                          animation2) =>
                                       MyHomePage(), //This has to be changed to MyHomePage(),
                                   transitionDuration:
-                                  const Duration(seconds: 0),
+                                      const Duration(seconds: 0),
                                 ),
                               );
                             },
@@ -114,7 +114,7 @@ class _TopNavBarState extends State<TopNavBar> {
                               context,
                               PageRouteBuilder(
                                 pageBuilder: (context, animation1,
-                                    animation2) =>
+                                        animation2) =>
                                     MyHomePage(), //This has to be changed to MyHomePage(),
                                 transitionDuration: const Duration(seconds: 0),
                               ),
@@ -122,7 +122,6 @@ class _TopNavBarState extends State<TopNavBar> {
                           },
                         ),
                       ),
-
                     if (screenSize.width < 667)
                       SizedBox(
                         width: screenSize.width < 676 ? 30 : 0.12 * w,
@@ -134,10 +133,10 @@ class _TopNavBarState extends State<TopNavBar> {
                                 context,
                                 PageRouteBuilder(
                                   pageBuilder: (context, animation1,
-                                      animation2) =>
+                                          animation2) =>
                                       Collection(), //This has to be changed to MyHomePage(),
                                   transitionDuration:
-                                  const Duration(seconds: 0),
+                                      const Duration(seconds: 0),
                                 ),
                               );
                             },
@@ -154,7 +153,7 @@ class _TopNavBarState extends State<TopNavBar> {
                               context,
                               PageRouteBuilder(
                                 pageBuilder: (context, animation1,
-                                    animation2) =>
+                                        animation2) =>
                                     SampleCollection(), //This has to be changed to MyHomePage(),
                                 transitionDuration: const Duration(seconds: 0),
                               ),
@@ -162,10 +161,6 @@ class _TopNavBarState extends State<TopNavBar> {
                           },
                         ),
                       ),
-
-
-
-
                     if (screenSize.width < 667)
                       SizedBox(
                         width: screenSize.width < 676 ? 30 : 0.12 * w,
@@ -179,9 +174,9 @@ class _TopNavBarState extends State<TopNavBar> {
                                   PageRouteBuilder(
                                     pageBuilder:
                                         (context, animation1, animation2) =>
-                                    const Kontakt(),
+                                            const Kontakt(),
                                     transitionDuration:
-                                    const Duration(seconds: 0),
+                                        const Duration(seconds: 0),
                                   ),
                                 );
                               }),
@@ -199,9 +194,9 @@ class _TopNavBarState extends State<TopNavBar> {
                                 PageRouteBuilder(
                                   pageBuilder:
                                       (context, animation1, animation2) =>
-                                  const Kontakt(),
+                                          const Kontakt(),
                                   transitionDuration:
-                                  const Duration(seconds: 0),
+                                      const Duration(seconds: 0),
                                 ),
                               );
                             }),
@@ -219,9 +214,9 @@ class _TopNavBarState extends State<TopNavBar> {
                                   PageRouteBuilder(
                                     pageBuilder:
                                         (context, animation1, animation2) =>
-                                    const About(),
+                                            const About(),
                                     transitionDuration:
-                                    const Duration(seconds: 0),
+                                        const Duration(seconds: 0),
                                   ),
                                 );
                               }),
@@ -239,9 +234,9 @@ class _TopNavBarState extends State<TopNavBar> {
                                 PageRouteBuilder(
                                   pageBuilder:
                                       (context, animation1, animation2) =>
-                                  const About(),
+                                          const About(),
                                   transitionDuration:
-                                  const Duration(seconds: 0),
+                                      const Duration(seconds: 0),
                                 ),
                               );
                             }),
@@ -254,10 +249,11 @@ class _TopNavBarState extends State<TopNavBar> {
             },
           ),
           Container(
+            padding: EdgeInsets.only(bottom: 0),
             // width: 1000.w,
             // height: 0.1.h,
             child: Divider(
-              // height: 10,
+              height: 1,
               thickness: 1,
               indent: MediaQuery.of(context).size.width > 480 ? 95 : 15,
               endIndent: MediaQuery.of(context).size.width > 480 ? 130 : 20,
