@@ -1,10 +1,14 @@
+import 'dart:async';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:charletwebsite/Widgets/GlobalWidgets/FotoPage.dart';
 import 'package:charletwebsite/Widgets/GlobalWidgets/videoCard.dart';
+import 'package:flutter/services.dart';
 import 'package:sizer/sizer.dart';
+import 'dart:ui' as ui;
 
 class OneCard extends StatefulWidget {
   final String? imageType;
@@ -35,6 +39,11 @@ class OneCard extends StatefulWidget {
 }
 
 class _OneCardState extends State<OneCard> {
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
@@ -119,9 +128,11 @@ class _OneCardState extends State<OneCard> {
                             child: CachedNetworkImage(
                               imageUrl: widget.imageString,
                               fit: screenSize.width > 550
-                                  ? BoxFit.contain
-                                  : BoxFit.contain,
-                              width: screenSize.width * 0.5,
+                                  ? BoxFit.fitHeight
+                                  : BoxFit.fitHeight,
+                              width: screenSize.width < 550
+                                  ? screenSize.width
+                                  : screenSize.width * 0.5,
                               height: screenSize.width < 550 ? 87.h : 85.h,
                               // height: MediaQuery.of(context).size.height * 0.45,
                               fadeInCurve: Curves.ease,
