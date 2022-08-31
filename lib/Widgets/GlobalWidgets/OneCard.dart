@@ -131,8 +131,8 @@ class _OneCardState extends State<OneCard> {
                                   ? screenSize.width
                                   : screenSize.width * 0.8,
                               height: widget.isHorizontal!
-                                  ? (screenSize.width < 550 ? 35.h : 75.h)
-                                  : (screenSize.width < 550 ? 87.h : 80.h),
+                                  ? (screenSize.width < 550 ? 55.h : 90.h)
+                                  : (screenSize.width < 550 ? 93.h : 87.h),
                               // height: MediaQuery.of(context).size.height * 0.45,
                               fadeInCurve: Curves.ease,
                               fadeOutCurve: Curves.ease,
