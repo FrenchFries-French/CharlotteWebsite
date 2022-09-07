@@ -121,7 +121,7 @@ class _OneCardState extends State<OneCard> {
                               fit: screenSize.width > 550
                                   ? BoxFit.contain
                                   : BoxFit.contain,
-                              width: screenSize.width * 0.5,
+                              //width: screenSize.width * 0.5,
                               height: screenSize.width < 550 ? 87.h : 85.h,
                               // height: MediaQuery.of(context).size.height * 0.45,
                               fadeInCurve: Curves.ease,
