@@ -84,6 +84,7 @@ class _LoadMoreFireStoreWidgetState extends State<LoadMoreFireStoreWidget> {
                           padding: const EdgeInsets.symmetric(vertical: 1),
                           child: imageType == ImageType.OneCardImage
                               ? OneCard(
+                                isHorizontal: docData['isHorizontal'],
                                   imageString: docData['link'][0],
                                   heightMultiplicator: 12,
                                   isHomePageForward: widget.isHomePageForward,
