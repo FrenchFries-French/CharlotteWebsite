@@ -124,9 +124,9 @@ class _OneCardState extends State<OneCard> {
                             },
                             child: CachedNetworkImage(
                               imageUrl: widget.imageString,
-                              fit: screenSize.width > 550
+                              fit: screenSize.width > 800
                                   ? BoxFit.contain
-                                  : BoxFit.contain,
+                                  : BoxFit.cover,
                               //width: screenSize.width * 0.5,
                               height: screenSize.width < 550 ? 87.h : 85.h,
                               // height: MediaQuery.of(context).size.height * 0.45,
