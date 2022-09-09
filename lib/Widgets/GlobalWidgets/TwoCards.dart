@@ -145,7 +145,7 @@ class _TwoCardsState extends State<TwoCards> {
                                   // height:
                                   // screenSize.width < 567 ? 45.h :
                                   // 65.h,
-                                  height: screenSize.width < 567 ? 35.h : 65.h,
+                                  height: screenSize.width < 567 ? 45.h : 95.h,
                                   // fit: screenSize.width < 567
                                   //     ? BoxFit.cover
                                   //     : BoxFit.contain,
@@ -441,8 +441,8 @@ class _TwoCardsState extends State<TwoCards> {
                                           widget.secondImageString,
                                           // fit: BoxFit.cover,
                                           height: screenSize.width < 567
-                                              ? 35.h
-                                              : 65.h,
+                                              ? 45.h
+                                              : 95.h,
                                           // height: 65.h,
                                           errorBuilder:
                                               (context, error, stackTrace) {
