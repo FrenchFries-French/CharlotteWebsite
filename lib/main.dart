@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget {
           primaryColor: Colors.white,
           backgroundColor: Colors.white,
         ),
-        initialRoute: 'home',
+        initialRoute: 'collection',
         routes: {
           'home': (context) => MyHomePage(),
           'kontakt': (context) => const Kontakt(),
