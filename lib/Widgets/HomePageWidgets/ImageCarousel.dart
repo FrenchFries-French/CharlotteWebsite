@@ -12,13 +12,14 @@ class ImageCarousel extends StatefulWidget {
 
 class _ImageCarouselState extends State<ImageCarousel> {
   List imgList = [
-    'assets/assets/images/Header_B.JPG',
-    'assets/assets/images/Header_C.JPG',
-    'assets/assets/images/Header_D.JPG',
-    'assets/assets/images/Header_E.JPG',
-    'assets/assets/images/Header_F.JPG',
-    'assets/assets/images/Header_G.JPG',
-    'assets/assets/images/Header_H.JPG',
+    'assets/assets/images/K1.jpg',
+    'assets/assets/images/K2.jpg',
+    'assets/assets/images/K3.jpg',
+    'assets/assets/images/K4.JPG',
+    'assets/assets/images/K5.JPG',
+    'assets/assets/images/K6.jpg',
+    'assets/assets/images/K7.JPG',
+    'assets/assets/images/K8.jpg',
   ];
 
   @override
