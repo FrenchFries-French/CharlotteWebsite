@@ -41,7 +41,7 @@ class MyHomePage extends StatelessWidget {
                 screenSize.width > 1145 ? screenSize.height * 0.6 : 250,
             flexibleSpace: ClipRRect(
               child: ImageCarousel(
-                height: screenSize.height * 0.6,
+                 height: screenSize.width < 1080 ? screenSize.height * 0.6 : screenSize.height * 0.8,
               ),
             ),
           ),
