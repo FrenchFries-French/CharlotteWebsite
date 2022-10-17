@@ -31,16 +31,16 @@ class _CollectionState extends State<Collection> {
     var screenSize = MediaQuery.of(context).size;
     return Scaffold(
         appBar: PreferredSize(
-          preferredSize: Size(screenSize.width, 80),
+          preferredSize: Size(screenSize.width, 60),
           child: const TopNavBar(),
         ),
         backgroundColor: Colors.white,
         body: MasonryGridView.count(
           itemCount: _items.length,
           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 1),
-          crossAxisCount: 4,
-          mainAxisSpacing: 10,
-          crossAxisSpacing: 10,
+          crossAxisCount: screenSize.width <560 ? 2 : 4,
+          mainAxisSpacing: screenSize.width <560 ? 5 : 10,
+          crossAxisSpacing: screenSize.width <560 ? 5 : 10,
           itemBuilder: (context, index) {
             return InkWell(
               onHover: (value) {

@@ -14,7 +14,7 @@ class About extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: PreferredSize(
-        preferredSize: Size(screenSize.width, 80),
+        preferredSize: Size(screenSize.width, 60),
         child: const TopNavBar(),
       ),
       body: SizedBox(

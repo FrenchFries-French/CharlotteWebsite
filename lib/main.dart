@@ -16,8 +16,6 @@ import 'Screens/Service.dart';
 import 'Screens/Shop.dart';
 import 'package:firebase_core/firebase_core.dart';
 
-import 'Widgets/GlobalWidgets/Collection.dart';
-
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(

@@ -38,7 +38,7 @@ class Kontakt extends StatelessWidget {
     var screenSize = MediaQuery.of(context).size;
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size(screenSize.width, 80),
+        preferredSize: Size(screenSize.width, 60),
         child: const TopNavBar(),
       ),
       backgroundColor: Colors.white,

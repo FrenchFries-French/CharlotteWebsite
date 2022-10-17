@@ -40,10 +40,6 @@ class TwoCards extends StatefulWidget {
 }
 
 class _TwoCardsState extends State<TwoCards> {
-  // bool _isHoveredsecond = false;
-  // double _opacityfirst = 0;
-  // double _opacitysecond = 0;
-
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
@@ -140,15 +136,10 @@ class _TwoCardsState extends State<TwoCards> {
                                 },
                                 child: Image.network(
                                   widget.firstImageString,
-                                  // height: 25.h,
-                                  // height: 35.h,
-                                  // height:
-                                  // screenSize.width < 567 ? 45.h :
-                                  // 65.h,
-                                  height: screenSize.width < 567 ? 45.h : 95.h,
-                                  // fit: screenSize.width < 567
-                                  //     ? BoxFit.cover
-                                  //     : BoxFit.contain,
+                                  width: screenSize.width / 2.5,
+                                  fit: screenSize.width < 567
+                                      ? BoxFit.cover
+                                      : BoxFit.contain,
                                   errorBuilder: (context, error, stackTrace) {
                                     return Text(
                                       "We are having problem while loading images ${widget.firstImageString}}",
@@ -199,12 +190,7 @@ class _TwoCardsState extends State<TwoCards> {
             ),
           ),
           SizedBox(
-            // width: 10.w,
-
             width: screenSize.width > 1000
-
-                /// In Two Card YOu can specify value based on your need..
-                /// here i am using 3% width of screen
                 ? 3.w
                 : screenSize.width > 440
                     ? 6.w
@@ -216,7 +202,6 @@ class _TwoCardsState extends State<TwoCards> {
                 : BoxConstraints(
                     maxWidth: screenSize.width * 0.47,
                   ),
-            // padding: const EdgeInsets.only(top: 10, bottom: 30),
             child: Column(
               children: [
                 GestureDetector(
@@ -285,7 +270,6 @@ class _TwoCardsState extends State<TwoCards> {
                                                               CachedNetworkImage(
                                                             imageUrl: widget
                                                                 .firstImageString,
-
                                                             width: screenSize
                                                                     .width *
                                                                 2,
@@ -298,7 +282,6 @@ class _TwoCardsState extends State<TwoCards> {
                                                                 : screenSize
                                                                         .height *
                                                                     2.8,
-
                                                             fit: BoxFit.contain,
                                                             fadeInCurve:
                                                                 Curves.ease,
@@ -313,7 +296,6 @@ class _TwoCardsState extends State<TwoCards> {
                                                               height: 40.h,
                                                               // color: Colors.white,
                                                             ),
-                                                            // imageRenderMethodForWeb: ImageR,
                                                           ),
                                                         ),
                                                       ),
@@ -330,7 +312,7 @@ class _TwoCardsState extends State<TwoCards> {
                                             //     ? 60.h
                                             //     : 30.h,
                                             height: screenSize.width < 567
-                                                ? 45.h
+                                                ? 25.h
                                                 : 65.h,
 
                                             fadeInCurve: Curves.ease,
@@ -341,15 +323,10 @@ class _TwoCardsState extends State<TwoCards> {
                                             placeholder: (BuildContext context,
                                                     String url) =>
                                                 Container(
-                                              // width: 320,
                                               height: screenSize.width > 550
                                                   ? 65.h
-                                                  // ? 35.h
                                                   : 30.h,
-                                              // height: 240,
-                                              // color: Colors.white,
                                             ),
-                                            // imageRenderMethodForWeb: ImageR,
                                           ),
                                         ),
                                       )
@@ -367,7 +344,7 @@ class _TwoCardsState extends State<TwoCards> {
                                                   albumName:
                                                       widget.firstGalerieName,
                                                   showGalleryText: true,
-                                                ), //This has to be changed to MyHomePage(),
+                                                ),
                                                 transitionDuration:
                                                     const Duration(seconds: 0),
                                               ),
@@ -422,9 +399,7 @@ class _TwoCardsState extends State<TwoCards> {
                                                                       String
                                                                           url) =>
                                                                   Container(
-                                                            // width: 320,
                                                             height: 40.h,
-                                                            // color: Colors.white,
                                                           ),
                                                           // imageRenderMethodForWeb: ImageR,
                                                         ),
@@ -439,11 +414,11 @@ class _TwoCardsState extends State<TwoCards> {
                                         },
                                         child: Image.network(
                                           widget.secondImageString,
-                                          // fit: BoxFit.cover,
-                                          height: screenSize.width < 567
-                                              ? 45.h
-                                              : 95.h,
-                                          // height: 65.h,
+                                          fit: screenSize.width < 567
+                                              ? BoxFit.cover
+                                              : BoxFit.contain,
+                                          
+                                          width: screenSize.width / 2.5,
                                           errorBuilder:
                                               (context, error, stackTrace) {
                                             return Text(

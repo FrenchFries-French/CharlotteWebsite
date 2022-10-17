@@ -31,7 +31,7 @@ class Service extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: PreferredSize(
-        preferredSize: Size(screenSize.width, 70),
+        preferredSize: Size(screenSize.width, 60),
         child: const TopNavBar(),
       ),
       body: SizedBox(

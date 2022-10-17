@@ -15,7 +15,7 @@ class SampleCollection extends StatefulWidget {
 
 class _SampleCollectionState extends State<SampleCollection> {
   final List<Map<String, dynamic>> _items = [];
-  double elevation = 4.0;
+  double elevation = 0.0;
   Offset translate = const Offset(0, 0);
   @override
   void initState() {
@@ -32,33 +32,20 @@ class _SampleCollectionState extends State<SampleCollection> {
     var screenSize = MediaQuery.of(context).size;
     return Scaffold(
         appBar: PreferredSize(
-          preferredSize: Size(screenSize.width, 80),
+          preferredSize: Size(screenSize.width, 60),
           child: const TopNavBar(),
         ),
         backgroundColor: Colors.white,
         body: SingleChildScrollView(
           child: MasonryGrid(
-              mainAxisSpacing: 10,
-              crossAxisSpacing: 10,
-              column: 4,
+              column: screenSize.width < 560 ? 2 : 3,
+              mainAxisSpacing: screenSize.width < 560 ? 5 : 7,
+              crossAxisSpacing: screenSize.width < 560 ? 5 : 7,
               children: List.generate(
                 _items.length,
                 (index) {
                   return InkWell(
-                    onHover: (value) {
-                      if (value) {
-                        setState(() {
-                          _items[index]['elevation'] = 90.0;
-                        });
-                      } else {
-                        setState(() {
-                          _items[index]['elevation'] = 4.0;
-                        });
-                      }
-                    },
                     onTap: () {
-                      print(_items[index]['id']);
-
                       Navigator.push(
                         context,
                         MaterialPageRoute(

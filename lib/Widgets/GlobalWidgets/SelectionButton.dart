@@ -30,16 +30,7 @@ class SelectionButton extends StatelessWidget {
                 style: GoogleFonts.ubuntu(
                     fontSize: 16,
                     fontWeight: FontWeight.w400,
-                    color: Colors.black)
-                /*style: TextStyle(
-                color: Colors.black,
-                // fontSize: 14,
-                fontSize: 2.w,
-                fontStyle: fontStyle,
-
-              ),*/
-
-                ),
+                    color: Colors.black)),
             child ?? Container(),
           ],
         ),

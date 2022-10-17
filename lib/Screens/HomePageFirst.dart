@@ -29,7 +29,6 @@ class MyHomePage extends StatelessWidget {
       backgroundColor: Colors.white,
       body: NestedScrollView(
         controller: _scrollController,
-        // scrollBehavior: MaterialScrollBehavior(),
         headerSliverBuilder: (context, innerBoxIsScrolled) => [
           SliverAppBar(
             pinned: false,
@@ -41,7 +40,7 @@ class MyHomePage extends StatelessWidget {
                 screenSize.width > 1145 ? screenSize.height * 0.6 : 250,
             flexibleSpace: ClipRRect(
               child: ImageCarousel(
-                 height: screenSize.height * 0.6,
+                height: screenSize.height * 0.6,
               ),
             ),
           ),
@@ -58,23 +57,13 @@ class MyHomePage extends StatelessWidget {
         // controller: _scrollController,
         body: SingleChildScrollView(
           child: SizedBox(
-            // width: screenSize.width,
-            // height: screenSize.height,
             child: Column(
               children: [
-                // :
-                // Container(
-                //   margin: EdgeInsets.symmetric(
-                //     horizontal: 0,
-                //   ),
-                //   child:
                 LoadMoreFireStoreWidget(
                   isHomePageForward: true,
                   collectionName: "HomePage",
                   initialLimit: 10,
                 ),
-                // ),
-
                 screenSize.width < 1080
                     ? FittedBox(
                         child: BottomBar(
