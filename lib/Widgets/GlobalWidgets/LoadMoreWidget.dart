@@ -84,7 +84,7 @@ class _LoadMoreFireStoreWidgetState extends State<LoadMoreFireStoreWidget> {
                           padding: const EdgeInsets.symmetric(vertical: 1),
                           child: imageType == ImageType.OneCardImage
                               ? OneCard(
-                                isHorizontal: docData['isHorizontal'],
+                                  isHorizontal: docData['isHorizontal'],
                                   imageString: docData['link'][0],
                                   heightMultiplicator: 12,
                                   isHomePageForward: widget.isHomePageForward,
@@ -97,17 +97,41 @@ class _LoadMoreFireStoreWidgetState extends State<LoadMoreFireStoreWidget> {
                                   showGalleryText: docData['showText'] ?? true,
                                 )
                               : imageType == ImageType.TwoCardImage
-                                  ? TwoCards(
-                                    isHomePageForward: widget.isHomePageForward,
-                                      firstGalerieName:
-                                          "${docData['firstname']}",
-                                      secondImageString:
-                                          "${docData['link'][1]}",
-                                      firstImageString: "${docData['link'][0]}",
-                                      secondGalerieName:
-                                          "${docData['secondname']}",
-                                      showGalleryText:
-                                          docData['showText'] ?? true,
+                                  ? Column(
+                                      children: [
+                                        OneCard(
+                                          isHorizontal: true,
+                                          imageString: docData['link'][0],
+                                          heightMultiplicator: 12,
+                                          isHomePageForward:
+                                              widget.isHomePageForward,
+                                          galerieName:
+                                              docData.containsKey("firstname")
+                                                  ? docData['firstname']
+                                                  : "",
+                                          kuenstler: "test",
+                                          imageType: "network",
+                                          firbaseObject: currentItem,
+                                          showGalleryText:
+                                              docData['showText'] ?? true,
+                                        ),
+                                        OneCard(
+                                          isHorizontal: true,
+                                          imageString: docData['link'][1],
+                                          heightMultiplicator: 12,
+                                          isHomePageForward:
+                                              widget.isHomePageForward,
+                                          galerieName:
+                                              docData.containsKey("secondname")
+                                                  ? docData['secondname']
+                                                  : "",
+                                          kuenstler: "test",
+                                          imageType: "network",
+                                          firbaseObject: currentItem,
+                                          showGalleryText:
+                                              docData['showText'] ?? true,
+                                        ),
+                                      ],
                                     )
                                   : imageType == ImageType.VideoCard
                                       ? VideoCard(

@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:charletwebsite/Widgets/GlobalWidgets/TopNavBar.dart';
@@ -46,18 +47,45 @@ class _SampleCollectionState extends State<SampleCollection> {
                 (index) {
                   return InkWell(
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => HeroPhotoViewRouteWrapper(
-                              imageProvider: canLaunch(_items[index]['link']) !=
-                                      null
-                                  ? NetworkImage(
-                                      _items[index]['link'],
-                                    )
-                                  : const NetworkImage(
-                                      "https://cdn.wallpapersafari.com/34/82/YRzXPk.jpeg")),
-                        ),
+                      showDialog(
+                        useSafeArea: false,
+                        context: context,
+                        barrierColor: Colors.black,
+                        builder: (context) {
+                          return AlertDialog(
+                            elevation: 300,
+                            backgroundColor: Colors.black,
+                            contentPadding: EdgeInsets.zero,
+                            actions: [
+                              FloatingActionButton(
+                                onPressed: () => Navigator.pop(context),
+                                child: const Icon(Icons.close),
+                                backgroundColor: Colors.grey,
+                              ),
+                            ],
+                            content: GestureDetector(
+                              onTap: () {
+                                Navigator.pop(context);
+                              },
+                              child: Center(
+                                child: CachedNetworkImage(
+                                  imageUrl: _items[index]['link'],
+                                  fit: BoxFit.contain,
+                                  width: screenSize.width * 2,
+                                  height: screenSize.width < 480
+                                      ? screenSize.height * 1.8
+                                      : screenSize.height * 1.8,
+                                  fadeInCurve: Curves.ease,
+                                  fadeOutCurve: Curves.ease,
+                                  placeholder:
+                                      (BuildContext context, String url) =>
+                                          Container(),
+                                  // imageRenderMethodForWeb: ImageR,
+                                ),
+                              ),
+                            ),
+                          );
+                        },
                       );
                     },
                     child: Container(
@@ -109,8 +137,6 @@ class _SampleCollectionState extends State<SampleCollection> {
       }); //after getting data and added to the _items we apply sort algorithm to sort _item array according to the order value.
       _items.sort((a, b) => a['order'].compareTo(b['order']));
     }
-
-    print(_items);
     return _items;
   }
 }

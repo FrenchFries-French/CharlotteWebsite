@@ -44,146 +44,142 @@ class Kontakt extends StatelessWidget {
       backgroundColor: Colors.white,
       body: screenSize.width < 800
           ? SizedBox(
-            height: screenSize.height,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              //crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text(
-                  "Charlotte Lobry",
-                  style: _responsiveTextStyle(
-                    size: screenSize,
+              height: screenSize.height,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                //crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    "Charlotte Lobry",
+                    style: _responsiveTextStyle(
+                      size: screenSize,
+                    ),
                   ),
-                ),
-                const SizedBox(
-                  height: 6,
-                ),
-                Text(
-                  "Artistic Photgrapher",
-                  style: _responsiveTextStyle(
-                    size: screenSize,
+                  const SizedBox(
+                    height: 6,
                   ),
-                ),
-                const SizedBox(
-                  height: 25,
-                ),
+                  Text(
+                    "Artistic Photgrapher",
+                    style: _responsiveTextStyle(
+                      size: screenSize,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 25,
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
-                        height:
-                        screenSize.width > 767 ? 10.w : 10.h,
+                        height: screenSize.width > 767 ? 10.w : 10.h,
                         width: screenSize.width > 767 ? 5.w : 20,
                         color: Colors.black,
                         margin: EdgeInsets.symmetric(
-                            horizontal:
-                            screenSize.width > 767 ? 5 : 2),
+                            horizontal: screenSize.width > 767 ? 5 : 2),
                       ),
                       Container(
-                        height:
-                        screenSize.width > 767 ? 10.w : 10.h,
+                        height: screenSize.width > 767 ? 10.w : 10.h,
                         width: screenSize.width > 767 ? 5.w : 20,
                         color: Colors.black,
                         margin: EdgeInsets.symmetric(
-                            horizontal:
-                            screenSize.width > 767 ? 5 : 2),
+                            horizontal: screenSize.width > 767 ? 5 : 2),
                       ),
                     ],
                   ),
-                const SizedBox(
-                  height: 25,
-                ),
-                InkWell(
-                  child: Text(
-                    "info@charlottelobry.com",
-                    style:
-                    _responsiveTextStyle(
-                        size:
-                        screenSize),
-                    textAlign:
-                    TextAlign.end,
+                  const SizedBox(
+                    height: 25,
                   ),
-                  onTap: () =>
-                  {launchEmail()},
-                ),
-                const SizedBox(
-                  height: 6,
-                ),
-                InkWell(
-                  child: Text("Instagram",
-                      textAlign:
-                      screenSize.width > 767
-                          ? TextAlign.end
-                          : TextAlign.end,
-                      style:
-                      _responsiveTextStyle(
-                        size: screenSize,
-                      )),
-                  onTap: () {
-                    launchInstagram();
-                  },
-                ),
-                const SizedBox(
-                  height: 90,
-                ),
-                Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Text(
-                        "For any purchasing requests ",
-                        style:
-                        _responsiveTextStyle(size: screenSize),
-                      ),
-                      Text(
-                        "send me an email and I will",
-                        // style: TextStyle(
-                        //   fontSize: screenSize.width < 700 ? 10 : 14,
-                        // ),
-                        style:
-                        _responsiveTextStyle(size: screenSize),
-                      ),
-                      Text(
-                        "get back to you soon",
-                        // style: TextStyle(
-                        //   fontSize: screenSize.width < 700 ? 10 : 14,
-                        // ),
-                        style:
-                        _responsiveTextStyle(size: screenSize),
-                      ),
-                      /*Text(
+                  InkWell(
+                    child: Text(
+                      "info@charlottelobry.com",
+                      style: _responsiveTextStyle(size: screenSize),
+                      textAlign: TextAlign.end,
+                    ),
+                    onTap: () => {launchEmail()},
+                  ),
+                  const SizedBox(
+                    height: 6,
+                  ),
+                  InkWell(
+                    child: Text("Instagram",
+                        textAlign: screenSize.width > 767
+                            ? TextAlign.end
+                            : TextAlign.end,
+                        style: _responsiveTextStyle(
+                          size: screenSize,
+                        )),
+                    onTap: () {
+                      launchInstagram();
+                    },
+                  ),
+                  const SizedBox(
+                    height: 90,
+                  ),
+                  Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Text(
+                          "For any purchasing requests ",
+                          style: _responsiveTextStyle(size: screenSize),
+                        ),
+                        Text(
+                          "send me an email and I will",
+                          // style: TextStyle(
+                          //   fontSize: screenSize.width < 700 ? 10 : 14,
+                          // ),
+                          style: _responsiveTextStyle(size: screenSize),
+                        ),
+                        Text(
+                          "get back to you soon",
+                          // style: TextStyle(
+                          //   fontSize: screenSize.width < 700 ? 10 : 14,
+                          // ),
+                          style: _responsiveTextStyle(size: screenSize),
+                        ),
+                        /*Text(
                               "And I will try my best to help you",
                               // style: TextStyle(
                               //   fontSize: screenSize.width < 700 ? 10 : 14,
                               // ),
                               style: _responsiveTextStyle(size: screenSize),
                             ),*/
-                      TextButton(
-                        child: Text(
-                          "info@charlottelobry.com",
-                          // style: TextStyle(
-                          //   color: Colors.black,
-                          //   fontSize: screenSize.width < 700 ? 10 : 14,
-                          // ),
-                          style: _responsiveTextStyle(
-                              size: screenSize),
+                        TextButton(
+                          child: Text(
+                            "info@charlottelobry.com",
+                            // style: TextStyle(
+                            //   color: Colors.black,
+                            //   fontSize: screenSize.width < 700 ? 10 : 14,
+                            // ),
+                            style: _responsiveTextStyle(size: screenSize),
+                          ),
+                          onPressed: () => {launchEmail()},
                         ),
-                        onPressed: () => {launchEmail()},
-                      ),
-                      const SizedBox(
-                        height: 90,
-                      ),
-                      // BottomBar(child: SizedBox()),
-                      const FittedBox(
-                        child: BottomBar(
-                          child: SizedBox(),
+                        const SizedBox(
+                          height: 90,
                         ),
-                      ),
-                    ]),
-              ],
-            ),
-          )
+                        // BottomBar(child: SizedBox()),
+                      ]),
+                  Align(
+                    alignment: Alignment.bottomCenter,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: const [
+                        FittedBox(
+                          child: BottomBar(
+                            child: SizedBox(),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            )
           : SizedBox(
               height: screenSize.height,
               child: Stack(
@@ -246,7 +242,6 @@ class Kontakt extends StatelessWidget {
                                         horizontal:
                                             screenSize.width > 767 ? 5 : 2),
                                   ),
-
                                 ],
                               ),
                             ),
@@ -404,9 +399,6 @@ class Kontakt extends StatelessWidget {
                                     ),
                                     onPressed: () => {launchEmail()},
                                   ),
-                                  const SizedBox(
-                                    height: 30,
-                                  )
                                 ]),
                             // SizedBox(
                             //   width: screenSize.width > 1080 ? 120 : 10,
@@ -415,26 +407,19 @@ class Kontakt extends StatelessWidget {
                         ),
                         // Spacer(),
                         screenSize.width > 1080
-                            ? Container(
-                                color: Colors.white,
-                                width: screenSize.width,
-                                child: Flex(
-                                  direction: Axis.horizontal,
-                                  children: [
-                                    const Spacer(),
-                                    Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: const [
-                                        BottomBar(
-                                          child: SizedBox(),
-                                        ),
-                                        SizedBox(
-                                          height: 10,
-                                        ),
-                                      ],
+                            ? Align(
+                                alignment: Alignment.bottomCenter,
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: const [
+                                    FittedBox(
+                                      child: BottomBar(
+                                        child: SizedBox(),
+                                      ),
                                     ),
-                                    const Spacer(),
+                                    SizedBox(
+                                      height: 10,
+                                    ),
                                   ],
                                 ),
                               )
@@ -461,270 +446,3 @@ class Kontakt extends StatelessWidget {
     );
   }
 }
-
-/*
-@override
-  Widget build(BuildContext context) {
-    var screenSize = MediaQuery.of(context).size;
-    return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: Size(screenSize.width, 80),
-        child: const TopNavBar(),
-      ),
-      backgroundColor: Colors.white,
-      body: SizedBox(
-        height: screenSize.height,
-        child: Stack(
-          children: [
-            SizedBox(
-              height: MediaQuery.of(context).size.height,
-              // height: MediaQuery.of(context).size.height * 0.95,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  const Spacer(),
-                  Row(
-                    children: [
-                      SizedBox(
-                        width: screenSize.width / 2,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Expanded(
-                                child: Center(
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Container(
-                                    constraints: const BoxConstraints(
-                                      minHeight: 30,
-                                    ),
-                                    width: screenSize.width > 767 ? 140 : 80,
-                                    child: Text(
-                                      "Charlotte Lobry",
-                                      style: _responsiveTextStyle(
-                                        size: screenSize,
-                                      ),
-                                    ),
-                                  ),
-                                  const SizedBox(
-                                    height: 8,
-                                  ),
-                                  Text(
-                                    "Artistic Photgrapher",
-                                    style: _responsiveTextStyle(
-                                      size: screenSize,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            )),
-                            Container(
-                              height: screenSize.width > 767 ? 10.w : 5.5.h,
-                              width: screenSize.width > 767 ? 5.w : 30,
-                              color: Colors.black,
-                              margin: EdgeInsets.symmetric(
-                                  horizontal: screenSize.width > 767 ? 5 : 2),
-                            ),
-                          ],
-                        ),
-                      ),
-                      SizedBox(
-                        width: screenSize.width / 2,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Container(
-                              height: screenSize.width > 767 ? 10.w : 5.5.h,
-                              width: screenSize.width > 767 ? 5.w : 30,
-                              color: Colors.black,
-                              margin: EdgeInsets.symmetric(
-                                  horizontal: screenSize.width > 767 ? 5 : 2),
-                            ),
-                            Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                children: [
-                                  Center(
-                                    child: Flex(
-                                      direction: Axis.vertical,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.end,
-                                      children: [
-                                        screenSize.width < 767
-                                            ? Container(
-                                                constraints:
-                                                    const BoxConstraints(
-                                                  minHeight: 30,
-                                                ),
-                                                width: 100,
-                                                child: InkWell(
-                                                  child: Text(
-                                                    "info@charlottelobry.com",
-                                                    style: _responsiveTextStyle(
-                                                        size: screenSize),
-                                                    textAlign: TextAlign.end,
-                                                  ),
-                                                  onTap: () => {launchEmail()},
-                                                ),
-                                              )
-                                            : Container(
-                                                constraints:
-                                                    const BoxConstraints(
-                                                  minHeight: 30,
-                                                ),
-                                                // width: 100,
-                                                child: InkWell(
-                                                  child: Text(
-                                                    "info@charlottelobry.com",
-                                                    style: _responsiveTextStyle(
-                                                        size: screenSize),
-                                                    textAlign: TextAlign.end,
-                                                  ),
-                                                  onTap: () => {launchEmail()},
-                                                ),
-                                              ),
-                                        const SizedBox(
-                                          height: 8,
-                                        ),
-                                        Container(
-                                          constraints: const BoxConstraints(
-                                            maxWidth: 200,
-                                          ),
-                                          width: 100,
-                                          // screenSize.width < 767
-                                          //     ? 100
-                                          //     : 200,
-                                          child: InkWell(
-                                            child: Text("Instagram",
-                                                textAlign:
-                                                    screenSize.width > 767
-                                                        ? TextAlign.end
-                                                        : TextAlign.end,
-                                                style: _responsiveTextStyle(
-                                                  size: screenSize,
-                                                )),
-                                            onTap: () {
-                                              launchInstagram();
-                                            },
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                  const Spacer(),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Text(
-                              "For any purchasing requests ",
-                              style: _responsiveTextStyle(size: screenSize),
-                            ),
-                            Text(
-                              "send me an email and I will",
-                              // style: TextStyle(
-                              //   fontSize: screenSize.width < 700 ? 10 : 14,
-                              // ),
-                              style: _responsiveTextStyle(size: screenSize),
-                            ),
-                            Text(
-                              "get back to you soon",
-                              // style: TextStyle(
-                              //   fontSize: screenSize.width < 700 ? 10 : 14,
-                              // ),
-                              style: _responsiveTextStyle(size: screenSize),
-                            ),
-                            /*Text(
-                              "And I will try my best to help you",
-                              // style: TextStyle(
-                              //   fontSize: screenSize.width < 700 ? 10 : 14,
-                              // ),
-                              style: _responsiveTextStyle(size: screenSize),
-                            ),*/
-                            TextButton(
-                              child: Text(
-                                "info@charlottelobry.com",
-                                // style: TextStyle(
-                                //   color: Colors.black,
-                                //   fontSize: screenSize.width < 700 ? 10 : 14,
-                                // ),
-                                style: _responsiveTextStyle(size: screenSize),
-                              ),
-                              onPressed: () => {launchEmail()},
-                            ),
-                            const SizedBox(
-                              height: 30,
-                            )
-                          ]),
-                      // SizedBox(
-                      //   width: screenSize.width > 1080 ? 120 : 10,
-                      // ),
-                    ],
-                  ),
-                  // Spacer(),
-                  screenSize.width > 1080
-                      ? Container(
-                          color: Colors.white,
-                          width: screenSize.width,
-                          child: Flex(
-                            direction: Axis.horizontal,
-                            children: [
-                              const Spacer(),
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: const [
-                                  BottomBar(
-                                    child: SizedBox(),
-                                  ),
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                ],
-                              ),
-                              const Spacer(),
-                            ],
-                          ),
-                        )
-                      : Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: const [
-                            FittedBox(
-                              child: BottomBar(
-                                child: SizedBox(),
-                              ),
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                          ],
-                        ),
-                ],
-              ),
-            ),
-            // Positioned(bottom: 0, child: Container()),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-
- */

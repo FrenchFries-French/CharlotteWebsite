@@ -89,12 +89,21 @@ class _TwoCardsState extends State<TwoCards> {
                                   } else {
                                     showDialog(
                                       context: context,
-                                      barrierColor: Colors.white,
+                                      useSafeArea: false,
+                                      barrierColor: Colors.black,
                                       builder: (context) {
                                         return AlertDialog(
                                           elevation: 300,
-                                          backgroundColor: Colors.white,
+                                          backgroundColor: Colors.black,
                                           contentPadding: EdgeInsets.zero,
+                                          actions: [
+                                            FloatingActionButton(
+                                              onPressed: () =>
+                                                  Navigator.pop(context),
+                                              child: const Icon(Icons.close),
+                                              backgroundColor: Colors.grey,
+                                            ),
+                                          ],
                                           content: GestureDetector(
                                             onTap: () {
                                               Navigator.pop(context);
@@ -128,7 +137,6 @@ class _TwoCardsState extends State<TwoCards> {
                                               ),
                                             ),
                                           ),
-                                          actions: const [],
                                         );
                                       },
                                     );
@@ -246,14 +254,26 @@ class _TwoCardsState extends State<TwoCards> {
                                             } else {
                                               showDialog(
                                                 context: context,
-                                                barrierColor: Colors.white,
+                                                barrierColor: Colors.black,
+                                                useSafeArea: false,
                                                 builder: (context) {
                                                   return AlertDialog(
                                                     elevation: 300,
                                                     backgroundColor:
-                                                        Colors.white,
+                                                        Colors.black,
                                                     contentPadding:
                                                         EdgeInsets.zero,
+                                                    actions: [
+                                                      FloatingActionButton(
+                                                        onPressed: () =>
+                                                            Navigator.pop(
+                                                                context),
+                                                        child: const Icon(
+                                                            Icons.close),
+                                                        backgroundColor:
+                                                            Colors.grey,
+                                                      ),
+                                                    ],
                                                     content: GestureDetector(
                                                       onTap: () {
                                                         Navigator.pop(context);
@@ -300,7 +320,6 @@ class _TwoCardsState extends State<TwoCards> {
                                                         ),
                                                       ),
                                                     ),
-                                                    actions: const [],
                                                   );
                                                 },
                                               );
@@ -352,13 +371,25 @@ class _TwoCardsState extends State<TwoCards> {
                                           } else {
                                             showDialog(
                                               context: context,
-                                              barrierColor: Colors.white,
+                                              useSafeArea: false,
+                                              barrierColor: Colors.black,
                                               builder: (context) {
                                                 return AlertDialog(
                                                   elevation: 300,
-                                                  backgroundColor: Colors.white,
+                                                  backgroundColor: Colors.black,
                                                   contentPadding:
                                                       EdgeInsets.zero,
+                                                  actions: [
+                                                    FloatingActionButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              context),
+                                                      child: const Icon(
+                                                          Icons.close),
+                                                      backgroundColor:
+                                                          Colors.grey,
+                                                    ),
+                                                  ],
                                                   content: GestureDetector(
                                                     onTap: () {
                                                       Navigator.pop(context);
@@ -406,7 +437,6 @@ class _TwoCardsState extends State<TwoCards> {
                                                       ),
                                                     ),
                                                   ),
-                                                  actions: const [],
                                                 );
                                               },
                                             );
@@ -417,7 +447,6 @@ class _TwoCardsState extends State<TwoCards> {
                                           fit: screenSize.width < 567
                                               ? BoxFit.cover
                                               : BoxFit.contain,
-                                          
                                           width: screenSize.width / 2.5,
                                           errorBuilder:
                                               (context, error, stackTrace) {
