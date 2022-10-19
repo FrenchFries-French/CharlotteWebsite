@@ -166,7 +166,7 @@ class _OneCardState extends State<OneCard> {
                                     ),
                                   if (widget.showGalleryText == null ||
                                       widget.showGalleryText == true)
-                                    TextButton(
+                                    /*TextButton(
                                       onPressed: () {
                                         Navigator.push(
                                           context,
@@ -195,7 +195,7 @@ class _OneCardState extends State<OneCard> {
                                             fontSize: 14,
                                             color: Colors.grey[600]),
                                       ),
-                                    ),
+                                    ),*/
                                   SizedBox(
                                     height: 1.h,
                                   )
