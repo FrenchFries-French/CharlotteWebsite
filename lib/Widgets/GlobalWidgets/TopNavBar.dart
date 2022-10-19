@@ -144,7 +144,7 @@ class _TopNavBarState extends State<TopNavBar> {
                       SizedBox(
                         width: screenSize.width < 676 ? 30 : 0.12 * w,
                         child: SelectionButton(
-                          name: "Portfolio",
+                          name: "Series",
                           onTap: () {
                             Navigator.push(
                               context,
