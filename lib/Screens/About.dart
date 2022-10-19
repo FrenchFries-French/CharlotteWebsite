@@ -29,6 +29,7 @@ class About extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   // direction: Axis.vertical,
                   children: [
+                    SizedBox(height: 10.h,),
                     Container(
                       // alignment: AlignmentDirectional.center,
                       color: Colors.white,
@@ -50,9 +51,9 @@ class About extends StatelessWidget {
                     ),
 
                     SizedBox(
-                      height: 2.w,
+                      height: 25.w,
                     ),
-                    Flex(
+                    /*Flex(
                       direction: Axis.horizontal,
                       mainAxisAlignment: MainAxisAlignment.center,
                       // direction: Axis.horizontal,
@@ -67,7 +68,7 @@ class About extends StatelessWidget {
                           ),
                         ),
                       ],
-                    ),
+                    ),*/
                     // Spacer(),
                     const SizedBox(
                       height: 20,

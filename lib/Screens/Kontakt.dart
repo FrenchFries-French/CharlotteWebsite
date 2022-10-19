@@ -60,7 +60,7 @@ class Kontakt extends StatelessWidget {
                     height: 6,
                   ),
                   Text(
-                    "Artistic Photgrapher",
+                    "Fashion Photgrapher",
                     style: _responsiveTextStyle(
                       size: screenSize,
                     ),
@@ -225,7 +225,7 @@ class Kontakt extends StatelessWidget {
                                           height: 8,
                                         ),
                                         Text(
-                                          "Artistic Photgrapher",
+                                          "Fashion Photgrapher",
                                           style: _responsiveTextStyle(
                                             size: screenSize,
                                           ),
