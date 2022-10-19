@@ -124,7 +124,7 @@ class _TopNavBarState extends State<TopNavBar> {
                       SizedBox(
                         child: FittedBox(
                           child: SelectionButton(
-                            name: "Portfolio",
+                            name: "Series",
                             onTap: () {
                               Navigator.push(
                                 context,
