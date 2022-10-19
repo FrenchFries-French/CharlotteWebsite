@@ -50,7 +50,7 @@ class Kontakt extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 //crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SizedBox(height: 45,),
+                  SizedBox(height: 55,),
                   Text(
                     "Charlotte Lobry",
                     style: _responsiveTextStyle(
@@ -58,7 +58,7 @@ class Kontakt extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(
-                    height: 6,
+                    height: 4,
                   ),
                   Text(
                     "Fashion Photgrapher",
@@ -100,7 +100,7 @@ class Kontakt extends StatelessWidget {
                     onTap: () => {launchEmail()},
                   ),
                   const SizedBox(
-                    height: 6,
+                    height: 4,
                   ),
                   InkWell(
                     child: Text("Instagram",
@@ -115,7 +115,7 @@ class Kontakt extends StatelessWidget {
                     },
                   ),
                   const SizedBox(
-                    height: 90,
+                    height: 70,
                   ),
                   Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -158,7 +158,7 @@ class Kontakt extends StatelessWidget {
                           onPressed: () => {launchEmail()},
                         ),
                         const SizedBox(
-                          height: 45,
+                          height: 55,
                         ),
                         // BottomBar(child: SizedBox()),
                       ]),
