@@ -51,7 +51,7 @@ class About extends StatelessWidget {
                     ),
 
                     SizedBox(
-                      height: 25.w,
+                      height: 22.w,
                     ),
                     /*Flex(
                       direction: Axis.horizontal,
