@@ -50,6 +50,7 @@ class Kontakt extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 //crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
+                  SizedBox(height: 45,),
                   Text(
                     "Charlotte Lobry",
                     style: _responsiveTextStyle(
@@ -157,7 +158,7 @@ class Kontakt extends StatelessWidget {
                           onPressed: () => {launchEmail()},
                         ),
                         const SizedBox(
-                          height: 90,
+                          height: 45,
                         ),
                         // BottomBar(child: SizedBox()),
                       ]),
