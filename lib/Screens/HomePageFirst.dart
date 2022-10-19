@@ -34,14 +34,13 @@ class MyHomePage extends StatelessWidget {
             pinned: false,
             leading: Container(),
             backgroundColor: Colors.white,
+            toolbarHeight: screenSize.width > 667 ? 0.1 : 250,
             expandedHeight:
-                screenSize.width > 1145 ? screenSize.height * 0.6 : 250,
+                screenSize.width > 667 ? 0.1 : 250,
             collapsedHeight:
-                screenSize.width > 1145 ? screenSize.height * 0.6 : 250,
+                screenSize.width > 667 ? 0.1 : 250,
             flexibleSpace: ClipRRect(
-              child: ImageCarousel(
-                height: screenSize.height * 0.6,
-              ),
+              child: ImageCarousel(height: screenSize.height * 0.6,),
             ),
           ),
           SliverAppBar(
