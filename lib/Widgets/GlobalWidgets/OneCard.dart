@@ -93,37 +93,49 @@ class _OneCardState extends State<OneCard> {
                                     barrierColor: Colors.black,
                                     builder: (context) {
                                       return AlertDialog(
+                                        insetPadding: EdgeInsets.zero,
+                                        clipBehavior:
+                                            Clip.antiAliasWithSaveLayer,
                                         elevation: 300,
                                         backgroundColor: Colors.black,
                                         contentPadding: EdgeInsets.zero,
-                                        actions: [
-                                          FloatingActionButton(
-                                            onPressed: () =>
-                                                Navigator.pop(context),
-                                            child: const Icon(Icons.close),
-                                            backgroundColor: Colors.grey,
-                                          ),
-                                        ],
                                         content: GestureDetector(
                                           onTap: () {
                                             Navigator.pop(context);
                                           },
-                                          child: Center(
-                                            child: CachedNetworkImage(
-                                              imageUrl: widget.imageString,
-                                              fit: BoxFit.contain,
-                                              width: screenSize.width * 2,
-                                              height: screenSize.width < 480
-                                                  ? screenSize.height * 1.8
-                                                  : screenSize.height * 1.8,
-                                              fadeInCurve: Curves.ease,
-                                              fadeOutCurve: Curves.ease,
-                                              placeholder:
-                                                  (BuildContext context,
-                                                          String url) =>
-                                                      Container(),
-                                              // imageRenderMethodForWeb: ImageR,
-                                            ),
+                                          child: Stack(
+                                            children: [
+                                              Center(
+                                                child: CachedNetworkImage(
+                                                  imageUrl: widget.imageString,
+                                                  fit: BoxFit.contain,
+                                                  width: screenSize.width * 2,
+                                                  height: screenSize.width < 480
+                                                      ? screenSize.height * 1.8
+                                                      : screenSize.height * 1.8,
+                                                  fadeInCurve: Curves.ease,
+                                                  fadeOutCurve: Curves.ease,
+                                                  placeholder:
+                                                      (BuildContext context,
+                                                              String url) =>
+                                                          Container(),
+                                                  // imageRenderMethodForWeb: ImageR,
+                                                ),
+                                              ),
+                                              Positioned(
+                                                top: 0,
+                                                right: 0,
+                                                child: IconButton(
+                                                  onPressed: () {
+                                                    Navigator.pop(context);
+                                                  },
+                                                  icon: const Icon(
+                                                    Icons.close,
+                                                    color: Colors.white,
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
                                           ),
                                         ),
                                       );
@@ -196,9 +208,9 @@ class _OneCardState extends State<OneCard> {
                                             color: Colors.grey[600]),
                                       ),
                                     ),*/
-                                  SizedBox(
-                                    height: 1.h,
-                                  )
+                                    SizedBox(
+                                      height: 1.h,
+                                    )
                                 ],
                               ))
                         ],

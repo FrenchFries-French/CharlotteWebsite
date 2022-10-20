@@ -53,35 +53,47 @@ class _SampleCollectionState extends State<SampleCollection> {
                         barrierColor: Colors.black,
                         builder: (context) {
                           return AlertDialog(
+                            insetPadding: EdgeInsets.zero,
+                            clipBehavior: Clip.antiAliasWithSaveLayer,
                             elevation: 300,
                             backgroundColor: Colors.black,
                             contentPadding: EdgeInsets.zero,
-                            actions: [
-                              FloatingActionButton(
-                                onPressed: () => Navigator.pop(context),
-                                child: const Icon(Icons.close),
-                                backgroundColor: Colors.grey,
-                              ),
-                            ],
                             content: GestureDetector(
                               onTap: () {
                                 Navigator.pop(context);
                               },
-                              child: Center(
-                                child: CachedNetworkImage(
-                                  imageUrl: _items[index]['link'],
-                                  fit: BoxFit.contain,
-                                  width: screenSize.width * 2,
-                                  height: screenSize.width < 480
-                                      ? screenSize.height * 1.8
-                                      : screenSize.height * 1.8,
-                                  fadeInCurve: Curves.ease,
-                                  fadeOutCurve: Curves.ease,
-                                  placeholder:
-                                      (BuildContext context, String url) =>
-                                          Container(),
-                                  // imageRenderMethodForWeb: ImageR,
-                                ),
+                              child: Stack(
+                                children: [
+                                  Center(
+                                    child: CachedNetworkImage(
+                                      imageUrl: _items[index]['link'],
+                                      fit: BoxFit.contain,
+                                      width: screenSize.width * 2,
+                                      height: screenSize.width < 480
+                                          ? screenSize.height * 1.8
+                                          : screenSize.height * 1.8,
+                                      fadeInCurve: Curves.ease,
+                                      fadeOutCurve: Curves.ease,
+                                      placeholder:
+                                          (BuildContext context, String url) =>
+                                              Container(),
+                                      // imageRenderMethodForWeb: ImageR,
+                                    ),
+                                  ),
+                                  Positioned(
+                                    top: 0,
+                                    right: 0,
+                                    child: IconButton(
+                                      onPressed: () {
+                                        Navigator.pop(context);
+                                      },
+                                      icon: const Icon(
+                                        Icons.close,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
                           );
@@ -138,42 +150,5 @@ class _SampleCollectionState extends State<SampleCollection> {
       _items.sort((a, b) => a['order'].compareTo(b['order']));
     }
     return _items;
-  }
-}
-
-class HeroPhotoViewRouteWrapper extends StatelessWidget {
-  const HeroPhotoViewRouteWrapper({
-    required this.imageProvider,
-    this.backgroundDecoration,
-    this.minScale,
-    this.maxScale,
-  });
-
-  final ImageProvider imageProvider;
-  final BoxDecoration? backgroundDecoration;
-  final dynamic minScale;
-  final dynamic maxScale;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => Navigator.pop(context),
-        child: const Icon(Icons.close),
-        backgroundColor: Colors.grey,
-      ),
-      body: Container(
-        constraints: BoxConstraints.expand(
-          height: MediaQuery.of(context).size.height,
-        ),
-        child: PhotoView(
-          imageProvider: imageProvider,
-          backgroundDecoration: backgroundDecoration,
-          minScale: minScale,
-          maxScale: maxScale,
-          heroAttributes: const PhotoViewHeroAttributes(tag: "someTag"),
-        ),
-      ),
-    );
   }
 }

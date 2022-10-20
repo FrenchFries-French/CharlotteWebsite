@@ -93,48 +93,53 @@ class _TwoCardsState extends State<TwoCards> {
                                       barrierColor: Colors.black,
                                       builder: (context) {
                                         return AlertDialog(
+                                          insetPadding: EdgeInsets.zero,
+                                          clipBehavior:
+                                              Clip.antiAliasWithSaveLayer,
                                           elevation: 300,
                                           backgroundColor: Colors.black,
                                           contentPadding: EdgeInsets.zero,
-                                          actions: [
-                                            FloatingActionButton(
-                                              onPressed: () =>
-                                                  Navigator.pop(context),
-                                              child: const Icon(Icons.close),
-                                              backgroundColor: Colors.grey,
-                                            ),
-                                          ],
                                           content: GestureDetector(
                                             onTap: () {
                                               Navigator.pop(context);
                                             },
-                                            child: SizedBox(
-                                              width: screenSize.width * 0.92,
-                                              height: screenSize.height * 0.92,
-                                              child: Center(
-                                                child: CachedNetworkImage(
-                                                  imageUrl:
-                                                      widget.firstImageString,
-
-                                                  width: screenSize.width * 2,
-                                                  height: screenSize.width < 480
-                                                      ? screenSize.height * 1.8
-                                                      : screenSize.height * 2.8,
-
-                                                  fit: BoxFit.contain,
-                                                  fadeInCurve: Curves.ease,
-                                                  fadeOutCurve: Curves.ease,
-                                                  placeholder:
-                                                      (BuildContext context,
-                                                              String url) =>
-                                                          Container(
-                                                    // width: 320,
-                                                    height: 40.h,
-                                                    // color: Colors.white,
+                                            child: Stack(
+                                              children: [
+                                                Center(
+                                                  child: CachedNetworkImage(
+                                                    imageUrl:
+                                                        widget.firstImageString,
+                                                    fit: BoxFit.contain,
+                                                    width: screenSize.width * 2,
+                                                    height: screenSize.width <
+                                                            480
+                                                        ? screenSize.height *
+                                                            1.8
+                                                        : screenSize.height *
+                                                            1.8,
+                                                    fadeInCurve: Curves.ease,
+                                                    fadeOutCurve: Curves.ease,
+                                                    placeholder:
+                                                        (BuildContext context,
+                                                                String url) =>
+                                                            Container(),
+                                                    // imageRenderMethodForWeb: ImageR,
                                                   ),
-                                                  // imageRenderMethodForWeb: ImageR,
                                                 ),
-                                              ),
+                                                Positioned(
+                                                  top: 0,
+                                                  right: 0,
+                                                  child: IconButton(
+                                                    onPressed: () {
+                                                      Navigator.pop(context);
+                                                    },
+                                                    icon: const Icon(
+                                                      Icons.close,
+                                                      color: Colors.white,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
                                             ),
                                           ),
                                         );
@@ -263,17 +268,6 @@ class _TwoCardsState extends State<TwoCards> {
                                                         Colors.black,
                                                     contentPadding:
                                                         EdgeInsets.zero,
-                                                    actions: [
-                                                      FloatingActionButton(
-                                                        onPressed: () =>
-                                                            Navigator.pop(
-                                                                context),
-                                                        child: const Icon(
-                                                            Icons.close),
-                                                        backgroundColor:
-                                                            Colors.grey,
-                                                      ),
-                                                    ],
                                                     content: GestureDetector(
                                                       onTap: () {
                                                         Navigator.pop(context);
@@ -285,37 +279,63 @@ class _TwoCardsState extends State<TwoCards> {
                                                         height:
                                                             screenSize.height *
                                                                 0.92,
-                                                        child: Center(
-                                                          child:
-                                                              CachedNetworkImage(
-                                                            imageUrl: widget
-                                                                .firstImageString,
-                                                            width: screenSize
-                                                                    .width *
-                                                                2,
-                                                            height: screenSize
-                                                                        .width <
-                                                                    480
-                                                                ? screenSize
-                                                                        .height *
-                                                                    1.8
-                                                                : screenSize
-                                                                        .height *
-                                                                    2.8,
-                                                            fit: BoxFit.contain,
-                                                            fadeInCurve:
-                                                                Curves.ease,
-                                                            fadeOutCurve:
-                                                                Curves.ease,
-                                                            placeholder: (BuildContext
-                                                                        context,
-                                                                    String
-                                                                        url) =>
-                                                                Container(
-                                                              // width: 320,
-                                                              height: 40.h,
-                                                              // color: Colors.white,
-                                                            ),
+                                                        child: GestureDetector(
+                                                          onTap: () {
+                                                            Navigator.pop(
+                                                                context);
+                                                          },
+                                                          child: Stack(
+                                                            children: [
+                                                              Center(
+                                                                child:
+                                                                    CachedNetworkImage(
+                                                                  imageUrl: widget
+                                                                      .firstImageString,
+                                                                  fit: BoxFit
+                                                                      .contain,
+                                                                  width: screenSize
+                                                                          .width *
+                                                                      2,
+                                                                  height: screenSize.width < 480
+                                                                      ? screenSize
+                                                                              .height *
+                                                                          1.8
+                                                                      : screenSize
+                                                                              .height *
+                                                                          1.8,
+                                                                  fadeInCurve:
+                                                                      Curves
+                                                                          .ease,
+                                                                  fadeOutCurve:
+                                                                      Curves
+                                                                          .ease,
+                                                                  placeholder: (BuildContext
+                                                                              context,
+                                                                          String
+                                                                              url) =>
+                                                                      Container(),
+                                                                  // imageRenderMethodForWeb: ImageR,
+                                                                ),
+                                                              ),
+                                                              Positioned(
+                                                                top: 0,
+                                                                right: 0,
+                                                                child:
+                                                                    IconButton(
+                                                                  onPressed:
+                                                                      () {
+                                                                    Navigator.pop(
+                                                                        context);
+                                                                  },
+                                                                  icon:
+                                                                      const Icon(
+                                                                    Icons.close,
+                                                                    color: Colors
+                                                                        .white,
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ],
                                                           ),
                                                         ),
                                                       ),
@@ -379,62 +399,58 @@ class _TwoCardsState extends State<TwoCards> {
                                                   backgroundColor: Colors.black,
                                                   contentPadding:
                                                       EdgeInsets.zero,
-                                                  actions: [
-                                                    FloatingActionButton(
-                                                      onPressed: () =>
-                                                          Navigator.pop(
-                                                              context),
-                                                      child: const Icon(
-                                                          Icons.close),
-                                                      backgroundColor:
-                                                          Colors.grey,
-                                                    ),
-                                                  ],
                                                   content: GestureDetector(
                                                     onTap: () {
                                                       Navigator.pop(context);
                                                     },
-                                                    child: SizedBox(
-                                                      width: screenSize.width *
-                                                          0.92,
-                                                      height:
-                                                          screenSize.height *
-                                                              0.92,
-                                                      child: Center(
-                                                        child:
-                                                            CachedNetworkImage(
-                                                          imageUrl: widget
-                                                              .firstImageString,
-
-                                                          width:
-                                                              screenSize.width *
-                                                                  2,
-                                                          height: screenSize
-                                                                      .width <
-                                                                  480
-                                                              ? screenSize
-                                                                      .height *
-                                                                  1.8
-                                                              : screenSize
-                                                                      .height *
-                                                                  2.8,
-
-                                                          fit: BoxFit.contain,
-                                                          fadeInCurve:
-                                                              Curves.ease,
-                                                          fadeOutCurve:
-                                                              Curves.ease,
-                                                          placeholder:
-                                                              (BuildContext
-                                                                          context,
-                                                                      String
-                                                                          url) =>
-                                                                  Container(
-                                                            height: 40.h,
+                                                    child: Stack(
+                                                      children: [
+                                                        Center(
+                                                          child:
+                                                              CachedNetworkImage(
+                                                            imageUrl: widget
+                                                                .firstImageString,
+                                                            fit: BoxFit.contain,
+                                                            width: screenSize
+                                                                    .width *
+                                                                2,
+                                                            height: screenSize
+                                                                        .width <
+                                                                    480
+                                                                ? screenSize
+                                                                        .height *
+                                                                    1.8
+                                                                : screenSize
+                                                                        .height *
+                                                                    1.8,
+                                                            fadeInCurve:
+                                                                Curves.ease,
+                                                            fadeOutCurve:
+                                                                Curves.ease,
+                                                            placeholder: (BuildContext
+                                                                        context,
+                                                                    String
+                                                                        url) =>
+                                                                Container(),
+                                                            // imageRenderMethodForWeb: ImageR,
                                                           ),
-                                                          // imageRenderMethodForWeb: ImageR,
                                                         ),
-                                                      ),
+                                                        Positioned(
+                                                          top: 0,
+                                                          right: 0,
+                                                          child: IconButton(
+                                                            onPressed: () {
+                                                              Navigator.pop(
+                                                                  context);
+                                                            },
+                                                            icon: const Icon(
+                                                              Icons.close,
+                                                              color:
+                                                                  Colors.white,
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ],
                                                     ),
                                                   ),
                                                 );
