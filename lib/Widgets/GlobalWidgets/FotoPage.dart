@@ -37,8 +37,8 @@ class FotoPage extends StatelessWidget {
         // scrollBehavior: MaterialScrollBehavior(),
         headerSliverBuilder: (context, innerBoxIsScrolled) => [
           SliverAppBar(
-            expandedHeight: 100.w > 767 ? 140 : 65,
-            collapsedHeight: 100.w > 767 ? 80 : 65,
+            expandedHeight: 100.w > 767 ? 10 : 55,
+            collapsedHeight: 100.w > 767 ? 55 : 55,
             pinned: true,
             elevation: 0,
             leading: Container(),
