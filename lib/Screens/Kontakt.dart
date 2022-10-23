@@ -195,6 +195,7 @@ class Kontakt extends StatelessWidget {
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Column(
                           children: [
@@ -237,7 +238,7 @@ class Kontakt extends StatelessWidget {
                           ],
                         ),
                         const SizedBox(
-                          width: 45,
+                          width: 55,
                         ),
                         Column(
                           children: [
@@ -274,51 +275,60 @@ class Kontakt extends StatelessWidget {
                         )
                       ],
                     ),
-                    Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            "For any purchasing requests ",
-                            style: _responsiveTextStyle(size: screenSize),
-                          ),
-                          Text(
-                            "send me an email and I will",
-                            // style: TextStyle(
-                            //   fontSize: screenSize.width < 700 ? 10 : 14,
-                            // ),
-                            style: _responsiveTextStyle(size: screenSize),
-                          ),
-                          Text(
-                            "get back to you soon",
-                            // style: TextStyle(
-                            //   fontSize: screenSize.width < 700 ? 10 : 14,
-                            // ),
-                            style: _responsiveTextStyle(size: screenSize),
-                          ),
-                          /*Text(
-                              "And I will try my best to help you",
-                              // style: TextStyle(
-                              //   fontSize: screenSize.width < 700 ? 10 : 14,
-                              // ),
-                              style: _responsiveTextStyle(size: screenSize),
-                            ),*/
-                          TextButton(
-                            child: Text(
-                              "info@charlottelobry.com",
-                              // style: TextStyle(
-                              //   color: Colors.black,
-                              //   fontSize: screenSize.width < 700 ? 10 : 14,
-                              // ),
-                              style: _responsiveTextStyle(size: screenSize),
-                            ),
-                            onPressed: () => {launchEmail()},
-                          ),
-                          const SizedBox(
-                            height: 55,
-                          ),
-                          // BottomBar(child: SizedBox()),
-                        ]),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                "For any purchasing requests ",
+                                style: _responsiveTextStyle(size: screenSize),
+                              ),
+                              Text(
+                                "send me an email and I will",
+                                // style: TextStyle(
+                                //   fontSize: screenSize.width < 700 ? 10 : 14,
+                                // ),
+                                style: _responsiveTextStyle(size: screenSize),
+                              ),
+                              Text(
+                                "get back to you soon",
+                                // style: TextStyle(
+                                //   fontSize: screenSize.width < 700 ? 10 : 14,
+                                // ),
+                                style: _responsiveTextStyle(size: screenSize),
+                              ),
+                              /*Text(
+                                  "And I will try my best to help you",
+                                  // style: TextStyle(
+                                  //   fontSize: screenSize.width < 700 ? 10 : 14,
+                                  // ),
+                                  style: _responsiveTextStyle(size: screenSize),
+                                ),*/
+                              TextButton(
+                                child: Text(
+                                  "info@charlottelobry.com",
+                                  // style: TextStyle(
+                                  //   color: Colors.black,
+                                  //   fontSize: screenSize.width < 700 ? 10 : 14,
+                                  // ),
+                                  style: _responsiveTextStyle(size: screenSize),
+                                ),
+                                onPressed: () => {launchEmail()},
+                              ),
+                              const SizedBox(
+                                height: 55,
+                              ),
+                              // BottomBar(child: SizedBox()),
+                            ]),
+                        SizedBox(
+                          width: 20,
+                        ),
+                      ],
+                    ),
                     Align(
                       alignment: Alignment.bottomCenter,
                       child: Column(

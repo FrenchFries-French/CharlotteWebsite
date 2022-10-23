@@ -74,6 +74,8 @@ class _SampleCollectionState extends State<SampleCollection> {
                                           : screenSize.height * 1.8,
                                       fadeInCurve: Curves.ease,
                                       fadeOutCurve: Curves.ease,
+                                      errorWidget: (context, url, error) =>
+                                          const Icon(Icons.error),
                                       placeholder:
                                           (BuildContext context, String url) =>
                                               Container(),
