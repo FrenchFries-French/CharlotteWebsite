@@ -39,6 +39,7 @@ class About extends StatelessWidget {
                           horizontal: screenSize.width < 560 ? 20 : 50),
                       child: Column(
                         children: [
+                          SizedBox(height: 20.w,),
                           Text(
                             "Paris and Berlin based photographer",
                             style: GoogleFonts.poppins(
@@ -48,6 +49,13 @@ class About extends StatelessWidget {
                           ),
                           Text(
                             "Available for booking worldwide",
+                            style: GoogleFonts.poppins(
+                              fontSize: screenSize.width < 560 ? 14 : 16,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                          Text(
+                            "Analogue and digital work",
                             style: GoogleFonts.poppins(
                               fontSize: screenSize.width < 560 ? 14 : 16,
                             ),
