@@ -38,7 +38,7 @@ class About extends StatelessWidget {
                       padding: EdgeInsets.symmetric(
                           horizontal: screenSize.width < 560 ? 20 : 50),
                       child: Text(
-                        "I am a photogarpher based between Berlin and Paris. With my photography I want to represent reality through my eyes, which makes it abstract and individual. I want to tell stories and at the same time create room for interpretation, so that stories can be reinvented. Photography is a wonderful means for the purpose to me. I try to make a subjective representation of things into a collective feeling that will hopefully inspire sharing and bringing people together. As the daughter of a Parisian-born father, the energy of the Parisian savoir-vivre has inspired me for as long as I can remember, and much of my photography is inspired by my everyday life in Paris. The experienced in general is probably the biggest source of inspiration, with all its ups and downs.",
+                        "Paris and Berlin based photographer.",
                         style: GoogleFonts.poppins(
                           fontSize: screenSize.width < 560 ? 14 : 16,
                         ),
