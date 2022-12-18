@@ -37,12 +37,23 @@ class About extends StatelessWidget {
                     child: Padding(
                       padding: EdgeInsets.symmetric(
                           horizontal: screenSize.width < 560 ? 20 : 50),
-                      child: Text(
-                        "Paris and Berlin based photographer.",
-                        style: GoogleFonts.poppins(
-                          fontSize: screenSize.width < 560 ? 14 : 16,
-                        ),
-                        textAlign: TextAlign.center,
+                      child: Column(
+                        children: [
+                          Text(
+                            "Paris and Berlin based photographer",
+                            style: GoogleFonts.poppins(
+                              fontSize: screenSize.width < 560 ? 14 : 16,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                          Text(
+                            "Available for booking worldwide",
+                            style: GoogleFonts.poppins(
+                              fontSize: screenSize.width < 560 ? 14 : 16,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ],
                       ),
                     ),
                   ),
