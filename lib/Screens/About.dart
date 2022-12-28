@@ -39,7 +39,7 @@ class About extends StatelessWidget {
                           horizontal: screenSize.width < 560 ? 20 : 50),
                       child: Column(
                         children: [
-                          SizedBox(height: 20.w,),
+                          SizedBox(height: 200,),
                           Text(
                             "Paris and Berlin based photographer",
                             style: GoogleFonts.poppins(
