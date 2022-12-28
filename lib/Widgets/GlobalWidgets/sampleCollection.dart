@@ -38,92 +38,87 @@ class _SampleCollectionState extends State<SampleCollection> {
         ),
         backgroundColor: Colors.white,
         body: SingleChildScrollView(
-          child: StaggeredGrid.count(
-            crossAxisCount: 3,
-            mainAxisSpacing: 3,
-            crossAxisSpacing: 3,
-            children: [
-              for (var index = 0; index < _items.length; index++)
-                StaggeredGridTile.count(
-                    crossAxisCellCount: _items[index]['vertical'] ? 1 : 2,
-                    mainAxisCellCount: 1,
-                    child: InkWell(
-                      onTap: () {
-                        showDialog(
-                          useSafeArea: false,
-                          context: context,
-                          barrierColor: Colors.black,
-                          builder: (context) {
-                            return AlertDialog(
-                              insetPadding: EdgeInsets.zero,
-                              clipBehavior: Clip.antiAliasWithSaveLayer,
-                              elevation: 300,
-                              backgroundColor: Colors.black,
-                              contentPadding: EdgeInsets.zero,
-                              content: GestureDetector(
-                                onTap: () {
-                                  Navigator.pop(context);
-                                },
-                                child: Stack(
-                                  children: [
-                                    Center(
-                                      child: CachedNetworkImage(
-                                        imageUrl: _items[index]['link'],
-                                        fit: BoxFit.contain,
-                                        width: screenSize.width * 2,
-                                        height: screenSize.width < 480
-                                            ? screenSize.height * 1.8
-                                            : screenSize.height * 1.8,
-                                        fadeInCurve: Curves.ease,
-                                        fadeOutCurve: Curves.ease,
-                                        errorWidget: (context, url, error) =>
-                                            const Icon(Icons.error),
-                                        placeholder: (BuildContext context,
-                                                String url) =>
-                                            Container(),
-                                        // imageRenderMethodForWeb: ImageR,
+          child: MasonryGrid(
+              column: screenSize.width < 560 ? 2 : 3,
+              mainAxisSpacing: screenSize.width < 560 ? 5 : 7,
+              crossAxisSpacing: screenSize.width < 560 ? 5 : 7,
+              children: List.generate(
+                _items.length,
+                (index) {
+                  return InkWell(
+                    onTap: () {
+                      showDialog(
+                        useSafeArea: false,
+                        context: context,
+                        barrierColor: Colors.black,
+                        builder: (context) {
+                          return AlertDialog(
+                            insetPadding: EdgeInsets.zero,
+                            clipBehavior: Clip.antiAliasWithSaveLayer,
+                            elevation: 300,
+                            backgroundColor: Colors.black,
+                            contentPadding: EdgeInsets.zero,
+                            content: GestureDetector(
+                              onTap: () {
+                                Navigator.pop(context);
+                              },
+                              child: Stack(
+                                children: [
+                                  Center(
+                                    child: CachedNetworkImage(
+                                      imageUrl: _items[index]['link'],
+                                      fit: BoxFit.contain,
+                                      width: screenSize.width * 2,
+                                      height: screenSize.width < 480
+                                          ? screenSize.height * 1.8
+                                          : screenSize.height * 1.8,
+                                      fadeInCurve: Curves.ease,
+                                      fadeOutCurve: Curves.ease,
+                                      errorWidget: (context, url, error) =>
+                                          const Icon(Icons.error),
+                                      placeholder:
+                                          (BuildContext context, String url) =>
+                                              Container(),
+                                      // imageRenderMethodForWeb: ImageR,
+                                    ),
+                                  ),
+                                  Positioned(
+                                    top: 0,
+                                    right: 0,
+                                    child: IconButton(
+                                      onPressed: () {
+                                        Navigator.pop(context);
+                                      },
+                                      icon: const Icon(
+                                        Icons.close,
+                                        color: Colors.white,
                                       ),
                                     ),
-                                    Positioned(
-                                      top: 0,
-                                      right: 0,
-                                      child: IconButton(
-                                        onPressed: () {
-                                          Navigator.pop(context);
-                                        },
-                                        icon: const Icon(
-                                          Icons.close,
-                                          color: Colors.white,
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
+                                  ),
+                                ],
                               ),
-                            );
-                          },
-                        );
-                      },
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          boxShadow: [
-                            BoxShadow(
-                              color: const Color.fromARGB(255, 0, 0, 0),
-                              blurRadius: _items[index]['elevation'],
                             ),
-                          ],
-                        ),
-                        child: Image.network(
-                          _items[index]['link'],
-                          fit: _items[index]['vertical']
-                              ? BoxFit.fitWidth
-                              : BoxFit.cover,
-                        ),
+                          );
+                        },
+                      );
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        boxShadow: [
+                          BoxShadow(
+                            color: const Color.fromARGB(255, 0, 0, 0),
+                            blurRadius: _items[index]['elevation'],
+                          ),
+                        ],
                       ),
-                    )),
-            ],
-          ),
+                      child: Image.network(
+                        _items[index]['link'],
+                      ),
+                    ),
+                  );
+                },
+              )),
         ));
   }
 
@@ -150,14 +145,12 @@ class _SampleCollectionState extends State<SampleCollection> {
             "link": element['link'][0],
             "elevation": 0.0,
             "order": element['order'],
-            "vertical": element['vertical'],
           };
           _items.add(data);
         });
       }); //after getting data and added to the _items we apply sort algorithm to sort _item array according to the order value.
       _items.sort((a, b) => a['order'].compareTo(b['order']));
     }
-
     return _items;
   }
 }
