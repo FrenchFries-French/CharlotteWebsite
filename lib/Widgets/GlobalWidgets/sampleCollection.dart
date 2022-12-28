@@ -9,6 +9,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 class SampleCollection extends StatefulWidget {
   const SampleCollection({Key? key}) : super(key: key);
+  
 
   @override
   State<SampleCollection> createState() => _SampleCollectionState();
