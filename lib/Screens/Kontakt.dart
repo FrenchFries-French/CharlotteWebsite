@@ -124,18 +124,18 @@ class Kontakt extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           Text(
-                            "For any purchasing requests ",
+                            "Paris and Berlin based photographer ",
                             style: _responsiveTextStyle(size: screenSize),
                           ),
                           Text(
-                            "send me an email and I will",
+                            "Available for booking worldwide",
                             // style: TextStyle(
                             //   fontSize: screenSize.width < 700 ? 10 : 14,
                             // ),
                             style: _responsiveTextStyle(size: screenSize),
                           ),
                           Text(
-                            "get back to you soon",
+                            "Analogue and digital work",
                             // style: TextStyle(
                             //   fontSize: screenSize.width < 700 ? 10 : 14,
                             // ),
@@ -148,7 +148,7 @@ class Kontakt extends StatelessWidget {
                               // ),
                               style: _responsiveTextStyle(size: screenSize),
                             ),*/
-                          TextButton(
+                          /*TextButton(
                             child: Text(
                               "info@charlottelobry.com",
                               // style: TextStyle(
@@ -158,7 +158,7 @@ class Kontakt extends StatelessWidget {
                               style: _responsiveTextStyle(size: screenSize),
                             ),
                             onPressed: () => {launchEmail()},
-                          ),
+                          ),*/
                           const SizedBox(
                             height: 55,
                           ),
@@ -284,18 +284,18 @@ class Kontakt extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                "For any purchasing requests ",
+                                "Paris and Berlin based photographer",
                                 style: _responsiveTextStyle(size: screenSize),
                               ),
                               Text(
-                                "send me an email and I will",
+                                "Available for booking worldwide",
                                 // style: TextStyle(
                                 //   fontSize: screenSize.width < 700 ? 10 : 14,
                                 // ),
                                 style: _responsiveTextStyle(size: screenSize),
                               ),
                               Text(
-                                "get back to you soon",
+                                "Analogue and digital work",
                                 // style: TextStyle(
                                 //   fontSize: screenSize.width < 700 ? 10 : 14,
                                 // ),
@@ -308,7 +308,7 @@ class Kontakt extends StatelessWidget {
                                   // ),
                                   style: _responsiveTextStyle(size: screenSize),
                                 ),*/
-                              TextButton(
+                              /*TextButton(
                                 child: Text(
                                   "info@charlottelobry.com",
                                   // style: TextStyle(
@@ -318,7 +318,7 @@ class Kontakt extends StatelessWidget {
                                   style: _responsiveTextStyle(size: screenSize),
                                 ),
                                 onPressed: () => {launchEmail()},
-                              ),
+                              ),*/
                               const SizedBox(
                                 height: 55,
                               ),

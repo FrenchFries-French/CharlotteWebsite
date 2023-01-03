@@ -83,7 +83,7 @@ class BottomBar extends StatelessWidget {
                 child: const SizedBox(),
               ),
             ),
-            Container(
+            /*Container(
               padding: const EdgeInsets.symmetric(horizontal: 8),
               child: SelectionButton(
                 name: "About",
@@ -99,7 +99,7 @@ class BottomBar extends StatelessWidget {
                   );
                 },
               ),
-            ),
+            ),*/
             child,
           ],
         ),

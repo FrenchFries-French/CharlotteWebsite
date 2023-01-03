@@ -197,7 +197,7 @@ class _TopNavBarState extends State<TopNavBar> {
                               );
                             }),
                       ),
-                    if (screenSize.width < 667)
+                    /*if (screenSize.width < 667)
                       SizedBox(
                         child: FittedBox(
                           child: SelectionButton(
@@ -235,7 +235,7 @@ class _TopNavBarState extends State<TopNavBar> {
                                 ),
                               );
                             }),
-                      ),
+                      ),*/
                   ],
                 );
               } else {
