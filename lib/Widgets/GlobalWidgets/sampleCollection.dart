@@ -9,21 +9,34 @@ import 'package:url_launcher/url_launcher.dart';
 
 class SampleCollection extends StatefulWidget {
   const SampleCollection({Key? key}) : super(key: key);
-  
 
   @override
   State<SampleCollection> createState() => _SampleCollectionState();
 }
 
 class _SampleCollectionState extends State<SampleCollection> {
-  final List<Map<String, dynamic>> _items = [];
+  final List<Map<String, dynamic>> _leftside = [];
+
+  final List<Map<String, dynamic>> _middleside = [];
+
+  final List<Map<String, dynamic>> _rightside = [];
   double elevation = 0.0;
   Offset translate = const Offset(0, 0);
   @override
   void initState() {
-    getItemsFromFirebase().then((value) {
+    getItemsFromFirebase('left side collection').then((value) {
       setState(() {
-        _items.addAll(value);
+        _leftside.addAll(value);
+      });
+      getItemsFromFirebase('middle side collection').then((value) {
+        setState(() {
+          _middleside.addAll(value);
+        });
+        getItemsFromFirebase('right side collection').then((value) {
+          setState(() {
+            _rightside.addAll(value);
+          });
+        });
       });
     });
     super.initState();
@@ -39,119 +52,298 @@ class _SampleCollectionState extends State<SampleCollection> {
         ),
         backgroundColor: Colors.white,
         body: SingleChildScrollView(
-          child: MasonryGrid(
-              column: screenSize.width < 560 ? 2 : 3,
-              mainAxisSpacing: screenSize.width < 560 ? 5 : 7,
-              crossAxisSpacing: screenSize.width < 560 ? 5 : 7,
-              children: List.generate(
-                _items.length,
-                (index) {
-                  return InkWell(
-                    onTap: () {
-                      showDialog(
-                        useSafeArea: false,
-                        context: context,
-                        barrierColor: Colors.black,
-                        builder: (context) {
-                          return AlertDialog(
-                            insetPadding: EdgeInsets.zero,
-                            clipBehavior: Clip.antiAliasWithSaveLayer,
-                            elevation: 300,
-                            backgroundColor: Colors.black,
-                            contentPadding: EdgeInsets.zero,
-                            content: GestureDetector(
-                              onTap: () {
-                                Navigator.pop(context);
-                              },
-                              child: Stack(
-                                children: [
-                                  Center(
-                                    child: CachedNetworkImage(
-                                      imageUrl: _items[index]['link'],
-                                      fit: BoxFit.contain,
-                                      width: screenSize.width * 2,
-                                      height: screenSize.width < 480
-                                          ? screenSize.height * 1.8
-                                          : screenSize.height * 1.8,
-                                      fadeInCurve: Curves.ease,
-                                      fadeOutCurve: Curves.ease,
-                                      errorWidget: (context, url, error) =>
-                                          const Icon(Icons.error),
-                                      placeholder:
-                                          (BuildContext context, String url) =>
-                                              Container(),
-                                      // imageRenderMethodForWeb: ImageR,
-                                    ),
-                                  ),
-                                  Positioned(
-                                    top: 0,
-                                    right: 0,
-                                    child: IconButton(
-                                      onPressed: () {
-                                        Navigator.pop(context);
-                                      },
-                                      icon: const Icon(
-                                        Icons.close,
-                                        color: Colors.white,
+            child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: List.generate(
+                  _leftside.length,
+                  (index) {
+                    return InkWell(
+                      onTap: () {
+                        showDialog(
+                          useSafeArea: false,
+                          context: context,
+                          barrierColor: Colors.black,
+                          builder: (context) {
+                            return AlertDialog(
+                              insetPadding: EdgeInsets.zero,
+                              clipBehavior: Clip.antiAliasWithSaveLayer,
+                              elevation: 300,
+                              backgroundColor: Colors.black,
+                              contentPadding: EdgeInsets.zero,
+                              content: GestureDetector(
+                                onTap: () {
+                                  Navigator.pop(context);
+                                },
+                                child: Stack(
+                                  children: [
+                                    Center(
+                                      child: CachedNetworkImage(
+                                        imageUrl: _leftside[index]['link'],
+                                        fit: BoxFit.contain,
+                                        width: screenSize.width * 2,
+                                        height: screenSize.width < 480
+                                            ? screenSize.height * 1.8
+                                            : screenSize.height * 1.8,
+                                        fadeInCurve: Curves.ease,
+                                        fadeOutCurve: Curves.ease,
+                                        errorWidget: (context, url, error) =>
+                                            const Icon(Icons.error),
+                                        placeholder: (BuildContext context,
+                                                String url) =>
+                                            Container(),
+                                        // imageRenderMethodForWeb: ImageR,
                                       ),
                                     ),
-                                  ),
-                                ],
+                                    Positioned(
+                                      top: 0,
+                                      right: 0,
+                                      child: IconButton(
+                                        onPressed: () {
+                                          Navigator.pop(context);
+                                        },
+                                        icon: const Icon(
+                                          Icons.close,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
+                            );
+                          },
+                        );
+                      },
+                      child: Container(
+                        width: screenSize.width / 3,
+                        margin: const EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.white,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.5),
+                              offset: const Offset(0, 3),
                             ),
-                          );
-                        },
-                      );
-                    },
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        boxShadow: [
-                          BoxShadow(
-                            color: const Color.fromARGB(255, 0, 0, 0),
-                            blurRadius: _items[index]['elevation'],
-                          ),
-                        ],
+                          ],
+                        ),
+                        child: CachedNetworkImage(
+                          imageUrl: _leftside[index]['link'],
+                          fit: BoxFit.cover,
+                        ),
                       ),
-                      child: Image.network(
-                        _items[index]['link'],
+                    );
+                  },
+                ).toList(),
+              ),
+            ),
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: List.generate(
+                  _middleside.length,
+                  (index) {
+                    return InkWell(
+                      onTap: () {
+                        showDialog(
+                          useSafeArea: false,
+                          context: context,
+                          barrierColor: Colors.black,
+                          builder: (context) {
+                            return AlertDialog(
+                              insetPadding: EdgeInsets.zero,
+                              clipBehavior: Clip.antiAliasWithSaveLayer,
+                              elevation: 300,
+                              backgroundColor: Colors.black,
+                              contentPadding: EdgeInsets.zero,
+                              content: GestureDetector(
+                                onTap: () {
+                                  Navigator.pop(context);
+                                },
+                                child: Stack(
+                                  children: [
+                                    Center(
+                                      child: CachedNetworkImage(
+                                        imageUrl: _middleside[index]['link'],
+                                        fit: BoxFit.contain,
+                                        width: screenSize.width * 2,
+                                        height: screenSize.width < 480
+                                            ? screenSize.height * 1.8
+                                            : screenSize.height * 1.8,
+                                        fadeInCurve: Curves.ease,
+                                        fadeOutCurve: Curves.ease,
+                                        errorWidget: (context, url, error) =>
+                                            const Icon(Icons.error),
+                                        placeholder: (BuildContext context,
+                                                String url) =>
+                                            Container(),
+                                        // imageRenderMethodForWeb: ImageR,
+                                      ),
+                                    ),
+                                    Positioned(
+                                      top: 0,
+                                      right: 0,
+                                      child: IconButton(
+                                        onPressed: () {
+                                          Navigator.pop(context);
+                                        },
+                                        icon: const Icon(
+                                          Icons.close,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            );
+                          },
+                        );
+                      },
+                      child: Container(
+                        width: screenSize.width / 3,
+                        margin: const EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.white,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.5),
+                              offset: const Offset(0, 3),
+                            ),
+                          ],
+                        ),
+                        child: CachedNetworkImage(
+                          imageUrl: _middleside[index]['link'],
+                          fit: BoxFit.cover,
+                        ),
                       ),
-                    ),
-                  );
-                },
-              )),
-        ));
+                    );
+                  },
+                ).toList(),
+              ),
+            ),
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: List.generate(
+                  _rightside.length,
+                  (index) {
+                    return InkWell(
+                      onTap: () {
+                        showDialog(
+                          useSafeArea: false,
+                          context: context,
+                          barrierColor: Colors.black,
+                          builder: (context) {
+                            return AlertDialog(
+                              insetPadding: EdgeInsets.zero,
+                              clipBehavior: Clip.antiAliasWithSaveLayer,
+                              elevation: 300,
+                              backgroundColor: Colors.black,
+                              contentPadding: EdgeInsets.zero,
+                              content: GestureDetector(
+                                onTap: () {
+                                  Navigator.pop(context);
+                                },
+                                child: Stack(
+                                  children: [
+                                    Center(
+                                      child: CachedNetworkImage(
+                                        imageUrl: _rightside[index]['link'],
+                                        fit: BoxFit.contain,
+                                        width: screenSize.width * 2,
+                                        height: screenSize.width < 480
+                                            ? screenSize.height * 1.8
+                                            : screenSize.height * 1.8,
+                                        fadeInCurve: Curves.ease,
+                                        fadeOutCurve: Curves.ease,
+                                        errorWidget: (context, url, error) =>
+                                            const Icon(Icons.error),
+                                        placeholder: (BuildContext context,
+                                                String url) =>
+                                            Container(),
+                                        // imageRenderMethodForWeb: ImageR,
+                                      ),
+                                    ),
+                                    Positioned(
+                                      top: 0,
+                                      right: 0,
+                                      child: IconButton(
+                                        onPressed: () {
+                                          Navigator.pop(context);
+                                        },
+                                        icon: const Icon(
+                                          Icons.close,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            );
+                          },
+                        );
+                      },
+                      child: Container(
+                        width: screenSize.width / 3,
+                        margin: const EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.white,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.5),
+                              offset: const Offset(0, 3),
+                            ),
+                          ],
+                        ),
+                        child: CachedNetworkImage(
+                          imageUrl: _rightside[index]['link'],
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    );
+                  },
+                ).toList(),
+              ),
+            )
+          ],
+        )));
   }
 
-  Future<List<Map<String, dynamic>>> getItemsFromFirebase() async {
+  Future<List<Map<String, dynamic>>> getItemsFromFirebase(
+      collectionName) async {
     final List<Map<String, dynamic>> _items = [];
-    //To get images from firebase add or remove collection names from list.
-    final List<String> listOfCollections = [
-      'Collection',
-    ];
-    //This side will provide firebase collection nameS
-    for (int i = 0; i < listOfCollections.length; i++) {
-      var collection = listOfCollections[i];
-      //print(collection);
+    var collection = collectionName;
+    try {
       await FirebaseFirestore.instance
           .collection(collection.toString())
           .get()
           .then((value) {
-        //accessing inside of the collection
         value.docs.forEach((element) {
-          //we are getting data by one by
-          //print(element.id);
           Map<String, dynamic> data = {
             "id": element.id,
             "link": element['link'][0],
-            "elevation": 0.0,
             "order": element['order'],
+            "side": collectionName,
           };
           _items.add(data);
         });
-      }); //after getting data and added to the _items we apply sort algorithm to sort _item array according to the order value.
+      });
       _items.sort((a, b) => a['order'].compareTo(b['order']));
+      return _items;
+    } catch (e) {
+      return [];
     }
-    return _items;
   }
 }
