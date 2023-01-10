@@ -122,16 +122,10 @@ class _SampleCollectionState extends State<SampleCollection> {
                       },
                       child: Container(
                         width: screenSize.width / 3,
-                        margin: const EdgeInsets.all(10),
+                        margin: const EdgeInsets.all(3),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
                           color: Colors.white,
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.5),
-                              offset: const Offset(0, 3),
-                            ),
-                          ],
                         ),
                         child: CachedNetworkImage(
                           imageUrl: _leftside[index]['link'],
@@ -209,16 +203,10 @@ class _SampleCollectionState extends State<SampleCollection> {
                       },
                       child: Container(
                         width: screenSize.width / 3,
-                        margin: const EdgeInsets.all(10),
+                        margin: const EdgeInsets.all(3),
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
+                          borderRadius: BorderRadius.circular(3),
                           color: Colors.white,
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.5),
-                              offset: const Offset(0, 3),
-                            ),
-                          ],
                         ),
                         child: CachedNetworkImage(
                           imageUrl: _middleside[index]['link'],
@@ -296,16 +284,10 @@ class _SampleCollectionState extends State<SampleCollection> {
                       },
                       child: Container(
                         width: screenSize.width / 3,
-                        margin: const EdgeInsets.all(10),
+                        margin: const EdgeInsets.all(3),
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
+                          borderRadius: BorderRadius.circular(3),
                           color: Colors.white,
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.5),
-                              offset: const Offset(0, 3),
-                            ),
-                          ],
                         ),
                         child: CachedNetworkImage(
                           imageUrl: _rightside[index]['link'],
